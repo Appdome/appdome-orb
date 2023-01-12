@@ -31,8 +31,6 @@ workflows:
           signing-fingerprint: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
           google-play-signing: false
           filters: *filters
-
-          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
