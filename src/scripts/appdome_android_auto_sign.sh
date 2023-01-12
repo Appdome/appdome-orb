@@ -18,7 +18,8 @@ if [[ -n "$VAR" ]]; then
     fi
 else
     echo "no sign overrides"
-    VAR="${GOOGLEPLAYSIGN}"
+    echo "${GOOGLEPLAYSIGN}"
+    echo "no sign overrides"
     if [ "${GOOGLEPLAYSIGN}" = true ]; then
         echo "google play sign"
         echo python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key "${APPDOME_API_KEY}" --fusion_set_id "${FUSIONSET}" --app files/"$(basename "$APPFILE")" --google_play_signing --sign_on_appdome --keystore files/"$(basename "$KEYSTORE")" --keystore_pass "${KEYSTORE_PASS}" --keystore_alias "${KEYSTORE_ALIAS}" --key_pass "${KEYSTORE_KEY_PASS}" --output ./output/"${OUTPUT}" --certificate_output ./output/certificate.pdf 
