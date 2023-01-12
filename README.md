@@ -9,9 +9,6 @@ Easily secure and customize your mobile apps on CircleCI using the Appdome Orb. 
 Additionaly, signing your app with your own enterprise certificate.
 Get the flexibility and control you need to secure and customize your mobile apps with the Appdome Orb.
 
-_**Edit this area to include a custom title and description.**_
-
----
 
 ### Usage
 
