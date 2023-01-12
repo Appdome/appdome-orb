@@ -24,14 +24,11 @@ workflows:
       - command-tests:
           filters: *filters
       - appdome-orb/appdome_runner:
-          runner: "IOS_AUTO_SIGNING"
+          runner: "IOS_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
           fusion-set-id: "1103c040-91b5-11ed-814a-6b56d146e10d"
-          keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.p12"
-          keystore-password: "nf1101"
           provisioning-profiles: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/provision_profile.mobileprovision
-          entitlements: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/entitelments.plist
           filters: *filters
       - orb-tools/pack:
           filters: *filters
