@@ -1,0 +1,150 @@
+description: >
+  Perform Appdome fusing with all types of Android and iOS signings.
+
+parameters:
+  runner:
+    description: >
+      The operation to perform the fusing.
+    type: enum
+    enum:
+      - "ANDROID_AUTO_SIGNING"
+      - "ANDROID_PRIVATE_SIGNING"
+      - "ANDROID_AUTO_DEV_SIGNING"
+      - "IOS_AUTO_SIGNING"
+      - "IOS_PRIVATE_SIGNING"
+      - "IOS_AUTO_DEV_SIGNING"
+  appFile:
+    type: string
+    description: "Path to application"
+  fusion-set-id:
+    type: string
+    description: "Fusion set id"
+  output:
+    type: string
+    description: "The name of the output application."
+  sign-overrides:
+    type: string
+    default: ""
+    description: "sign overrides"
+  # ANDROID PRIVATE SIGN
+  signing-fingerprint:
+    type: string
+    default: ""
+    description: "Signing fingerprint"
+  google-play-signing:
+    type: boolean
+    default: false
+    description: "google play signing"
+  # ANDROID AUTO SIGN
+  keystore-file:
+    type: string
+    default: ""
+  keystore-password:
+    type: string
+    default: ""
+  keystore-alias:
+    type: string
+    default: ""
+  keystore-key-password:
+    type: string
+    default: ""
+  #IOS
+  provisioning-profiles:
+    type: string
+    default: ""
+  entitlements:
+    type: string
+    default: ""
+docker:
+  - image: cimg/python:3.9.16
+steps:
+  - checkout
+  - run:
+      name: Clone Appdome API repository
+      command: |
+          git clone https://github.com/Appdome/appdome-api-python.git
+  - run:
+      name: Install requirments
+      command: <<include(scripts/install_requirements.sh)>>
+  - run:
+      environment:
+        APPFILE: <<parameters.appFile>>
+        FUSIONSET: <<parameters.fusion-set-id>>
+        KEYSTORE: <<parameters.keystore-file>>
+        SIGNOVERRIDES: <<parameters.sign-overrides>>
+        PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
+        ENTITLEMENTS: <<parameters.entitlements>>
+      name: Downloading files
+      command: <<include(scripts/download_files.sh)>>
+  - when:
+      condition:
+        equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_android_private_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
+            signing-fingerprint: <<parameters.signing-fingerprint>>
+            google-play-signing: <<parameters.google-play-signing>>
+            sign-overrides: <<parameters.sign-overrides>>
+  - when:
+      condition:
+        equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_android_auto_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
+            keystore-file: <<parameters.keystore-file>>
+            keystore-password: <<parameters.keystore-password>>
+            keystore-alias: <<parameters.keystore-alias>>
+            keystore-key-password: <<parameters.keystore-key-password>>
+            google-play-signing: <<parameters.google-play-signing>>
+            sign-overrides: <<parameters.sign-overrides>>
+  - when:
+      condition:
+        equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_android_autodev_private_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
+            signing-fingerprint: <<parameters.signing-fingerprint>>
+            google-play-signing: <<parameters.google-play-signing>>
+            sign-overrides: <<parameters.sign-overrides>>
+  - when:
+      condition:
+        equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_ios_auto_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
+            keystore-file: <<parameters.keystore-file>>
+            keystore-password: <<parameters.keystore-password>>
+            provisioning-profiles: <<parameters.provisioning-profiles>>
+            entitlements: <<parameters.entitlements>>
+            sign-overrides: <<parameters.sign-overrides>>
+  - when:
+      condition:
+        equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_ios_private_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
+            provisioning-profiles: <<parameters.provisioning-profiles>>
+            sign-overrides: <<parameters.sign-overrides>>
+  - when:
+      condition:
+        equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_ios_autodev_private_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
+            provisioning-profiles: <<parameters.provisioning-profiles>>
+            sign-overrides: <<parameters.sign-overrides>>
+  - store_artifacts:
+      path: ./output/
+      destination: appdome_fusion

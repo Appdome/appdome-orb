@@ -1,0 +1,30 @@
+description: >
+  Running Appdome iOS Auto-DEV private signing.
+
+parameters:
+  appFile:
+    type: string
+    description: "Path to application"
+  fusion-set-id:
+    type: string
+    description: "Fusion set id"
+  output:
+    type: string
+    description: "The name of the output application."
+  provisioning-profiles:
+    type: string
+    default: ""
+  sign-overrides:
+    type: string
+    default: ""
+    description: "sign overrides"
+steps:
+  - run:
+      environment:
+        APPFILE: <<parameters.appFile>>
+        FUSIONSET: <<parameters.fusion-set-id>>
+        OUTPUT: <<parameters.output>>
+        PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
+        SIGNOVERRIDES: <<parameters.sign-overrides>>
+      name: Build Sign Download (iOS - Auto-DEV private Signing)
+      command: <<include(scripts/appdome_ios_autodev_private_sign.sh)>>

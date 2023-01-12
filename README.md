@@ -1,17 +1,16 @@
-# Orb Template
+# Appdome CircleCI Orb
 
 
 [![CircleCI Build Status](https://circleci.com/gh/Appdome/appdome-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/Appdome/appdome-orb) [![CircleCI Orb Version](https://badges.circleci.com/orbs/appdome/appdome-orb.svg)](https://circleci.com/orbs/registry/orb/appdome/appdome-orb) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Appdome/appdome-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
 
 
-A project template for Orbs.
+Easily secure and customize your mobile apps on CircleCI using the Appdome Orb. No coding or technical expertise is required. Automate the process of adding security features such as encryption, biometric authentication, and more to your mobile apps. Additionally, sign your app with your own enterprise certificate for added flexibility and control. Get the flexibility and control you need to secure and customize your mobile apps with the Appdome Orb.
 
-This repository is designed to be automatically ingested and modified by the CircleCI CLI's `orb init` command.
 
-_**Edit this area to include a custom title and description.**_
+### Usage
 
----
+For full usage guidelines, see the [orb registry listing](https://circleci.com/developer/orbs/orb/appdome/appdome-orb).
 
 ## Resources
 
@@ -19,7 +18,7 @@ _**Edit this area to include a custom title and description.**_
 
 [CircleCI Orb Docs](https://circleci.com/docs/2.0/orb-intro/#section=configuration) - Docs for using, creating, and publishing CircleCI Orbs.
 
-### How to Contribute
+### Contribute
 
 We welcome [issues](https://github.com/Appdome/appdome-orb/issues) to and [pull requests](https://github.com/Appdome/appdome-orb/pulls) against this repository!
 
