@@ -5,9 +5,7 @@
 
 
 
-Easily secure and customize your mobile apps on CircleCI using the Appdome Orb. No coding or technical expertise required. Automate the process of adding security features such as encryption, biometric authentication, and more to your mobile apps.
-Additionaly, signing your app with your own enterprise certificate.
-Get the flexibility and control you need to secure and customize your mobile apps with the Appdome Orb.
+Easily secure and customize your mobile apps on CircleCI using the Appdome Orb. No coding or technical expertise is required. Automate the process of adding security features such as encryption, biometric authentication, and more to your mobile apps. Additionally, sign your app with your own enterprise certificate for added flexibility and control. Get the flexibility and control you need to secure and customize your mobile apps with the Appdome Orb.
 
 
 ### Usage
