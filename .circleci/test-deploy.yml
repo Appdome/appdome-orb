@@ -24,7 +24,7 @@ workflows:
       - command-tests:
           filters: *filters
       - appdome-orb/appdome_runner:
-          runner: "IOS_PRIVATE_SIGNING"
+          runner: "IOS_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
           fusion-set-id: "1103c040-91b5-11ed-814a-6b56d146e10d"
