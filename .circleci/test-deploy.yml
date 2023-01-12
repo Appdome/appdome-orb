@@ -32,7 +32,7 @@ workflows:
           keystore-password: "appdome"
           keystore-alias: "appdome"
           keystore-key-password: "appdome"
-          google-play-signing: true
+          google-play-signing: false
           filters: *filters
       - orb-tools/pack:
           filters: *filters
