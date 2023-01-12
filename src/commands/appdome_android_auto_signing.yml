@@ -1,0 +1,50 @@
+description: >
+  Running Appdome Android auto signing.
+
+parameters:
+  appFile:
+    type: string
+    description: "Path to application"
+  fusion-set-id:
+    type: string
+    description: "Fusion set id"
+  output:
+    type: string
+    description: "The name of the output application."
+  keystore-file:
+    type: string
+    default: ""
+    description: "keystore file should be .p12"
+  keystore-password:
+    type: string
+    default: ""
+    description: "keystore password"
+  keystore-alias:
+    type: string
+    default: ""
+    description: "keystore alias"
+  keystore-key-password:
+    type: string
+    default: ""
+    description: "keystore key password"
+  google-play-signing:
+    type: boolean
+    default: false
+    description: "google play signing"
+  sign-overrides:
+    type: string
+    default: ""
+    description: "sign overrides"
+steps:
+  - run:
+      environment:
+        APPFILE: <<parameters.appFile>>
+        FUSIONSET: <<parameters.fusion-set-id>>
+        OUTPUT: <<parameters.output>>
+        KEYSTORE: <<parameters.keystore-file>>
+        KEYSTORE_PASS: <<parameters.keystore-password>>
+        KEYSTORE_ALIAS: <<parameters.keystore-alias>>
+        KEYSTORE_KEY_PASS: <<parameters.keystore-key-password>>
+        SIGNOVERRIDES: <<parameters.sign-overrides>>
+      name: Build Sign Download (Android - Automatic Signing)
+      command: <<include(scripts/appdome_android_auto_sign.sh)>>

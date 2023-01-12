@@ -1,13 +1,17 @@
 version: 2.1
 
 description: >
-  Sample orb description
+  Easily secure and customize your mobile apps on CircleCI using the Appdome Orb.
+  No coding or technical expertise required.
+  Automate the process of adding security features such as encryption, biometric authentication, and more to your mobile apps.
+  and signing your app with your own enterprise certificate.
+  Get the flexibility and control you need to secure and customize your mobile apps with the Appdome Orb.
 # What will your orb allow users to accomplish?
 # Descriptions should be short, simple, and informative.
 
 # This information will be displayed in the orb registry and is not mandatory.
 display:
-  home_url: "https://www.example.com/docs"
+  home_url: "https://www.appdome.com/"
   source_url: "https://github.com/Appdome/appdome-orb"
 
 # If your orb requires other orbs, you can import them like this. Otherwise remove the "orbs" stanza.
