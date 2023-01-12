@@ -23,6 +23,12 @@ workflows:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - command-tests:
           filters: *filters
+      - testappdome-orb/appdome_runner:
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
+          output: "appname.apk"
+          fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
+          signing-fingerprint: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
+          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
