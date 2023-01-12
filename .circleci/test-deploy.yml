@@ -16,13 +16,14 @@ jobs:
     steps:
       - checkout
       # Run your orb's commands to validate them.
+      - appdome-orb/appdome_runner
 workflows:
   test-deploy:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - command-tests:
           filters: *filters
-      - testappdome-orb/appdome_runner:
+      - appdome-orb/appdome_runner:
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
