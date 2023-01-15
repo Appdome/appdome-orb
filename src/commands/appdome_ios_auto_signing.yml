@@ -10,21 +10,25 @@ parameters:
     description: "Fusion set id"
   output:
     type: string
-    description: "The name of the output application."
+    description: "The name of the output fused app."
   keystore-file:
     type: string
     default: ""
-    description: "keystore file should be .p12 for ios or .keystore for android"
+    description: "iOS: A P12 certificate file is a certificate and private key concatenated into a single file, protected by a password.
+    Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play"  keystore-password:
   keystore-password:
     type: string
     default: ""
-    description: "keystore password"
+    description: "The password used to unlock your P12/Ketstore certificate file."
   provisioning-profiles:
     type: string
     default: ""
+    description: "A Provisioning Profile allows you to install apps onto your iOS device and includes the signing certificates,
+     a list of supported device identifiers, entitlements, and an App ID."
   entitlements:
     type: string
     default: ""
+    description: "A plist file with the entitlements used for the application. Can be obtained from the Derived Data folder in Xcode"
   sign-overrides:
     type: string
     default: ""

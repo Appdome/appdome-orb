@@ -4,16 +4,18 @@ description: >
 parameters:
   appFile:
     type: string
-    description: "Path to application"
+    description: "Absolute path to your app"
   fusion-set-id:
     type: string
-    description: "Fusion set id"
+    description: "Fusion Set with the features you want to add to your application."
   output:
     type: string
-    description: "The name of the output application."
+    description: "The name of the output fused app."
   provisioning-profiles:
     type: string
     default: ""
+    description: "A Provisioning Profile allows you to install apps onto your iOS device and includes the signing certificates,
+     a list of supported device identifiers, entitlements, and an App ID."
   sign-overrides:
     type: string
     default: ""
