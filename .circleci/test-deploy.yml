@@ -9,6 +9,7 @@ filters: &filters
 
 jobs:
   test-android-private-sign: appdome-orb/appdome_runner
+  test-appdome-api-enviorment: appdome-orb/test_appdome
   # Create a job to test the commands of your orbs.
   # You may want to add additional validation steps to ensure the commands are working as expected.
   command-tests:
@@ -24,13 +25,7 @@ workflows:
     jobs:
       - command-tests:
           filters: *filters
-      - test-android-private-sign:
-          runner: "ANDROID_PRIVATE_SIGNING"
-          appFile: "$PATH_APP_FILE"
-          output: "appname.apk"
-          fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
-          signing-fingerprint: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
-          filters: *filters
+      - test-appdome-api-enviorment:
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
