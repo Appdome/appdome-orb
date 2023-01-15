@@ -9,45 +9,6 @@ filters: &filters
 
 jobs:
   test-android-private-sign: appdome-orb/appdome_runner
-    parameters:
-        runner:
-          description: >
-            Choose which fusing operation you want to perfom, on which paltform (iOS or Android)
-            and type of sign.
-          type: enum
-          enum:
-            - "ANDROID_AUTO_SIGNING"
-            - "ANDROID_PRIVATE_SIGNING"
-            - "ANDROID_AUTO_DEV_SIGNING"
-            - "IOS_AUTO_SIGNING"
-            - "IOS_PRIVATE_SIGNING"
-            - "IOS_AUTO_DEV_SIGNING"
-        appFile:
-          type: string
-          description: "Absolute path to your app"
-        fusion-set-id:
-          type: string
-          description: "Fusion Set with the features you want to add to your application."
-        output:
-          type: string
-          description: "The name of the output fused app."
-        # ANDROID PRIVATE SIGN
-        signing-fingerprint:
-          type: string
-          default: ""
-          description: "Your unique signing certificate fingerprint is required to tamper-proof Built applications."
-        google-play-signing:
-          type: boolean
-          default: false
-          description: "This application will be distributed via the Google Play App Signing program."
-    steps:
-      - appdome-orb/appdome_runner:
-            runner: <<parameters.runner>>
-            appFile: <<parameters.appFile>>
-            output: <<parameters.output>>
-            fusion-set-id: <<parameters.fusion-set-id>>
-            signing-fingerprint: <<parameters.signing-fingerprint>>
-            google-play-signing: false
   # Create a job to test the commands of your orbs.
   # You may want to add additional validation steps to ensure the commands are working as expected.
   command-tests:
@@ -64,13 +25,6 @@ workflows:
       - command-tests:
           filters: *filters
       - test-android-private-sign:
-            runner: <<parameters.runner>>
-            appFile: <<parameters.appFile>>
-            output: <<parameters.output>>
-            fusion-set-id: <<parameters.fusion-set-id>>
-            signing-fingerprint: <<parameters.signing-fingerprint>>
-            google-play-signing: false
-            filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
