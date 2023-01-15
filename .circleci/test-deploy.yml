@@ -24,12 +24,11 @@ workflows:
       - command-tests:
           filters: *filters
       - appdome-orb/appdome_runner:
-            runner: "ANDROID_AUTO_DEV_SIGNING"
+            runner: "ANDROID_PRIVATE_SIGNING"
             appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
             output: "appname.apk"
             fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
             signing-fingerprint: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
-            sign-overrides: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/sign_overrides.json
             google-play-signing: true
             filters: *filters
       - orb-tools/pack:
