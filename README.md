@@ -14,7 +14,7 @@ For full usage guidelines, see the [orb registry listing](https://circleci.com/d
 
 ### Setup
 
-In order to use the Appdome Orb on CircleCI you will need need to retrieve the Appdome-provided API token by copying it from the platfrom:
+In order to use the Appdome Orb on CircleCI you will need need to retrieve the Appdome-provided API token by copying it from the platform:
 
 #### To get or reset your API token:
 
