@@ -8,7 +8,7 @@ filters: &filters
     only: /.*/
 
 jobs:
-  test-android-private-sign:
+  test-android-private-sign: appdome-orb/appdome_runner
     parameters:
         runner:
           description: >
@@ -63,7 +63,7 @@ workflows:
     jobs:
       - command-tests:
           filters: *filters
-      - appdome-orb/appdome_runner:
+      - test-android-private-sign:
             runner: <<parameters.runner>>
             appFile: <<parameters.appFile>>
             output: <<parameters.output>>
