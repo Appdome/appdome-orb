@@ -25,7 +25,7 @@ workflows:
       - command-tests:
           filters: *filters
       - test-android-private-sign:
-          runner: ${RUNNER}
+          runner: $RUNNER
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
