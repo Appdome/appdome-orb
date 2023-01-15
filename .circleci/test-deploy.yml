@@ -20,69 +20,69 @@ jobs:
 workflows:
   test-deploy:
     jobs:
-    parameters:
-      runner:
-        description: >
-          Choose which fusing operation you want to perfom, on which paltform (iOS or Android)
-          and type of sign.
-        type: enum
-        enum:
-          - "ANDROID_AUTO_SIGNING"
-          - "ANDROID_PRIVATE_SIGNING"
-          - "ANDROID_AUTO_DEV_SIGNING"
-          - "IOS_AUTO_SIGNING"
-          - "IOS_PRIVATE_SIGNING"
-          - "IOS_AUTO_DEV_SIGNING"
-      appFile:
-        type: string
-        description: "Absolute path to your app"
-      fusion-set-id:
-        type: string
-        description: "Fusion Set with the features you want to add to your application."
-      output:
-        type: string
-        description: "The name of the output fused app."
-      sign-overrides:
-        type: string
-        default: ""
-        description: "sign overrides"
-      # ANDROID PRIVATE SIGN
-      signing-fingerprint:
-        type: string
-        default: ""
-        description: "Your unique signing certificate fingerprint is required to tamper-proof Built applications."
-      google-play-signing:
-        type: boolean
-        default: false
-        description: "This application will be distributed via the Google Play App Signing program."
-      # ANDROID AUTO SIGN
-      keystore-file:
-        type: string
-        default: ""
-        description: "iOS: A P12 certificate file is a certificate and private key concatenated into a single file, protected by a password.
-        Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play"
-      keystore-password:
-        type: string
-        default: ""
-        description: "The password used to unlock your P12 certificate file/keystore."
-      keystore-alias:
-        type: string
-        default: ""
-        description: "The name you assigned to your keystore"
-      keystore-key-password:
-        type: string
-        default: ""
-        description: "This is the specific password defined for your signing key."
-      #IOS
-      provisioning-profiles:
-        type: string
-        default: ""
-        description: "A Provisioning Profile allows you to install apps onto your iOS device and includes the signing certificates,
-        a list of supported device identifiers, entitlements, and an App ID."
-      entitlements:
-        type: string
-        default: ""
-        description: "A plist file with the entitlements used for the application. Can be obtained from the Derived Data folder in Xcode"
+      parameters:
+        runner:
+          description: >
+            Choose which fusing operation you want to perfom, on which paltform (iOS or Android)
+            and type of sign.
+          type: enum
+          enum:
+            - "ANDROID_AUTO_SIGNING"
+            - "ANDROID_PRIVATE_SIGNING"
+            - "ANDROID_AUTO_DEV_SIGNING"
+            - "IOS_AUTO_SIGNING"
+            - "IOS_PRIVATE_SIGNING"
+            - "IOS_AUTO_DEV_SIGNING"
+        appFile:
+          type: string
+          description: "Absolute path to your app"
+        fusion-set-id:
+          type: string
+          description: "Fusion Set with the features you want to add to your application."
+        output:
+          type: string
+          description: "The name of the output fused app."
+        sign-overrides:
+          type: string
+          default: ""
+          description: "sign overrides"
+        # ANDROID PRIVATE SIGN
+        signing-fingerprint:
+          type: string
+          default: ""
+          description: "Your unique signing certificate fingerprint is required to tamper-proof Built applications."
+        google-play-signing:
+          type: boolean
+          default: false
+          description: "This application will be distributed via the Google Play App Signing program."
+        # ANDROID AUTO SIGN
+        keystore-file:
+          type: string
+          default: ""
+          description: "iOS: A P12 certificate file is a certificate and private key concatenated into a single file, protected by a password.
+          Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play"
+        keystore-password:
+          type: string
+          default: ""
+          description: "The password used to unlock your P12 certificate file/keystore."
+        keystore-alias:
+          type: string
+          default: ""
+          description: "The name you assigned to your keystore"
+        keystore-key-password:
+          type: string
+          default: ""
+          description: "This is the specific password defined for your signing key."
+        #IOS
+        provisioning-profiles:
+          type: string
+          default: ""
+          description: "A Provisioning Profile allows you to install apps onto your iOS device and includes the signing certificates,
+          a list of supported device identifiers, entitlements, and an App ID."
+        entitlements:
+          type: string
+          default: ""
+          description: "A plist file with the entitlements used for the application. Can be obtained from the Derived Data folder in Xcode"
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - command-tests:
           filters: *filters
