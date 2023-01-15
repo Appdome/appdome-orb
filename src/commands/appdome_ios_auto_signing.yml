@@ -15,7 +15,7 @@ parameters:
     type: string
     default: ""
     description: "iOS: A P12 certificate file is a certificate and private key concatenated into a single file, protected by a password.
-    Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play"  keystore-password:
+    Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play"  
   keystore-password:
     type: string
     default: ""
