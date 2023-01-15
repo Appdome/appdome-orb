@@ -26,6 +26,7 @@ workflows:
       - command-tests:
           filters: *filters
       - test-appdome-api-enviorment:
+          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
