@@ -8,7 +8,7 @@ usage:
   orbs:
     appdome-orb: appdome/appdome-orb@x.y.z
   workflows:
-    fuse-my-app:
+    Appdome fusion:
       jobs:
         - appdome-orb/appdome_runner:
               runner: "IOS_PRIVATE_SIGNING"
