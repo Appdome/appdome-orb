@@ -1,0 +1,18 @@
+description: >
+  In this example we are fusing an iOS app with private signing.
+# Provide a use-case based example for using this orb.
+# Everything in the `usage` section will be displayed in the orb registry.
+# Comments are not retained.
+usage:
+  version: 2.1
+  orbs:
+    appdome-orb: appdome/appdome-orb@x.y.z
+  workflows:
+    Appdome fusion:
+      jobs:
+        - appdome-orb/appdome_runner:
+              runner: "IOS_AUTO_DEV_SIGNING"
+              appFile: <path_to_ipa_file>
+              output: <output_ipa>
+              fusion-set-id: <Appdome_Fusion_Set_ID>
+              provisioning-profiles: <provisioning_profile_file>

@@ -1,0 +1,14 @@
+description: >
+  Testing Appdome enviorment in order to run appdome Api.
+
+docker:
+  - image: cimg/python:3.9.16
+steps:
+  - checkout
+  - run:
+      name: Clone Appdome API repository
+      command: |
+          git clone https://github.com/Appdome/appdome-api-python.git
+  - run:
+      name: Install requirments
+      command: <<include(scripts/install_requirements.sh)>>

@@ -4,33 +4,33 @@ description: >
 parameters:
   appFile:
     type: string
-    description: "Path to application"
+    description: "Absolute path to your app"
   fusion-set-id:
     type: string
-    description: "Fusion set id"
+    description: "Fusion Set with the features you want to add to your application."
   output:
     type: string
-    description: "The name of the output application."
+    description: "The name of the output fused app."
   keystore-file:
     type: string
     default: ""
-    description: "keystore file should be .p12"
+    description: "This should be the same keystore file used to sign your Android app when distributing it via Google Play"
   keystore-password:
     type: string
     default: ""
-    description: "keystore password"
+    description: "The password used to unlock your keystore."
   keystore-alias:
     type: string
     default: ""
-    description: "keystore alias"
+    description: "The name you assigned to your keystore"
   keystore-key-password:
     type: string
     default: ""
-    description: "keystore key password"
+    description: "This is the specific password defined for your signing key."
   google-play-signing:
     type: boolean
     default: false
-    description: "google play signing"
+    description: "This application will be distributed via the Google Play App Signing program."
   sign-overrides:
     type: string
     default: ""
