@@ -25,14 +25,12 @@ workflows:
       - command-tests:
           filters: *filters
       - test-android-private-sign:
-        steps:
-          - appdome-orb/appdome_runner:
-                runner: <<parameters.runner>>
-                appFile: <<parameters.appFile>>
-                output: <<parameters.output>>
-                fusion-set-id: <<parameters.fusion-set-id>>
-                signing-fingerprint: <<parameters.signing-fingerprint>>
-                filters: *filters
+          runner: <<parameters.runner>>
+          appFile: <<parameters.appFile>>
+          output: <<parameters.output>>
+          fusion-set-id: <<parameters.fusion-set-id>>
+          signing-fingerprint: <<parameters.signing-fingerprint>>
+          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
