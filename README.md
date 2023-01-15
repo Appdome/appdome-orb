@@ -8,11 +8,21 @@
 Easily secure and customize your mobile apps on CircleCI using the Appdome Orb. No coding or technical expertise is required. Automate the process of adding security features such as encryption, biometric authentication, and more to your mobile apps. Additionally, sign your app with your own enterprise certificate for added flexibility and control. Get the flexibility and control you need to secure and customize your mobile apps with the Appdome Orb.
 
 
-### Usage
+## Usage
 
 For full usage guidelines, see the [orb registry listing](https://circleci.com/developer/orbs/orb/appdome/appdome-orb).
 
-## Resources
+### Setup
+
+In order to use the Appdome Orb on CircleCI you will need need to retrieve the Appdome-provided API token by copying it from the platfrom:
+
+#To get or reset your API token:
+
+Click on the drop-down menu labeled 'User Menu' in the upper right corner. Navigate to 'Security Release Management > Account and API.' In the 'Account and API' section, copy your current API token or click 'Reset' to generate a new one and copy it. In CircleCI, under 'Project Settings,' add the environment variable 'APPDOME_API_KEY' and paste in the copied value.
+
+The examples assume that the environment variableat 'APPDOME_API_KEY' is set.
+
+### Resources
 
 [CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/appdome/appdome-orb) - The official registry page of this orb for all versions, executors, commands, and jobs described.
 
