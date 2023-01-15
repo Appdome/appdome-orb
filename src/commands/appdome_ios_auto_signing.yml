@@ -4,10 +4,10 @@ description: >
 parameters:
   appFile:
     type: string
-    description: "Path to application"
+    description: "Absolute path to your app"
   fusion-set-id:
     type: string
-    description: "Fusion set id"
+    description: "Fusion Set with the features you want to add to your application."
   output:
     type: string
     description: "The name of the output fused app."
@@ -15,7 +15,7 @@ parameters:
     type: string
     default: ""
     description: "iOS: A P12 certificate file is a certificate and private key concatenated into a single file, protected by a password.
-    Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play"  
+    Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play."
   keystore-password:
     type: string
     default: ""
