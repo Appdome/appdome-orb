@@ -16,7 +16,7 @@ For full usage guidelines, see the [orb registry listing](https://circleci.com/d
 
 In order to use the Appdome Orb on CircleCI you will need need to retrieve the Appdome-provided API token by copying it from the platfrom:
 
-# To get or reset your API token:
+#### To get or reset your API token:
 
 Click on the drop-down menu labeled 'User Menu' in the upper right corner. Navigate to 'Security Release Management > Account and API.' In the 'Account and API' section, copy your current API token or click 'Reset' to generate a new one and copy it. In CircleCI, under 'Project Settings,' add the environment variable 'APPDOME_API_KEY' and paste in the copied value.
 
