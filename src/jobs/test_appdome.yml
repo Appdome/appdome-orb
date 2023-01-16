@@ -15,7 +15,7 @@ steps:
   - run:
       name: Setting env
       command: |
-          export APPDOME_CLIENT_HEADER=CircleCI/1.0
+          export APPDOME_CLIENT_HEADER="CircleCI/1.0"
   - run:
       name: print env
       command: |
