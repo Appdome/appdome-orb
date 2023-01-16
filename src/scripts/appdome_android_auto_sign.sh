@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo "Appdome Android Auto Sign"
 mkdir output
 VAR="${SIGNOVERRIDES}"
