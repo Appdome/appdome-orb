@@ -1,5 +1,5 @@
 #!/bin/bash
-
+printenv
 echo "Appdome Android Auto Sign"
 mkdir output
 VAR="${SIGNOVERRIDES}"
