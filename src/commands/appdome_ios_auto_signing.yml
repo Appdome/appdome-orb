@@ -44,5 +44,6 @@ steps:
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         ENTITLEMENTS: <<parameters.entitlements>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
+        APPDOME_CLIENT_HEADER: CircleCI/1.0
       name: Build Sign Download (iOS - Automatic Signing)
       command: <<include(scripts/appdome_ios_auto_sign.sh)>>

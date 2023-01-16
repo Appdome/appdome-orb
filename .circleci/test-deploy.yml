@@ -25,7 +25,15 @@ workflows:
     jobs:
       - command-tests:
           filters: *filters
-      - test-appdome-api-enviorment:
+      - test-android-private-sign:
+          runner: "ANDROID_AUTO_SIGNING"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
+          output: "appname.apk"
+          fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
+          keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.keystore"
+          keystore-password: "appdome"
+          keystore-alias: "appdome"
+          keystore-key-password: "appdome"
           filters: *filters
       - orb-tools/pack:
           filters: *filters
