@@ -12,3 +12,11 @@ steps:
   - run:
       name: Install requirments
       command: <<include(scripts/install_requirements.sh)>>
+  - run:
+      name: Setting env
+      command: |
+          export APPDOME_CLIENT_HEADER=CircleCI/1.0
+  - run:
+      name: print env
+      command: |
+          printenv
