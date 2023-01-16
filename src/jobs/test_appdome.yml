@@ -16,5 +16,7 @@ steps:
       command: <<include(scripts/install_requirements.sh)>>
   - run:
       name: print env
+      environment:
+        APPDOME_CLIENT_HEADER: CircleCI/1.0
       command: |
           printenv
