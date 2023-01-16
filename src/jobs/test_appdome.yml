@@ -11,9 +11,8 @@ steps:
           git clone https://github.com/Appdome/appdome-api-python.git
   - run:
       name: Install requirments
-      env:
-        - name: APPDOME_CLIENT_HEADER
-          value: CircleCI/1.0
+      environment:
+        APPDOME_CLIENT_HEADER: CircleCI/1.0
       command: <<include(scripts/install_requirements.sh)>>
   - run:
       name: print env
