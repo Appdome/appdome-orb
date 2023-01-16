@@ -47,6 +47,6 @@ steps:
         KEYSTORE_KEY_PASS: <<parameters.keystore-key-password>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        APPDOME_CLIENT_HEADER: CircleCI/1.0        
+        APPDOME_CLIENT_HEADER: CircleCI/1.0
       name: Build Sign Download (Android - Automatic Signing)
       command: <<include(scripts/appdome_android_auto_sign.sh)>>
