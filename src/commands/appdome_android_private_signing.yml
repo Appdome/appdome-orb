@@ -29,7 +29,7 @@ parameters:
 steps:
   - run:
       environment:
-        APPDOME_API_KEY: << parameters.appdome-api-token >>
+        APPDOME_API_TOKEN: << parameters.appdome-api-token >>
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
         OUTPUT: <<parameters.output>>
