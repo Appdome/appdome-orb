@@ -111,7 +111,7 @@ steps:
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
             keystore-file: <<parameters.keystore-file>>
-            keystore-password: < <parameters.keystore-password >>
+            keystore-password: << parameters.keystore-password >>
             keystore-alias: <<parameters.keystore-alias>>
             keystore-key-password: << parameters.keystore-key-password >>
             google-play-signing: <<parameters.google-play-signing>>
