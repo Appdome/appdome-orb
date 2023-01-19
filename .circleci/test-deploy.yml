@@ -50,7 +50,7 @@ workflows:
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
-      - test-ios_auto_sign:
+      - test-ios-auto-sign:
           runner: "IOS_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
@@ -59,7 +59,7 @@ workflows:
           provisioning-profiles: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/provision_profile.mobileprovision
           entitlements: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/entitelments.plist
           filters: *filters
-      - test-ios_private_sign:
+      - test-ios-private-sign:
           runner: "IOS_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
