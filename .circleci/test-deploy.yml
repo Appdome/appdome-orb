@@ -27,12 +27,13 @@ workflows:
       - command-tests:
           filters: *filters
       - appdome-orb/appdome_runner:
-          runner: "ANDROID_AUTO_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
-          output: "appname.apk"
-          fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
-          keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.keystore"
-          keystore-alias: "appdome"
+          runner: "IOS_AUTO_SIGNING"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
+          output: "appname.ipa"
+          fusion-set-id: "1103c040-91b5-11ed-814a-6b56d146e10d"
+          keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.p12"
+          provisioning-profiles: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/provision_profile.mobileprovision
+          entitlements: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/entitelments.plist
           filters: *filters
       - orb-tools/pack:
           filters: *filters
