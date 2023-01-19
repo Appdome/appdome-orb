@@ -4,7 +4,7 @@ description: >
 parameters:
   appdome-api-token:
       type: env_var_name
-      default: APPDOME_API_KEY
+      default: APPDOME_API_TOKEN
       description: "Appdome-provided API token"
   appFile:
     type: string
