@@ -16,7 +16,8 @@ parameters:
     type: string
     description: "The name of the output fused app."
   signing-fingerprint:
-    type: string
+    type: env_var_name
+    default: SIGN_FINGERPTINT
     description: "Your unique signing certificate fingerprint is required to tamper-proof Built applications."
   google-play-signing:
     type: boolean
