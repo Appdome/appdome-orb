@@ -73,10 +73,6 @@ docker:
 steps:
   - checkout
   - run:
-      name: Echo
-      command: |
-          echo << parameters.appdome-api-token >>
-  - run:
       name: Clone Appdome API repository
       command: |
           git clone https://github.com/Appdome/appdome-api-python.git
