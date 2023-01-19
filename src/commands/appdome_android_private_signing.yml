@@ -2,6 +2,10 @@ description: >
   Running Appdome Android private signing.
 
 parameters:
+  appdome-api-token:
+      type: env_var_name
+      default: APPDOME_API_KEY
+      description: "Appdome-provided API token"
   appFile:
     type: string
     description: "Absolute path to your app"

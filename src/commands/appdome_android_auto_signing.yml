@@ -2,6 +2,10 @@ description: >
   Running Appdome Android auto signing.
 
 parameters:
+  appdome-api-token:
+      type: env_var_name
+      default: APPDOME_API_KEY
+      description: "Appdome-provided API token"
   appFile:
     type: string
     description: "Absolute path to your app"
@@ -16,7 +20,7 @@ parameters:
     default: ""
     description: "This should be the same keystore file used to sign your Android app when distributing it via Google Play"
   keystore-password:
-    type: env_var_name
+    type: string
     default: ""
     description: "The password used to unlock your keystore."
   keystore-alias:
@@ -24,7 +28,7 @@ parameters:
     default: ""
     description: "The name you assigned to your keystore"
   keystore-key-password:
-    type: env_var_name
+    type: string
     default: ""
     description: "This is the specific password defined for your signing key."
   google-play-signing:
