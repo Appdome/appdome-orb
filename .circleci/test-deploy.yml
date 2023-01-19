@@ -18,13 +18,13 @@ jobs:
   # test-appdome-api-enviorment: appdome-orb/test_appdome
   # Create a job to test the commands of your orbs.
   # You may want to add additional validation steps to ensure the commands are working as expected.
-  command-tests:
-    docker:
-      - image: cimg/base:current
-    steps:
-      - checkout
-      # Run your orb's commands to validate them.
-      #- appdome-orb/appdome_runner:
+  # command-tests:
+  #   docker:
+  #     - image: cimg/base:current
+  #   steps:
+  #     - checkout
+  #     # Run your orb's commands to validate them.
+  #     #- appdome-orb/appdome_runner:
       
 workflows:
   test-deploy:
