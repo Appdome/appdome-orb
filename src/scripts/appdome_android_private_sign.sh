@@ -5,6 +5,7 @@ echo "Appdome Android private sign"
 mkdir output
 VAR="${SIGNOVERRIDES}"
 ls
+APPDOME_API_KEY="$(eval printf '%s' "$APPDOME_API_KEY")"
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
     if [ "${GOOGLEPLAYSIGN}" -eq 1 ]; then
