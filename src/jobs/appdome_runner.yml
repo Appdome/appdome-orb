@@ -16,7 +16,7 @@ parameters:
       - "IOS_AUTO_DEV_SIGNING"
   appdome-api-token:
     type: env_var_name
-    default: APPDOME_API_KEY
+    default: $APPDOME_API_KEY
     description: "Appdome-provided API token"
   appFile:
     type: string
