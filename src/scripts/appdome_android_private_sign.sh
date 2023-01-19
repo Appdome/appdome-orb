@@ -8,9 +8,7 @@ ls
 ##############################
 # ONLY FOR TESTING #
 ##############################
-
-echo token = "${!APPDOME_API_KEY}"
-
+echo token = "${!APPDOME_API_TOKEN}"
 ##############################
 # END ONLY FOR TESTING #
 ##############################
