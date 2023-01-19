@@ -23,6 +23,14 @@ workflows:
   test-deploy:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
     jobs:
+      build: 
+        parameters:
+          keystore-password:
+          type: env_var_name
+          default: KEY_STORE_PASS
+        keystore-key-password:
+          type: env_var_name
+          default: KEYSTORE_KEY_PASS
       - command-tests:
           filters: *filters
       - test-android-private-sign:
@@ -31,9 +39,9 @@ workflows:
             output: "appname.apk"
             fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
             keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.keystore"
-            keystore-password: "appdome"
+            keystore-password: ${<< parameters.keystore-password >>}
             keystore-alias: "appdome"
-            keystore-key-password: "appdome"
+            keystore-key-password: ${<< parameters.KEYSTORE_KEY_PASS >>}
           filters: *filters
       - orb-tools/pack:
           filters: *filters
