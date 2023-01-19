@@ -3,6 +3,8 @@ echo "Appdome Android Auto Sign"
 mkdir output
 VAR="${SIGNOVERRIDES}"
 ls
+KEYSTORE_PASS="$(eval printf '%s' "$KEYSTORE_PASS")"
+KEYSTORE_KEY_PASS="$(eval printf '%s' "$KEYSTORE_KEY_PASS")"
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
     if [ "${GOOGLEPLAYSIGN}" -eq 1 ]; then
