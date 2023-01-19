@@ -14,7 +14,6 @@ jobs:
   test-ios-auto-sign: appdome-orb/appdome_runner
   test-ios-private-sign: appdome-orb/appdome_runner
   test-ios-autodev-private-sign: appdome-orb/appdome_runner
-  # test-appdome-api-enviorment: appdome-orb/test_appdome
 
   # Create a job to test the commands of your orbs.
   # You may want to add additional validation steps to ensure the commands are working as expected.
@@ -32,14 +31,12 @@ workflows:
     jobs:
       - command-tests:
           filters: *filters
-      # - test-android-auto-sign:
-      #     runner: "ANDROID_AUTO_SIGNING"
-      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
-      #     output: "appname.apk"
-      #     fusion-set-id: "048b1a70-8044-11ed-a63a-4fa21c222364"
-      #     keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.keystore"
-      #     keystore-alias: "appdome"
-      #     filters: *filters
+      - test-android-auto-sign:
+          runner: "ANDROID_AUTO_SIGNING"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
+          output: "appname.apk"
+          fusion-set-id: "048b1a70-8044-11ed-a63a-4fa21c222364"
+          filters: *filters
       - test-android-private-sign:
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"

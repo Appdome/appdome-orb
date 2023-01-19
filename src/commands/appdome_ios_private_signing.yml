@@ -16,8 +16,8 @@ parameters:
     type: string
     description: "The name of the output fused app."
   provisioning-profiles:
-    type: string
-    default: ""
+    type: env_var_name
+    default: MOBILE_PROVISION_PROFILE_FILE
     description: "A Provisioning Profile allows you to install apps onto your iOS device and includes the signing certificates,
      a list of supported device identifiers, entitlements, and an App ID."
   sign-overrides:
