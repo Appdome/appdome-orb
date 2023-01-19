@@ -73,7 +73,7 @@ steps:
       command: |
           git clone https://github.com/Appdome/appdome-api-python.git
   - run:
-      name: Install requirments
+      name: Install requirements
       command: <<include(scripts/install_requirements.sh)>>
   - run:
       environment:
