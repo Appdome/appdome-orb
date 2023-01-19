@@ -27,14 +27,11 @@ workflows:
       - command-tests:
           filters: *filters
       - test-android-private-sign:
-            runner: "ANDROID_AUTO_SIGNING"
-            appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
-            output: "appname.apk"
-            fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
-            keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.keystore"
-            keystore-password: ${<< parameters.keystore-password >>}
-            keystore-alias: "appdome"
-            keystore-key-password: ${<< parameters.KEYSTORE_KEY_PASS >>}
+          runner: "ANDROID_PRIVATE_SIGNING"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
+          output: "appname.apk"
+          fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
+          signing-fingerprint: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
           filters: *filters
       - orb-tools/pack:
           filters: *filters
