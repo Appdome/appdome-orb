@@ -19,7 +19,7 @@ parameters:
   sign-overrides:
     type: string
     default: ""
-    description: "sign overrides"
+    description: "Optional parameter - json file overrides if you want to sign overrides your app."
 steps:
   - run:
       environment:
