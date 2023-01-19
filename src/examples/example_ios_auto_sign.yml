@@ -16,6 +16,5 @@ usage:
               output: <output_ipa>
               fusion-set-id: <Appdome_Fusion_Set_ID>
               keystore-file: <p12_file>
-              keystore-password: <p12_password>
               provisioning-profiles: <provisioning_profile_file>
               entitlements: <entitlements_plist_file>
