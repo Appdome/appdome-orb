@@ -26,15 +26,16 @@ parameters:
     type: string
     default: ""
     description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
-  - run:
-      environment:
-        APPDOME_API_KEY: <<parameters.appdome-api-token>>
-        APPFILE: <<parameters.appFile>>
-        FUSIONSET: <<parameters.fusion-set-id>>
-        OUTPUT: <<parameters.output>>
-        FINGERPRINT: <<parameters.signing-fingerprint>>
-        GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
-        SIGNOVERRIDES: <<parameters.sign-overrides>>
-        APPDOME_CLIENT_HEADER: CircleCI/1.0
-      name: Build Sign Download (Android - Auto-DEV private Signing)
-      command: <<include(scripts/appdome_android_autodev_private_sign.sh)>>
+  steps:
+    - run:
+        environment:
+          APPDOME_API_KEY: <<parameters.appdome-api-token>>
+          APPFILE: <<parameters.appFile>>
+          FUSIONSET: <<parameters.fusion-set-id>>
+          OUTPUT: <<parameters.output>>
+          FINGERPRINT: <<parameters.signing-fingerprint>>
+          GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
+          SIGNOVERRIDES: <<parameters.sign-overrides>>
+          APPDOME_CLIENT_HEADER: CircleCI/1.0
+        name: Build Sign Download (Android - Auto-DEV private Signing)
+        command: <<include(scripts/appdome_android_autodev_private_sign.sh)>>
