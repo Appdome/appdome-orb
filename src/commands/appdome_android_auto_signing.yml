@@ -16,16 +16,16 @@ parameters:
     type: string
     description: "The name of the output fused app."
   keystore-file:
-    type: string
-    default: ""
+    type: env_var_name
+    default: KEYSTORE_FILE
     description: "This should be the same keystore file used to sign your Android app when distributing it via Google Play"
   keystore-password:
     type: env_var_name
     default: KEYSTORE_PASSWORD
     description: "The password used to unlock your keystore."
   keystore-alias:
-    type: string
-    default: ""
+    type: env_var_name
+    default: KEYSTORE_ALIAS
     description: "The name you assigned to your keystore"
   keystore-key-password:
     type: env_var_name
@@ -48,10 +48,9 @@ steps:
         OUTPUT: <<parameters.output>>
         KEYSTORE: <<parameters.keystore-file>>
         KEYSTORE_PASS: <<parameters.keystore-password>>
-        KEYSTORE_ALIAS: <<parameters.keystore-alias>>
+        KEYSTORE_ALIAS_ENV: <<parameters.keystore-alias>>
         KEYSTORE_KEY_PASS: <<parameters.keystore-key-password>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
         APPDOME_CLIENT_HEADER: CircleCI/1.0
       name: Build Sign Download (Android - Automatic Signing)
-      command: <<include(scripts/appdome_android_auto_sign.sh)>>
