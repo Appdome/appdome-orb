@@ -8,13 +8,9 @@ ls
 ##############################
 # ONLY FOR TESTING #
 ##############################
-echo token = APPDOME_API_KEY
+
 echo token = "${!APPDOME_API_KEY}"
-echo token = "${APPDOME_API_KEY}"
-APPDOME_API_KEY="$(eval printf '%s' "$APPDOME_API_KEY")"
-echo token = APPDOME_API_KEY
-echo token = "${!APPDOME_API_KEY}"
-echo token = "${APPDOME_API_KEY}"
+
 ##############################
 # END ONLY FOR TESTING #
 ##############################
