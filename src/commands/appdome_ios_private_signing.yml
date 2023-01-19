@@ -2,6 +2,10 @@ description: >
   Running Appdome iOS private signing.
 
 parameters:
+  appdome-api-token:
+      type: env_var_name
+      description: "Appdome-provided API token"
+      default: APPDOME_API_KEY
   appFile:
     type: string
     description: "Absolute path to your app"
