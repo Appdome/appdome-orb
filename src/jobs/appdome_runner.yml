@@ -48,7 +48,7 @@ parameters:
     Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play"
   keystore-password:
     type: env_var_name
-    default: KEYSTORE_PASS
+    default: KEYSTORE_PASSWORD
     description: "The password used to unlock your keystore."
   keystore-alias:
     type: string
@@ -56,7 +56,7 @@ parameters:
     description: "The name you assigned to your keystore"
   keystore-key-password:
     type: env_var_name
-    default: KEYSTORE_KEY_PASS
+    default: KEYSTORE_KEY_PASSWORD
     description: "This is the specific password defined for your signing key."
   #IOS
   provisioning-profiles:
@@ -111,9 +111,9 @@ steps:
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
             keystore-file: <<parameters.keystore-file>>
-            keystore-password: <<parameters.keystore-password>>
+            keystore-password: < <parameters.keystore-password >>
             keystore-alias: <<parameters.keystore-alias>>
-            keystore-key-password: <<parameters.keystore-key-password>>
+            keystore-key-password: << parameters.keystore-key-password >>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
   - when:
