@@ -2,6 +2,10 @@ description: >
   Running Appdome Auto-DEV Android private signing.
 
 parameters:
+  appdome-api-token:
+      type: env_var_name
+      default: APPDOME_API_TOKEN
+      description: "Appdome-provided API token"
   appFile:
     type: string
     description: "Absolute path to your app"
@@ -12,7 +16,8 @@ parameters:
     type: string
     description: "The name of the output fused app."
   signing-fingerprint:
-    type: string
+    type: env_var_name
+    default: SIGN_FINGERPRINT
     description: "Your unique signing certificate fingerprint is required to tamper-proof Built applications."
   google-play-signing:
     type: boolean
@@ -21,10 +26,11 @@ parameters:
   sign-overrides:
     type: string
     default: ""
-    description: "sign overrides"
+    description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
 steps:
   - run:
       environment:
+        APPDOME_API_KEY: <<parameters.appdome-api-token>>
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
         OUTPUT: <<parameters.output>>

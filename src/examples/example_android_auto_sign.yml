@@ -16,7 +16,5 @@ usage:
               output: <output_apk_or_aab>
               fusion-set-id: <Appdome_Fusion_Set_ID>
               keystore-file: <path_to_keystore_file>
-              keystore-password: <keystore_password>
               keystore-alias: <key_alias>
-              keystore-key-password: <key_password>
               google-play-signing: <true_or_false>

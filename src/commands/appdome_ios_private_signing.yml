@@ -2,6 +2,10 @@ description: >
   Running Appdome iOS private signing.
 
 parameters:
+  appdome-api-token:
+      type: env_var_name
+      description: "Appdome-provided API token"
+      default: APPDOME_API_TOKEN
   appFile:
     type: string
     description: "Absolute path to your app"
@@ -19,10 +23,11 @@ parameters:
   sign-overrides:
     type: string
     default: ""
-    description: "sign overrides"
+    description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
 steps:
   - run:
       environment:
+        APPDOME_API_KEY: <<parameters.appdome-api-token>>
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
         OUTPUT: <<parameters.output>>

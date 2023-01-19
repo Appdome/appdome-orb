@@ -2,6 +2,10 @@ description: >
   Running Appdome Android auto signing.
 
 parameters:
+  appdome-api-token:
+      type: env_var_name
+      default: APPDOME_API_TOKEN
+      description: "Appdome-provided API token"
   appFile:
     type: string
     description: "Absolute path to your app"
@@ -16,16 +20,16 @@ parameters:
     default: ""
     description: "This should be the same keystore file used to sign your Android app when distributing it via Google Play"
   keystore-password:
-    type: string
-    default: ""
+    type: env_var_name
+    default: KEYSTORE_PASSWORD
     description: "The password used to unlock your keystore."
   keystore-alias:
     type: string
     default: ""
     description: "The name you assigned to your keystore"
   keystore-key-password:
-    type: string
-    default: ""
+    type: env_var_name
+    default: KEYSTORE_KEY_PASSWORD
     description: "This is the specific password defined for your signing key."
   google-play-signing:
     type: boolean
@@ -34,10 +38,11 @@ parameters:
   sign-overrides:
     type: string
     default: ""
-    description: "sign overrides"
+    description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
 steps:
   - run:
       environment:
+        APPDOME_API_KEY: <<parameters.appdome-api-token>>
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
         OUTPUT: <<parameters.output>>

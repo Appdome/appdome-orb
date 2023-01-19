@@ -2,6 +2,10 @@ description: >
   Running Appdome iOS auto signing.
 
 parameters:
+  appdome-api-token:
+      type: env_var_name
+      description: "Appdome-provided API token"
+      default: APPDOME_API_TOKEN
   appFile:
     type: string
     description: "Absolute path to your app"
@@ -17,8 +21,8 @@ parameters:
     description: "iOS: A P12 certificate file is a certificate and private key concatenated into a single file, protected by a password.
     Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play."
   keystore-password:
-    type: string
-    default: ""
+    type: env_var_name
+    default: KEYSTORE_PASSWORD
     description: "The password used to unlock your P12/Ketstore certificate file."
   provisioning-profiles:
     type: string
@@ -32,10 +36,11 @@ parameters:
   sign-overrides:
     type: string
     default: ""
-    description: "sign overrides"
+    description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
 steps:
   - run:
       environment:
+        APPDOME_API_KEY: <<parameters.appdome-api-token>>
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
         OUTPUT: <<parameters.output>>
