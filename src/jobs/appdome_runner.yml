@@ -33,8 +33,8 @@ parameters:
     description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
   # ANDROID PRIVATE SIGN
   signing-fingerprint:
-    type: string
-    default: ""
+    type: env_var_name
+    default: SIGN_FINGERPTINT
     description: "Your unique signing certificate fingerprint is required to tamper-proof Built applications."
   google-play-signing:
     type: boolean
