@@ -45,13 +45,11 @@ workflows:
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
-          signing-fingerprint: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
       - test-android-autodev-private-sign:
           runner: "ANDROID_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
-          signing-fingerprint: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
       - test-ios_auto_sign:
           runner: "IOS_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
