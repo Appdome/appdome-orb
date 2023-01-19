@@ -72,6 +72,10 @@ docker:
   - image: cimg/python:3.9.16
 steps:
   - checkout
+    - run:
+      name: Echo
+      command: |
+          echo << parameters.appdome-api-token >>
   - run:
       name: Clone Appdome API repository
       command: |
