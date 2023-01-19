@@ -94,7 +94,7 @@ steps:
         equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_private_signing:
-            appdome-api-token: ${<< parameters.appdome-api-token >>}
+            appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
