@@ -42,12 +42,12 @@ workflows:
       #     filters: *filters
       - test-android-private-sign:
           runner: "ANDROID_PRIVATE_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/blob/main/files/com.appdome.emptyandroidapp_vanilla_package.apk"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           fusion-set-id: "048b1a70-8044-11ed-a63a-4fa21c222364"
       - test-android-autodev-private-sign:
           runner: "ANDROID_AUTO_DEV_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/blob/main/files/com.appdome.emptyandroidapp_vanilla_package.apk"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           fusion-set-id: "048b1a70-8044-11ed-a63a-4fa21c222364"
       # - test-ios-auto-sign:
