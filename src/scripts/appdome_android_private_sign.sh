@@ -8,6 +8,11 @@ ls
 APPDOME_API_KEY="$(eval printf '%s' "$APPDOME_API_KEY")"
 echo token = APPDOME_API_KEY
 echo token = "${!APPDOME_API_KEY}"
+echo token = "${APPDOME_API_KEY}"
+echo token = ${APPDOME_API_KEY}
+echo token = ${!APPDOME_API_KEY}
+echo token = "$APPDOME_API_KEY"
+echo token = $APPDOME_API_KEY
 
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
