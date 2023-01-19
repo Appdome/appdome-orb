@@ -5,14 +5,6 @@ echo "Appdome Android private sign"
 mkdir output
 VAR="${SIGNOVERRIDES}"
 ls
-##############################
-# ONLY FOR TESTING #
-##############################
-echo token = "${!APPDOME_API_TOKEN}"
-##############################
-# END ONLY FOR TESTING #
-##############################
-
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
     if [ "${GOOGLEPLAYSIGN}" -eq 1 ]; then
