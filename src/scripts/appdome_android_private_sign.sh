@@ -5,7 +5,9 @@ echo "Appdome Android private sign"
 mkdir output
 VAR="${SIGNOVERRIDES}"
 ls
-
+##############################
+# ONLY FOR TESTING #
+##############################
 echo token = APPDOME_API_KEY
 echo token = "${!APPDOME_API_KEY}"
 echo token = "${APPDOME_API_KEY}"
@@ -13,6 +15,9 @@ APPDOME_API_KEY="$(eval printf '%s' "$APPDOME_API_KEY")"
 echo token = APPDOME_API_KEY
 echo token = "${!APPDOME_API_KEY}"
 echo token = "${APPDOME_API_KEY}"
+##############################
+# END ONLY FOR TESTING #
+##############################
 
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
