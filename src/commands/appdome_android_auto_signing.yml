@@ -38,10 +38,11 @@ parameters:
   sign-overrides:
     type: string
     default: ""
-    description: "Optional parameter - json file overrides if you want to sign overrides your app."
+    description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
 steps:
   - run:
       environment:
+        APPDOME_API_KEY: <<parameters.appdome-api-token>>
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
         OUTPUT: <<parameters.output>>
