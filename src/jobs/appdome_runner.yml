@@ -16,7 +16,7 @@ parameters:
       - "IOS_AUTO_DEV_SIGNING"
   appdome-api-token:
     type: env_var_name
-    default: $APPDOME_API_KEY
+    default: APPDOME_API_KEY
     description: "Appdome-provided API token"
   appFile:
     type: string
@@ -94,7 +94,7 @@ steps:
         equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_private_signing:
-            appdome-api-token: <<parameters.appdome-api-token>>
+            appdome-api-token: $APPDOME_API_KEY
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
@@ -106,7 +106,7 @@ steps:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_auto_signing:
-            appdome-api-token: <<parameters.appdome-api-token>>
+            appdome-api-token: $APPDOME_API_KEY
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
@@ -121,7 +121,7 @@ steps:
         equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_autodev_private_signing:
-            appdome-api-token: <<parameters.appdome-api-token>>
+            appdome-api-token: $APPDOME_API_KEY
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
@@ -133,7 +133,7 @@ steps:
         equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_auto_signing:
-            appdome-api-token: <<parameters.appdome-api-token>>
+            appdome-api-token: $APPDOME_API_KEY
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
@@ -147,7 +147,7 @@ steps:
         equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_private_signing:
-            appdome-api-token: <<parameters.appdome-api-token>>
+            appdome-api-token: $APPDOME_API_KEY
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
@@ -158,7 +158,7 @@ steps:
         equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_autodev_private_signing:
-            appdome-api-token: <<parameters.appdome-api-token>>
+            appdome-api-token: $APPDOME_API_KEY
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
