@@ -5,8 +5,7 @@ mkdir secret
 ls
 
 echo "${!KEYSTORE}" > secret/keystore.keystore
-cd secret
-ls
+cd secret || ls
 VAR="${SIGNOVERRIDES}"
 ls
 if [[ -n "$VAR" ]]; then
