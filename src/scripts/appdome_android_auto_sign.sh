@@ -1,10 +1,8 @@
 #!/bin/bash
 echo "Appdome Android Auto Sign"
 mkdir output
-mkdir secret
-ls
 echo -n "${!KEYSTORE}" | base64 -d > files/keystore.keystore
-ls secret/
+
 VAR="${SIGNOVERRIDES}"
 
 if [[ -n "$VAR" ]]; then

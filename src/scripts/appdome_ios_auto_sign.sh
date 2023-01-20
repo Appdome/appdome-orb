@@ -1,8 +1,9 @@
 #!/bin/bash
 
-base64 --decode "${!P12_FILE}" > files/Cert.p12
-base64 --decode "${!PROVISIONING_PROFILES}" > files/provisioning_profiles.mobileprovision
-base64 --decode "${!ENTITLEMENTS}" > files/Entitlements.plist
+
+echo -n "${!P12_FILE}" | base64 -d > files/Cert.p12
+echo -n "${!PROVISIONING_PROFILES}" | base64 -d > files/provisioning_profiles.mobileprovision
+echo -n "${!ENTITLEMENTS}" | base64 -d > files/Entitlements.plist
 
 echo "Appdome iOS auto sign"
 mkdir output
