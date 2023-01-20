@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -n "${!PROVISIONING_PROFILES}" | base64 -d > files/provisioning_profiles.mobileprovision
-
 echo "Appdome iOS private sign"
+echo -n "${!PROVISIONING_PROFILES}" | base64 -d > files/provisioning_profiles.mobileprovision
+ls files
 mkdir output
 VAR="${SIGNOVERRIDES}"
 ls

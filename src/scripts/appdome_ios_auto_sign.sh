@@ -1,11 +1,10 @@
 #!/bin/bash
 
-
+echo "Appdome iOS auto sign"
 echo -n "${!P12_FILE}" | base64 -d > files/Cert.p12
 echo -n "${!PROVISIONING_PROFILES}" | base64 -d > files/provisioning_profiles.mobileprovision
 echo -n "${!ENTITLEMENTS}" | base64 -d > files/Entitlements.plist
-
-echo "Appdome iOS auto sign"
+ls files
 mkdir output
 VAR="${SIGNOVERRIDES}"
 ls
