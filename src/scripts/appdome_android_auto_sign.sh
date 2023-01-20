@@ -3,10 +3,9 @@ echo "Appdome Android Auto Sign"
 mkdir output
 mkdir secret
 ls
-ls secret
 echo "${!KEYSTORE}" > secret/keystore.keystore
 VAR="${SIGNOVERRIDES}"
-ls
+
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
     if [ "${GOOGLEPLAYSIGN}" -eq 1 ]; then
