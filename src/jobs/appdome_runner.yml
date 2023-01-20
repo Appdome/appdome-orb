@@ -144,7 +144,7 @@ steps:
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
-            keystore-file: <<parameters.p12-file>>
+            p12-file: <<parameters.p12-file>>
             P12-password: <<parameters.p12-password>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             entitlements: <<parameters.entitlements>>
