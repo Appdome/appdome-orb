@@ -42,31 +42,38 @@ parameters:
     description: "This application will be distributed via the Google Play App Signing program."
   # ANDROID AUTO SIGN
   keystore-file:
-    type: string
-    default: ""
-    description: "iOS: A P12 certificate file is a certificate and private key concatenated into a single file, protected by a password.
-    Android: This should be the same keystore file used to sign your Android app when distributing it via Google Play"
+    type: env_var_name
+    default: KEYSTORE_FILE
+    description: "This should be the same keystore file used to sign your Android app when distributing it via Google Play."
   keystore-password:
     type: env_var_name
     default: KEYSTORE_PASSWORD
     description: "The password used to unlock your keystore."
   keystore-alias:
-    type: string
-    default: ""
+    type: env_var_name
+    default: KEYSTORE_ALIAS
     description: "The name you assigned to your keystore"
   keystore-key-password:
     type: env_var_name
     default: KEYSTORE_KEY_PASSWORD
     description: "This is the specific password defined for your signing key."
-  #IOS
+  #IOS-AUTO-SIGN
+  p12-file:
+    type: env_var_name
+    default: KEYSTORE_P12_FILE
+    description: "A P12 certificate file is a certificate and private key concatenated into a single file, protected by a password."
+  p12-password:
+    type: env_var_name
+    default: P12_PASSWORD
+    description: "The password used to unlock your keystore."
   provisioning-profiles:
-    type: string
-    default: ""
+    type: env_var_name
+    default: MOBILE_PROVISION_PROFILE_FILE
     description: "A Provisioning Profile allows you to install apps onto your iOS device and includes the signing certificates,
      a list of supported device identifiers, entitlements, and an App ID."
   entitlements:
-    type: string
-    default: ""
+    type: env_var_name
+    default: ENTITLEMENTS_FILE
     description: "A plist file with the entitlements used for the application. Can be obtained from the Derived Data folder in Xcode"
 docker:
   - image: cimg/python:3.9.16
@@ -137,8 +144,8 @@ steps:
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
-            keystore-file: <<parameters.keystore-file>>
-            keystore-password: <<parameters.keystore-password>>
+            p12-file: <<parameters.p12-file>>
+            P12-password: <<parameters.p12-password>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             entitlements: <<parameters.entitlements>>
             sign-overrides: <<parameters.sign-overrides>>

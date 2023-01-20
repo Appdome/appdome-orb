@@ -13,33 +13,16 @@ jobs:
   test-android-auto-sign: appdome-orb/appdome_runner
   test-ios-auto-sign: appdome-orb/appdome_runner
   test-ios-private-sign: appdome-orb/appdome_runner
-  test-ios-autodev-private-sign: appdome-orb/appdome_runner
-  # test-appdome-api-enviorment: appdome-orb/test_appdome
-
-  # Create a job to test the commands of your orbs.
-  # You may want to add additional validation steps to ensure the commands are working as expected.
-  command-tests:
-    docker:
-      - image: cimg/base:current
-    steps:
-      - checkout
-      # Run your orb's commands to validate them.
-      #- appdome-orb/appdome_runner:
-      
 workflows:
   test-deploy:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
     jobs:
-      - command-tests:
+      - test-android-auto-sign:
+          runner: "ANDROID_AUTO_SIGNING"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
+          output: "appname.apk"
+          fusion-set-id: "048b1a70-8044-11ed-a63a-4fa21c222364"
           filters: *filters
-      # - test-android-auto-sign:
-      #     runner: "ANDROID_AUTO_SIGNING"
-      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
-      #     output: "appname.apk"
-      #     fusion-set-id: "048b1a70-8044-11ed-a63a-4fa21c222364"
-      #     keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.keystore"
-      #     keystore-alias: "appdome"
-      #     filters: *filters
       - test-android-private-sign:
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
@@ -47,32 +30,21 @@ workflows:
           fusion-set-id: "048b1a70-8044-11ed-a63a-4fa21c222364"
       - test-android-autodev-private-sign:
           runner: "ANDROID_AUTO_DEV_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
           output: "appname.apk"
           fusion-set-id: "048b1a70-8044-11ed-a63a-4fa21c222364"
-      # - test-ios-auto-sign:
-      #     runner: "IOS_AUTO_SIGNING"
-      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
-      #     output: "appname.ipa"
-      #     fusion-set-id: "37eb8960-97f8-11ed-8fca-0bdb776c63e0"
-      #     keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.p12"
-      #     provisioning-profiles: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/provision_profile.mobileprovision
-      #     entitlements: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/entitelments.plist
-      #     filters: *filters
-      # - test-ios-private-sign:
-      #     runner: "IOS_PRIVATE_SIGNING"
-      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
-      #     output: "appname.ipa"
-      #     fusion-set-id: "37eb8960-97f8-11ed-8fca-0bdb776c63e0"
-      #     provisioning-profiles: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/provision_profile.mobileprovision
-      #     filters: *filters
-      # - test-ios-autodev-private-sign:
-      #     runner: "IOS_AUTO_DEV_SIGNING"
-      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
-      #     output: "appname.ipa"
-      #     fusion-set-id: "37eb8960-97f8-11ed-8fca-0bdb776c63e0"
-      #     provisioning-profiles: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/provision_profile.mobileprovision
-      #     filters: *filters
+      - test-ios-auto-sign:
+          runner: "IOS_AUTO_SIGNING"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
+          output: "appname.ipa"
+          fusion-set-id: "37eb8960-97f8-11ed-8fca-0bdb776c63e0"
+          filters: *filters
+      - test-ios-private-sign:
+          runner: "IOS_PRIVATE_SIGNING"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
+          output: "appname.ipa"
+          fusion-set-id: "37eb8960-97f8-11ed-8fca-0bdb776c63e0"
+          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
@@ -81,7 +53,7 @@ workflows:
           pub-type: production
           requires:
             - orb-tools/pack
-            - command-tests
+            # - command-tests
           context: orb-publishing
           filters:
             branches:

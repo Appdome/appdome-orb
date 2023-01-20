@@ -15,4 +15,3 @@ usage:
               appFile: <path_to_ipa_file>
               output: <output_ipa>
               fusion-set-id: <Appdome_Fusion_Set_ID>
-              provisioning-profiles: <provisioning_profile_file>
