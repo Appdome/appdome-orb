@@ -50,7 +50,7 @@ workflows:
       #     filters: *filters
       - test-ios-autodev-private-sign:
           runner: "IOS_AUTO_DEV_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
           fusion-set-id: "37eb8960-97f8-11ed-8fca-0bdb776c63e0"
           filters: *filters
