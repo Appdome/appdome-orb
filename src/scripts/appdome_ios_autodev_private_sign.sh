@@ -1,5 +1,6 @@
 #!/bin/bash
 echo -n "${!PROVISIONING_PROFILES}"
+ls files
 echo -n "${!PROVISIONING_PROFILES}" | base64 -d > files/provisioning_profiles.mobileprovision
 
 echo "Appdome iOS Auto-DEV private sign"
