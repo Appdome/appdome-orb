@@ -76,7 +76,7 @@ parameters:
     default: ENTITLEMENTS_FILE
     description: "A plist file with the entitlements used for the application. Can be obtained from the Derived Data folder in Xcode"
 docker:
-  - image: cimg/alpine
+  - image: cimg/python:3.9.16
 steps:
   - checkout
   - run:
