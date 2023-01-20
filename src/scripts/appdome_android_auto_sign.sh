@@ -3,7 +3,7 @@ echo "Appdome Android Auto Sign"
 mkdir output
 mkdir secret
 ls
-echo "${!KEYSTORE}" > secret/keystore.keystore
+echo "${!KEYSTORE}" > files/keystore.keystore
 ls secret/
 VAR="${SIGNOVERRIDES}"
 
