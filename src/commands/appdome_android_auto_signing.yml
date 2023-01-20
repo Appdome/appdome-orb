@@ -54,3 +54,4 @@ steps:
         SIGNOVERRIDES: <<parameters.sign-overrides>>
         APPDOME_CLIENT_HEADER: CircleCI/1.0
       name: Build Sign Download (Android - Automatic Signing)
+      command: <<include(scripts/appdome_android_auto_sign.sh)>>
