@@ -13,6 +13,7 @@ jobs:
   test-android-auto-sign: appdome-orb/appdome_runner
   test-ios-auto-sign: appdome-orb/appdome_runner
   test-ios-private-sign: appdome-orb/appdome_runner
+  test-ios-autodev-private-sign: appdome-orb/appdome_runner
 workflows:
   test-deploy:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
