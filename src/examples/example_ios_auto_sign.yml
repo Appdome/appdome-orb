@@ -14,5 +14,4 @@ usage:
               runner: "IOS_AUTO_SIGNING"
               appFile: <path_to_ipa_file>
               output: <output_ipa>
-              fusion-set-id: <Appdome_Fusion_Set_ID>
 
