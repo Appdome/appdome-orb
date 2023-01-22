@@ -9,7 +9,7 @@ parameters:
   appFile:
     type: string
     description: "Absolute path to your app"
-   fusion-set-id-android:
+  fusion-set-id-android:
     type: env_var_name
     default: FUSION_SET_ID_ANDROID
     description: "Fusion Set with the features you want to add to your android application."

@@ -9,7 +9,7 @@ parameters:
   appFile:
     type: string
     description: "Absolute path to your app"
- fusion-set-id-ios:
+  fusion-set-id-ios:
     type: env_var_name
     default: FUSION_SET_ID_IOS
     description: "Fusion Set with the features you want to add to your iOS application."
