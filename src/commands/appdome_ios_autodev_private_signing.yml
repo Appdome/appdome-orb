@@ -9,9 +9,10 @@ parameters:
   appFile:
     type: string
     description: "Absolute path to your app"
-  fusion-set-id:
-    type: string
-    description: "Fusion Set with the features you want to add to your application."
+  fusion-set-id-ios:
+    type: env_var_name
+    default: FUSION_SET_ID_IOS
+    description: "Fusion Set with the features you want to add to your iOS application."
   output:
     type: string
     description: "The name of the output fused app."
@@ -29,7 +30,7 @@ steps:
       environment:
         APPDOME_API_KEY: <<parameters.appdome-api-token>>
         APPFILE: <<parameters.appFile>>
-        FUSIONSET: <<parameters.fusion-set-id>>
+        FUSIONSET: <<parameters.fusion-set-id-ios>>
         OUTPUT: <<parameters.output>>
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>

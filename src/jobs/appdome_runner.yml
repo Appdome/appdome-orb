@@ -21,9 +21,14 @@ parameters:
   appFile:
     type: string
     description: "Absolute path to your app"
-  fusion-set-id:
-    type: string
-    description: "Fusion Set with the features you want to add to your application."
+  fusion-set-id-ios:
+    type: env_var_name
+    default: FUSION_SET_ID_IOS
+    description: "Fusion Set with the features you want to add to your iOS application."
+  fusion-set-id-android:
+    type: env_var_name
+    default: FUSION_SET_ID_ANDROID
+    description: "Fusion Set with the features you want to add to your android application."
   output:
     type: string
     description: "The name of the output fused app."
@@ -89,11 +94,7 @@ steps:
   - run:
       environment:
         APPFILE: <<parameters.appFile>>
-        FUSIONSET: <<parameters.fusion-set-id>>
-        KEYSTORE: <<parameters.keystore-file>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
-        ENTITLEMENTS: <<parameters.entitlements>>
       name: Downloading files
       command: <<include(scripts/download_files.sh)>>
   - when:
@@ -103,7 +104,7 @@ steps:
         - appdome_android_private_signing:
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
-            fusion-set-id: <<parameters.fusion-set-id>>
+            fusion-set-id-android: <<parameters.fusion-set-id-android>>
             output: <<parameters.output>>
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
@@ -115,7 +116,7 @@ steps:
         - appdome_android_auto_signing:
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
-            fusion-set-id: <<parameters.fusion-set-id>>
+            fusion-set-id-android: <<parameters.fusion-set-id-android>>
             output: <<parameters.output>>
             keystore-file: <<parameters.keystore-file>>
             keystore-password: << parameters.keystore-password >>
@@ -130,7 +131,7 @@ steps:
         - appdome_android_autodev_private_signing:
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
-            fusion-set-id: <<parameters.fusion-set-id>>
+            fusion-set-id-android: <<parameters.fusion-set-id-android>>
             output: <<parameters.output>>
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
@@ -142,7 +143,7 @@ steps:
         - appdome_ios_auto_signing:
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
-            fusion-set-id: <<parameters.fusion-set-id>>
+            fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
             output: <<parameters.output>>
             p12-file: <<parameters.p12-file>>
             P12-password: <<parameters.p12-password>>
@@ -156,7 +157,7 @@ steps:
         - appdome_ios_private_signing:
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
-            fusion-set-id: <<parameters.fusion-set-id>>
+            fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
             output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
@@ -167,7 +168,7 @@ steps:
         - appdome_ios_autodev_private_signing:
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
-            fusion-set-id: <<parameters.fusion-set-id>>
+            fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
             output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
