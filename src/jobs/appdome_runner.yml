@@ -21,6 +21,10 @@ parameters:
   appFile:
     type: string
     description: "Absolute path to your app"
+  team-id:
+    type: string
+    default: ""
+    description: "your Team's ID."
   fusion-set-id-ios:
     type: env_var_name
     default: FUSION_SET_ID_IOS

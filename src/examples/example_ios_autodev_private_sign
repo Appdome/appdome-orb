@@ -14,3 +14,4 @@ usage:
               runner: "IOS_AUTO_DEV_SIGNING"
               appFile: <path_to_ipa_file>
               output: <output_ipa>
+              team-id: <your_team's_ID>

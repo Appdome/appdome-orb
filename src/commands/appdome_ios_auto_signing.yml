@@ -9,6 +9,10 @@ parameters:
   appFile:
     type: string
     description: "Absolute path to your app"
+  team-id:
+    type: string
+    default: ""
+    description: "your Team's ID."
   fusion-set-id-ios:
     type: env_var_name
     default: FUSION_SET_ID_IOS
@@ -43,6 +47,7 @@ steps:
         APPDOME_API_KEY: <<parameters.appdome-api-token>>
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id-ios>>
+        TEAM-ID: <<parameters.team-id>>
         OUTPUT: <<parameters.output>>
         P12_FILE: <<parameters.p12-file>>
         P12_PASS: <<parameters.P12-password>>
