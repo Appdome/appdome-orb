@@ -6,8 +6,8 @@ ls files
 VAR="${SIGNOVERRIDES}"
 TEAMID=""
 
-echo $TEAMID
-echo ${TEAM-ID}
+echo "$TEAMID"
+echo "${TEAM-ID}"
 
 if [[ -n "${TEAM-ID}" ]]; then
     TEAMID="--team_id ${TEAM-ID}"
