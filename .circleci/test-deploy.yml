@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  appdome-orb: appdome/appdome-build_2secure@dev:<<pipeline.git.revision>>
+  appdome-orb: appdome/build-2secure@dev:<<pipeline.git.revision>>
   orb-tools: circleci/orb-tools@11.5
 
 filters: &filters
@@ -51,7 +51,7 @@ workflows:
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
-          orb-name: appdome/appdome-build_2secure
+          orb-name: appdome/build-2secure
           vcs-type: << pipeline.project.type >>
           pub-type: production
           requires:
