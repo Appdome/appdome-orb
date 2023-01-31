@@ -7,7 +7,7 @@ VAR="${SIGNOVERRIDES}"
 TEAMID=""
 
 if [[ -n "${TEAM-ID}" ]]; then
-    TEAMID = "--team_id ${TEAM-ID}"
+    TEAMID="--team_id ${TEAM-ID}"
 fi
 
 if [[ -n "$VAR" ]]; then
