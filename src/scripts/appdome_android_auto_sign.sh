@@ -5,7 +5,8 @@ echo -n "${!KEYSTORE}" | base64 -d > files/keystore.keystore
 ls files
 VAR="${SIGNOVERRIDES}"
 TEAMID = ""
-if [[-n "${TEAM-ID}"]]; then
+
+if [[ -n "${TEAM-ID}" ]]; then
     TEAMID = "--team_id ${TEAM-ID}"
 
 if [[ -n "$VAR" ]]; then
