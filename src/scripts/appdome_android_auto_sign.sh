@@ -4,7 +4,7 @@ mkdir output
 echo -n "${!KEYSTORE}" | base64 -d > files/keystore.keystore
 ls files
 VAR="${SIGNOVERRIDES}"
-TEAMID = ""
+TEAMID=""
 
 if [[ -n "${TEAM-ID}" ]]; then
     TEAMID = "--team_id ${TEAM-ID}"
