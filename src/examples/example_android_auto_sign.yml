@@ -14,5 +14,4 @@ usage:
               runner: "ANDROID_AUTO_SIGNING"
               appFile: <path_to_apk_or_aab_file>
               output: <output_apk_or_aab>
-              fusion-set-id: <Appdome_Fusion_Set_ID>
               google-play-signing: <true_or_false>
