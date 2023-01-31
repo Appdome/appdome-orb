@@ -8,6 +8,7 @@ TEAMID = ""
 
 if [[ -n "${TEAM-ID}" ]]; then
     TEAMID = "--team_id ${TEAM-ID}"
+fi
 
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
