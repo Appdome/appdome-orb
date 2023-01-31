@@ -39,7 +39,7 @@ steps:
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id-android>>
         OUTPUT: <<parameters.output>>
-        TEAM-ID: <<parameters.team-id>>
+        TEAMID: <<parameters.team-id>>
         FINGERPRINT: <<parameters.signing-fingerprint>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>

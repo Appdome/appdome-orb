@@ -50,7 +50,7 @@ steps:
         APPDOME_API_KEY: <<parameters.appdome-api-token>>
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id-android>>
-        TEAM-ID: <<parameters.team-id>>
+        TEAMID: <<parameters.team-id>>
         OUTPUT: <<parameters.output>>
         KEYSTORE: <<parameters.keystore-file>>
         KEYSTORE_PASS: <<parameters.keystore-password>>
