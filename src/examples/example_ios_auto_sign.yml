@@ -6,7 +6,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    appdome-orb: appdome/appdome-orb@x.y.z
+    appdome-orb: appdome/appdome-build_2secure@x.y.z
   workflows:
     Appdome fusion:
       jobs:

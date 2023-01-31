@@ -1,7 +1,7 @@
 # Appdome CircleCI Orb
 
 
-[![CircleCI Build Status](https://circleci.com/gh/Appdome/appdome-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/Appdome/appdome-orb) [![CircleCI Orb Version](https://badges.circleci.com/orbs/appdome/appdome-orb.svg)](https://circleci.com/orbs/registry/orb/appdome/appdome-orb) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Appdome/appdome-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
+[![CircleCI Build Status](https://circleci.com/gh/appdome/appdome-build_2secure.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/appdome/appdome-build_2secure) [![CircleCI Orb Version](https://badges.circleci.com/orbs/appdome/appdome-build_2secure.svg)](https://circleci.com/orbs/registry/orb/appdome/appdome-build_2secure) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/appdome/appdome-build_2secure/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
 
 
@@ -10,7 +10,7 @@ Easily secure and customize your mobile apps on CircleCI using the Appdome Orb. 
 
 ## Usage
 
-For full usage guidelines, see the [orb registry listing](https://circleci.com/developer/orbs/orb/appdome/appdome-orb).
+For full usage guidelines, see the [orb registry listing](https://circleci.com/developer/orbs/orb/appdome/appdome-build_2secure).
 
 ### Setup
 
@@ -24,7 +24,7 @@ The examples assume that the environment variableat 'APPDOME_API_KEY' is set.
 
 ### Resources
 
-[CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/appdome/appdome-orb) - The official registry page of this orb for all versions, executors, commands, and jobs described.
+[CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/appdome/appdome-build_2secure) - The official registry page of this orb for all versions, executors, commands, and jobs described.
 
 [CircleCI Orb Docs](https://circleci.com/docs/2.0/orb-intro/#section=configuration) - Docs for using, creating, and publishing CircleCI Orbs.
 
@@ -36,7 +36,7 @@ We welcome [issues](https://github.com/Appdome/appdome-orb/issues) to and [pull 
 1. Merge pull requests with desired changes to the main branch.
     - For the best experience, squash-and-merge and use [Conventional Commit Messages](https://conventionalcommits.org/).
 2. Find the current version of the orb.
-    - You can run `circleci orb info appdome/appdome-orb | grep "Latest"` to see the current version.
+    - You can run `circleci orb info appdome/appdome-build_2secure | grep "Latest"` to see the current version.
 3. Create a [new Release](https://github.com/Appdome/appdome-orb/releases/new) on GitHub.
     - Click "Choose a tag" and _create_ a new [semantically versioned](http://semver.org/) tag. (ex: v1.0.0)
       - We will have an opportunity to change this before we publish if needed after the next step.
