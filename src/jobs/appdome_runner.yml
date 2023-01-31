@@ -122,6 +122,7 @@ steps:
             appFile: <<parameters.appFile>>
             fusion-set-id-android: <<parameters.fusion-set-id-android>>
             output: <<parameters.output>>
+            team-id: <<parameters.team-id>>
             keystore-file: <<parameters.keystore-file>>
             keystore-password: << parameters.keystore-password >>
             keystore-alias: <<parameters.keystore-alias>>
