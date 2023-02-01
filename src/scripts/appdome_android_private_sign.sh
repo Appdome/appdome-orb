@@ -2,6 +2,7 @@
 
 
 echo "Appdome Android private sign"
+env
 mkdir output
 VAR="${SIGNOVERRIDES}"
 ls
