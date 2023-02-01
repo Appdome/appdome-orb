@@ -42,5 +42,4 @@ steps:
       name: Build Sign Download (Android - Private Signing)
       command: |
         env
-        echo $APPDOME_API_KEY
         <<include(scripts/appdome_android_private_sign.sh)>>
