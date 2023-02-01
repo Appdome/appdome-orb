@@ -92,23 +92,23 @@ steps:
   - run:
       name: Install requirements
       command: |
-        <<include(scripts/install_requirements.sh)>>
         env
+        <<include(scripts/install_requirements.sh)>>
   - run:
       environment:
         APPFILE: <<parameters.appFile>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
       name: Downloading files
       command: |
-        <<include(scripts/download_files.sh)>>
         env
+        <<include(scripts/download_files.sh)>>
   - when:
       condition:
         equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - run:
           name: print
-          command: |
+          command:
             env
         - appdome_android_private_signing:
             appdome-api-token: << parameters.appdome-api-token >>
