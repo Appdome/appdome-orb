@@ -113,6 +113,7 @@ steps:
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
+            team-id: <<parameters.team-id>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
@@ -141,6 +142,7 @@ steps:
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
+            team-id: <<parameters.team-id>>
   - when:
       condition:
         equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
@@ -155,6 +157,7 @@ steps:
             provisioning-profiles: <<parameters.provisioning-profiles>>
             entitlements: <<parameters.entitlements>>
             sign-overrides: <<parameters.sign-overrides>>
+            team-id: <<parameters.team-id>>
   - when:
       condition:
         equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
@@ -178,6 +181,7 @@ steps:
             output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
+            team-id: <<parameters.team-id>>
   - store_artifacts:
       path: ./output/
       destination: appdome_fusion
