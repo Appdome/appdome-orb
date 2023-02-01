@@ -36,12 +36,12 @@ workflows:
       #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
       #     output: "appname.ipa"
       #     filters: *filters
-      # - appdome-orb/appdome_runner:
-      #     name: "test-ios-private-sign"
-      #     runner: "IOS_PRIVATE_SIGNING"
-      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
-      #     output: "appname.ipa"
-      #     filters: *filters
+      - appdome-orb/appdome_runner:
+          name: "test-ios-private-sign"
+          runner: "IOS_PRIVATE_SIGNING"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
+          output: "appname.ipa"
+          filters: *filters
       # - appdome-orb/appdome_runner:
       #     name: "test-ios-autodev-private-sign"
       #     runner: "IOS_AUTO_DEV_SIGNING"
