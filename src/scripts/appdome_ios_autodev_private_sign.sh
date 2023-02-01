@@ -3,6 +3,8 @@ echo "Appdome iOS Auto-DEV private sign"
 echo -n "${!PROVISIONING_PROFILES}" | base64 -d > files/provisioning_profiles.mobileprovision
 echo -n "${!ENTITLEMENTS}" | base64 -d > files/Entitlements.plist
 ls files
+
+cat files/Entitlements.plist
 mkdir output
 VAR="${SIGNOVERRIDES}"
 ls
