@@ -164,6 +164,7 @@ steps:
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
             output: <<parameters.output>>
+            team-id: <<parameters.team-id>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
   - when:
