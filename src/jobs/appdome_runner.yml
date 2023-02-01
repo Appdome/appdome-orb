@@ -180,6 +180,7 @@ steps:
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
             output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
+            entitlements: <<parameters.entitlements>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
   - store_artifacts:
