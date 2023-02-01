@@ -6,9 +6,6 @@ ls files
 VAR="${SIGNOVERRIDES}"
 teamidtemp=""
 
-echo "$teamidtemp"
-echo "${TEAMID}"
-
 if [[ -n "${TEAMID}" ]]; then
     teamidtemp="-t ${TEAMID}"
 else
