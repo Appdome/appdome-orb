@@ -1,5 +1,6 @@
 description: >
   In this example we are fusing an iOS app with auto signing.
+  * The team-id parameter is optional.
 # Provide a use-case based example for using this orb.
 # Everything in the `usage` section will be displayed in the orb registry.
 # Comments are not retained.
