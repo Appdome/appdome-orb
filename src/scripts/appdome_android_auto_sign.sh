@@ -10,7 +10,7 @@ echo "$teamidtemp"
 echo "${TEAMID}"
 
 if [[ -n "${TEAMID}" ]]; then
-    teamidtemp="--t ${TEAMID}"
+    teamidtemp="-t ${TEAMID}"
 else
     teamidtemp=""
 fi
