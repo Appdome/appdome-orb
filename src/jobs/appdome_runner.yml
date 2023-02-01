@@ -178,6 +178,7 @@ steps:
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
+            entitlements: <<parameters.entitlements>>
             output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>

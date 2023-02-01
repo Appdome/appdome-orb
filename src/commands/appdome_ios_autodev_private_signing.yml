@@ -29,6 +29,10 @@ parameters:
     type: string
     default: ""
     description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
+  entitlements:
+    type: env_var_name
+    default: ENTITLEMENTS_FILE
+    description: "A plist file with the entitlements used for the application. Can be obtained from the Derived Data folder in Xcode"
 steps:
   - run:
       environment:
@@ -40,5 +44,6 @@ steps:
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
         APPDOME_CLIENT_HEADER: CircleCI/1.0
+        ENTITLEMENTS: <<parameters.entitlements>>
       name: Build Sign Download (iOS - Auto-DEV private Signing)
       command: <<include(scripts/appdome_ios_autodev_private_sign.sh)>>
