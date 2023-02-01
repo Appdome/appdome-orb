@@ -45,7 +45,6 @@ workflows:
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
           output: "appname.ipa"
           team-id: "782d82c0-a208-11ed-a419-57f45584f0ac"
-          fusion-set-id-ios: "333"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-autodev-private-sign"
