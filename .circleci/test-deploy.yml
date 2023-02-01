@@ -14,7 +14,7 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-android-auto-sign"
           runner: "ANDROID_AUTO_SIGNING"
-          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+          team-id: "782d82c0-a208-11ed-a419-57f45584f0ac"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           filters: *filters
