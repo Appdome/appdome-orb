@@ -9,7 +9,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    appdome-orb: appdome/build-2secure-orb@x.y.z
+    appdome-orb: appdome/build-2secure-orb@1.0.0
   workflows:
     Appdome fusion:
       jobs:
