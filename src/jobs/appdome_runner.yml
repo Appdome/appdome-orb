@@ -89,19 +89,31 @@ steps:
       command: |
           git clone https://github.com/Appdome/appdome-api-python.git
           env
+          echo $APPDOME_API_KEY
   - run:
       name: Install requirements
-      command: <<include(scripts/install_requirements.sh)>>
+      command: |
+        <<include(scripts/install_requirements.sh)>>
+        env
+        echo $APPDOME_API_KEY
   - run:
       environment:
         APPFILE: <<parameters.appFile>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
       name: Downloading files
-      command: <<include(scripts/download_files.sh)>>
+      command: |
+        <<include(scripts/download_files.sh)>>
+        env
+        echo $APPDOME_API_KEY
   - when:
       condition:
         equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
+        - run:
+          name: print
+          command: |
+            env
+            echo $APPDOME_API_KEY
         - appdome_android_private_signing:
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
