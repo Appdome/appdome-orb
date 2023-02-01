@@ -9,11 +9,11 @@ description: >
 usage:
   version: 2.1
   orbs:
-    appdome-orb: appdome/build-2secure@1.0.0
+    build-2secure: appdome/build-2secure@1.0.0
   workflows:
     Appdome fusion:
       jobs:
-        - appdome-orb/appdome_runner:
+        - build-2secure/appdome_runner:
               runner: "ANDROID_AUTO_DEV_SIGNING"
               appFile: <path_to_apk_or_aab_file>
               output: <output_apk_or_aab>
