@@ -29,10 +29,6 @@ parameters:
     type: string
     default: ""
     description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
-  entitlements:
-    type: env_var_name
-    default: ENTITLEMENTS_FILE
-    description: "A plist file with the entitlements used for the application. Can be obtained from the Derived Data folder in Xcode"
 steps:
   - run:
       environment:
@@ -41,7 +37,6 @@ steps:
         FUSIONSET: <<parameters.fusion-set-id-ios>>
         TEAMID: <<parameters.team-id>>
         OUTPUT: <<parameters.output>>
-        ENTITLEMENTS: <<parameters.entitlements>>
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
         APPDOME_CLIENT_HEADER: CircleCI/1.0
