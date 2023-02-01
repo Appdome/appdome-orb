@@ -40,6 +40,4 @@ steps:
         SIGNOVERRIDES: <<parameters.sign-overrides>>
         APPDOME_CLIENT_HEADER: CircleCI/1.0
       name: Build Sign Download (Android - Private Signing)
-      command: |
-        env
-        <<include(scripts/appdome_android_private_sign.sh)>>
+      command: <<include(scripts/appdome_android_private_sign.sh)>>
