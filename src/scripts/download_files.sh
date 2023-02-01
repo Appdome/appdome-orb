@@ -10,5 +10,5 @@ if [[ -n "${SIGNOVERRIDES}" ]]; then
     wget "${SIGNOVERRIDES}" -O files/"$(basename "$SIGNOVERRIDES")"
 fi
 ls files
-
+env
 

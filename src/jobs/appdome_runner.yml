@@ -91,17 +91,13 @@ steps:
           env
   - run:
       name: Install requirements
-      command: |
-        env
-        <<include(scripts/install_requirements.sh)>>
+      command: <<include(scripts/install_requirements.sh)>>
   - run:
       environment:
         APPFILE: <<parameters.appFile>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
       name: Downloading files
-      command: |
-        env
-        <<include(scripts/download_files.sh)>>
+      command: <<include(scripts/download_files.sh)>>
   - when:
       condition:
         equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
