@@ -43,7 +43,7 @@ steps:
         OUTPUT: <<parameters.output>>
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        APPDOME_CLIENT_HEADER: CircleCI/1.0
+        APPDOME_CLIENT_HEADER: CircleCI/1.0.0
         ENTITLEMENTS: <<parameters.entitlements>>
       name: Build Sign Download (iOS - Auto-DEV private Signing)
       command: <<include(scripts/appdome_ios_autodev_private_sign.sh)>>
