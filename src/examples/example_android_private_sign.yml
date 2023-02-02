@@ -1,6 +1,6 @@
 description: >
   In this example we are fusing an android app with private signing.
-  * The team-id parameter is optional.
+  * The team-id parameter is optional,please remove this line when working on personal workspace.
   * Default value for google-play-signing parameter is false.
 
 # Provide a use-case based example for using this orb.
@@ -15,7 +15,7 @@ usage:
       jobs:
         - build-2secure/appdome_runner:
               runner: "ANDROID_PRIVATE_SIGNING"
+              team-id: <your_team's_ID> - remove this line when working on personal workspace.
               appFile: <path_to_apk_or_aab_file>
               output: <output_apk_or_aab>
-              team-id: <your_team's_ID>
               google-play-signing: <true_or_false>

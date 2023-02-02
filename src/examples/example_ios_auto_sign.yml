@@ -1,6 +1,6 @@
 description: >
-  In this example we are fusing an iOS app with auto signing.
-  * The team-id parameter is optional.
+  In this example we are fusing an iOS app with automatic signing.
+  * The team-id parameter is optional,please remove this line when working on personal workspace.
 # Provide a use-case based example for using this orb.
 # Everything in the `usage` section will be displayed in the orb registry.
 # Comments are not retained.
@@ -13,7 +13,7 @@ usage:
       jobs:
         - build-2secure/appdome_runner:
               runner: "IOS_AUTO_SIGNING"
-              appFile: <path_to_ipa_file>
+              team-id: <your_team's_ID> - remove this line when working on personal workspace.
+              appFile: <path_to_remote_ipa_download_file_location>
               output: <output_ipa>
-              team-id: <your_team's_ID>
 
