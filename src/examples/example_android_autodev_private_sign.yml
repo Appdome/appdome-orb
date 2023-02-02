@@ -3,9 +3,6 @@ description: >
   * The team-id parameter is optional,please remove this line when working on personal workspace.
   * Default value for google-play-signing parameter is false.
 
-# Provide a use-case based example for using this orb.
-# Everything in the `usage` section will be displayed in the orb registry.
-# Comments are not retained.
 usage:
   version: 2.1
   orbs:
