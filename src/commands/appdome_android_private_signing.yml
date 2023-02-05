@@ -9,6 +9,10 @@ parameters:
   appFile:
     type: string
     description: "Absolute path to your app"
+  team-id:
+    type: string
+    default: ""
+    description: "your Team's ID."
   fusion-set-id-android:
     type: env_var_name
     default: FUSION_SET_ID_ANDROID
@@ -35,9 +39,10 @@ steps:
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id-android>>
         OUTPUT: <<parameters.output>>
+        TEAMID: <<parameters.team-id>>
         FINGERPRINT: <<parameters.signing-fingerprint>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        APPDOME_CLIENT_HEADER: CircleCI/1.0
+        APPDOME_CLIENT_HEADER: CircleCI/1.0.1
       name: Build Sign Download (Android - Private Signing)
       command: <<include(scripts/appdome_android_private_sign.sh)>>

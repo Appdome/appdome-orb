@@ -21,6 +21,10 @@ parameters:
   appFile:
     type: string
     description: "Absolute path to your app"
+  team-id:
+    type: string
+    default: ""
+    description: "your Team's ID."
   fusion-set-id-ios:
     type: env_var_name
     default: FUSION_SET_ID_IOS
@@ -109,6 +113,7 @@ steps:
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
+            team-id: <<parameters.team-id>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
@@ -118,6 +123,7 @@ steps:
             appFile: <<parameters.appFile>>
             fusion-set-id-android: <<parameters.fusion-set-id-android>>
             output: <<parameters.output>>
+            team-id: <<parameters.team-id>>
             keystore-file: <<parameters.keystore-file>>
             keystore-password: << parameters.keystore-password >>
             keystore-alias: <<parameters.keystore-alias>>
@@ -136,6 +142,7 @@ steps:
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
+            team-id: <<parameters.team-id>>
   - when:
       condition:
         equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
@@ -150,6 +157,7 @@ steps:
             provisioning-profiles: <<parameters.provisioning-profiles>>
             entitlements: <<parameters.entitlements>>
             sign-overrides: <<parameters.sign-overrides>>
+            team-id: <<parameters.team-id>>
   - when:
       condition:
         equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
@@ -159,6 +167,7 @@ steps:
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
             output: <<parameters.output>>
+            team-id: <<parameters.team-id>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
   - when:
@@ -169,9 +178,11 @@ steps:
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
+            entitlements: <<parameters.entitlements>>
             output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
+            team-id: <<parameters.team-id>>
   - store_artifacts:
       path: ./output/
       destination: appdome_fusion

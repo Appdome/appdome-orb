@@ -1,16 +1,16 @@
 description: >
   In this example we are fusing an iOS app with private signing.
-# Provide a use-case based example for using this orb.
-# Everything in the `usage` section will be displayed in the orb registry.
-# Comments are not retained.
+  * The team-id parameter is optional,please remove this line when working on personal workspace.
+
 usage:
   version: 2.1
   orbs:
-    appdome-orb: appdome/build-2secure@x.y.z
+    build-2secure: appdome/build-2secure@1.0.1
   workflows:
     Appdome fusion:
       jobs:
-        - appdome-orb/appdome_runner:
+        - build-2secure/appdome_runner:
               runner: "IOS_AUTO_DEV_SIGNING"
-              appFile: <path_to_ipa_file>
+              team-id: <your_team's_ID> - remove this line when working on personal workspace.
+              appFile: <path_to_remote_ipa_download_file_location>
               output: <output_ipa>
