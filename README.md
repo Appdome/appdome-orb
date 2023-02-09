@@ -14,4 +14,4 @@ For full usage guidelines, see the [orb registry listing](https://circleci.com/d
 
 ### Resources
 
-How to Use [Appdome Build-2Secure Orb for CircleCI](https://www.appdome.com/how-to/appsec-release-orchestration/mobile-appsec-cicd/use-appdome-plugin-with-circleci/?utm_campaign=2023%20Partner%20Campaign%20-%20DevOps&utm_source=Github&utm_medium=KB&utm_term=Github&utm_content=CircleCI)
+How to Use [Appdome Build-2Secure Orb for CircleCI](https://bit.ly/3wM5wMv)
