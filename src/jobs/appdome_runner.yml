@@ -1,7 +1,7 @@
 description: >
   Perform Appdome fusing with all types of Android and iOS signings.
 
-working_directory: ./apppdome_workspace
+working_directory: ~/appdome_workspace/
 parameters:
   runner:
     description: >

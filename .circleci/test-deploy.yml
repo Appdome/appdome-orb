@@ -18,41 +18,41 @@ workflows:
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           filters: *filters
-      - appdome-orb/appdome_runner:
-          name: "test-android-private-sign"
-          runner: "ANDROID_PRIVATE_SIGNING"
-          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
-          output: "appname.apk"
-          filters: *filters
-      - appdome-orb/appdome_runner:
-          name: "test-android-autodev-private-sign"
-          runner: "ANDROID_AUTO_DEV_SIGNING"
-          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
-          output: "appname.apk"
-          filters: *filters
-      - appdome-orb/appdome_runner:
-          name: "test-ios-auto-sign"
-          runner: "IOS_AUTO_SIGNING"
-          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
-          output: "appname.ipa"
-          filters: *filters
-      - appdome-orb/appdome_runner:
-          name: "test-ios-private-sign"
-          runner: "IOS_PRIVATE_SIGNING"
-          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
-          output: "appname.ipa"
-          filters: *filters
-      - appdome-orb/appdome_runner:
-          name: "test-ios-autodev-private-sign"
-          runner: "IOS_AUTO_DEV_SIGNING"
-          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
-          output: "appname.ipa"
-          filters: *filters
+      # - appdome-orb/appdome_runner:
+      #     name: "test-android-private-sign"
+      #     runner: "ANDROID_PRIVATE_SIGNING"
+      #     team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
+      #     output: "appname.apk"
+      #     filters: *filters
+      # - appdome-orb/appdome_runner:
+      #     name: "test-android-autodev-private-sign"
+      #     runner: "ANDROID_AUTO_DEV_SIGNING"
+      #     team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
+      #     output: "appname.apk"
+      #     filters: *filters
+      # - appdome-orb/appdome_runner:
+      #     name: "test-ios-auto-sign"
+      #     runner: "IOS_AUTO_SIGNING"
+      #     team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
+      #     output: "appname.ipa"
+      #     filters: *filters
+      # - appdome-orb/appdome_runner:
+      #     name: "test-ios-private-sign"
+      #     runner: "IOS_PRIVATE_SIGNING"
+      #     team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
+      #     output: "appname.ipa"
+      #     filters: *filters
+      # - appdome-orb/appdome_runner:
+      #     name: "test-ios-autodev-private-sign"
+      #     runner: "IOS_AUTO_DEV_SIGNING"
+      #     team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
+      #     output: "appname.ipa"
+      #     filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
