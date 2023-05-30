@@ -11,13 +11,11 @@ jobs:
   downstream:
     steps:
       - attach_workspace:
-          # Must be absolute path or relative path from working_directory
           at: ~/appdome_workspace/
       - run: ls .
 
 workflows:
   test-deploy:
-        # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
     jobs:
       - appdome-orb/appdome_runner:
           name: "test-android-auto-sign"
@@ -29,7 +27,7 @@ workflows:
       - downstream:
           filters: *filters
           requires:
-          - test-android-auto-sign
+            - test-android-auto-sign
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
@@ -38,12 +36,9 @@ workflows:
           pub-type: production
           requires:
             - orb-tools/pack
-            # - command-tests
           context: orb-publishing
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
-
-# VS Code Extension Version: 1.4.0
