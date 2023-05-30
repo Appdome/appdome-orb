@@ -7,19 +7,22 @@ filters: &filters
   tags:
     only: /.*/
 
+executors:
+  my-executor:
+    docker:
+      - image: cimg/python:3.11.3
+    working_directory: /tmp
+
 jobs:
   downstream:
+    executor: my-executor
     steps:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: /tmp/workspace
+          at: ~/appdome_workspace/
 
       - run: |
-          if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
-            echo "It worked!";
-          else
-            echo "Nope!"; exit 1
-          fi
+            ls -la
 
 workflows:
   test-deploy:
