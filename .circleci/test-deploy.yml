@@ -9,10 +9,18 @@ filters: &filters
 
 jobs:
   downstream:
+    executor: my-executor
     steps:
       - attach_workspace:
-          at: ~/appdome_workspace/
-      - run: ls .
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
+
+      - run: |
+          if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
+            echo "It worked!";
+          else
+            echo "Nope!"; exit 1
+          fi
 
 workflows:
   test-deploy:
