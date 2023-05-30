@@ -8,15 +8,12 @@ filters: &filters
     only: /.*/
 
 jobs:
-  fixed tests:
+  downstream:
     steps:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: /tmp/workspace
-
-      - run: |
-          ls .
-
+          at: ~/appdome_workspace/
+      - run: ls .
 
 workflows:
   test-deploy:
@@ -29,10 +26,11 @@ workflows:
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           filters: *filters
-      - command-tests:
+      - downstream:
           filters: *filters
           requires:
-           - ls_to_appdome_workspace
+          - test-android-auto-sign
+          
 
       # - appdome-orb/appdome_runner:
       #     name: "test-android-private-sign"
