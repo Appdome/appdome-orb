@@ -9,7 +9,6 @@ filters: &filters
 
 jobs:
   downstream:
-    executor: my-executor
     steps:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
