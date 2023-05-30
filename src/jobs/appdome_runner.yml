@@ -185,9 +185,9 @@ steps:
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
   - persist_to_workspace:
-        root: workspace
+        root: ~/appdome_workspace/
         paths:
           - output
   - store_artifacts:
-      path: ./apppdome_workspace/output/
+      path: ./output/
       destination: appdome_fusion
