@@ -8,11 +8,14 @@ filters: &filters
     only: /.*/
 
 jobs:
-  command-tests:
+  fixed tests:
     steps:
-      - run:
-          name: ls_to_appdome_workspace
-          command: ls -la /home/circleci/appdome_workspace
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
+
+      - run: |
+          ls .
 
 
 workflows:
