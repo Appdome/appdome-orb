@@ -7,6 +7,15 @@ filters: &filters
   tags:
     only: /.*/
 
+jobs:
+  command-tests:
+    steps:
+      - run:
+          name: ls_to_appdome_workspace
+          command: 
+            | ls -la /home/circleci/appdome_workspace
+
+
 workflows:
   test-deploy:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
@@ -18,6 +27,11 @@ workflows:
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
           filters: *filters
+      - command-tests:
+          filters: *filters
+          requires:
+           - ls_to_appdome_workspace
+
       # - appdome-orb/appdome_runner:
       #     name: "test-android-private-sign"
       #     runner: "ANDROID_PRIVATE_SIGNING"
