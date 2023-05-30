@@ -1,6 +1,7 @@
 description: >
   Perform Appdome fusing with all types of Android and iOS signings.
 
+working_directory: ./apppdome_workspace
 parameters:
   runner:
     description: >
@@ -183,6 +184,11 @@ steps:
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
+  - persist_to_workspace:
+        root: workspace
+        paths:
+          - output
   - store_artifacts:
-      path: ./output/
+      path: ./apppdome_workspace/output/
       destination: appdome_fusion
+  
