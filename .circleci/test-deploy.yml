@@ -22,7 +22,7 @@ jobs:
           at: ~/appdome_workspace/
 
       - run: |
-            ls -la ~/appdome_workspace/
+            ls -la ~/appdome_workspace/output/
 
 workflows:
   test-deploy:
