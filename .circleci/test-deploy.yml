@@ -42,7 +42,6 @@ workflows:
           requires:
             - test-android-auto-sign
       - appdome-orb/appdome_runner:
-        - "test-android-auto-sign1" :
         - pre-steps:
           - attach_workspace:
             # Must be absolute path or relative path from working_directory
