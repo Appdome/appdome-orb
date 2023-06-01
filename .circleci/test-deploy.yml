@@ -46,7 +46,7 @@ workflows:
           runner: "ANDROID_AUTO_SIGNING"
           team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
           appFile: "/home/circleci/appdome_workspace/output/appname.apk"
-          output: "appname.apk"
+          output: "appname12.apk"
           filters: *filters
           requires:
             - downstream
