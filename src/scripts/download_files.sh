@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-mkdir files
+mkdir -p files
 echo "Downloading android file"
 if [[ "${APPFILE}" == http* ]]; then
     wget "${APPFILE}" -O files/"$(basename "$APPFILE")"
