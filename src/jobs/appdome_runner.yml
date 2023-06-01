@@ -1,9 +1,6 @@
 description: >
   Perform Appdome fusing with all types of Android and iOS signings.
 
-- attach_workspace:
-  # Must be absolute path or relative path from working_directory
-    at: ~/appdome_workspace/
 working_directory: ~/appdome_workspace/
 parameters:
   runner:
