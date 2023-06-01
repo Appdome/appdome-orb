@@ -3,7 +3,7 @@ description: >
 
 - attach_workspace:
   # Must be absolute path or relative path from working_directory
-  at: ~/appdome_workspace/
+    at: ~/appdome_workspace/
 working_directory: ~/appdome_workspace/
 parameters:
   runner:
