@@ -54,9 +54,6 @@ workflows:
           filters: *filters
           requires:
             - downstream
-          attach_workspace:
-          # Must be absolute path or relative path from working_directory
-              at: ~/appdome_workspace/
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
