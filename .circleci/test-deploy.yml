@@ -22,9 +22,9 @@ jobs:
           at: ~/appdome_workspace/
 
       - run: |
-            ls -la ~/appdome_workspace/output/
+            ls -la ~/appdome_workspace/appdome_outputs/
             ls -la $ARTIFACTS_LOCATION
-            cd ~/appdome_workspace/output/
+            cd ~/appdome_workspace/appdome_outputs/
             ls
             pwd
 workflows:
@@ -45,7 +45,7 @@ workflows:
           name: "test-android-auto-sign1"
           runner: "ANDROID_AUTO_SIGNING"
           team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
-          appFile: "/home/circleci/appdome_workspace/output/appname.apk"
+          appFile: "/home/circleci/appdome_workspace/appdome_outputs/appname.apk"
           output: "appname12.apk"
           filters: *filters
           requires:
