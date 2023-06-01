@@ -42,18 +42,19 @@ workflows:
           requires:
             - test-android-auto-sign
       - appdome-orb/appdome_runner:
+        - "test-android-auto-sign1" :
         - pre-steps:
-            - attach_workspace:
-          # Must be absolute path or relative path from working_directory
-                at: ~/appdome_workspace/
-          name: "test-android-auto-sign1"
-          runner: "ANDROID_AUTO_SIGNING"
-          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
-          appFile: "/home/circleci/appdome_workspace/output/appname.apk"
-          output: "appname.apk"
-          filters: *filters
-          requires:
-            - downstream
+          - attach_workspace:
+            # Must be absolute path or relative path from working_directory
+              at: ~/appdome_workspace/
+            name: "test-android-auto-sign1"
+            runner: "ANDROID_AUTO_SIGNING"
+            team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+            appFile: "/home/circleci/appdome_workspace/output/appname.apk"
+            output: "appname.apk"
+            filters: *filters
+            requires:
+              - downstream
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
