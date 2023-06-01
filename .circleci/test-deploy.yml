@@ -23,6 +23,7 @@ jobs:
 
       - run: |
             ls -la ~/appdome_workspace/output/
+            ls -la "$ARTIFACTS_LOCATION"
             cd ~/appdome_workspace/output/
             ls
             pwd
