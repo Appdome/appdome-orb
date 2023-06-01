@@ -45,7 +45,7 @@ workflows:
           name: "test-android-auto-sign1"
           runner: "ANDROID_AUTO_SIGNING"
           team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
-          appFile: $ARTIFACTS_LOCATION/appname.apk
+          appFile: << pipeline.parameters.ARTIFACTS_LOCATION >>/appname.apk
           output: "appname.apk"
           filters: *filters
           requires:
