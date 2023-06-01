@@ -2,7 +2,7 @@
 
 
 mkdir files
-echo 'export ARTIFACTS_LOCATION="~/appdome_workspace/output/"' >> "$BASH_ENV"
+echo "export ARTIFACTS_LOCATION=\"$HOME/appdome_workspace/output/\"" >> "$BASH_ENV"
 echo "Downloading android file"
 wget "${APPFILE}" -O files/"$(basename "$APPFILE")"
 if [[ -n "${SIGNOVERRIDES}" ]]; then
