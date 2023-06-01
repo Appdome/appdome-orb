@@ -88,10 +88,10 @@ parameters:
 docker:
   - image: cimg/python:3.9.16
 steps:
+  - checkout
   - attach_workspace:
       # Must be absolute path or relative path from working_directory
       at: ~/appdome_workspace/
-  - checkout
   - run:
       name: Clone Appdome API repository
       command: |
