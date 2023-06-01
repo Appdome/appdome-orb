@@ -23,7 +23,7 @@ jobs:
 
       - run: |
             ls -la ~/appdome_workspace/output/
-            ls -la "${!ARTIFACTS_LOCATION}"
+            ls -la "$ARTIFACTS_LOCATION"
 workflows:
   test-deploy:
     jobs:
