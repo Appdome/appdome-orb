@@ -190,10 +190,10 @@ steps:
   - persist_to_workspace:
         root: ~/appdome_workspace/
         paths:
-          - output
+          - appdome_outputs
   - run:
         name: Export Environment variable for Artifact
-        command: echo 'ARTIFACTS_LOCATION="/home/circleci/appdome_workspace/output"' >> $BASH_ENV
+        command: echo 'ARTIFACTS_LOCATION="/home/circleci/appdome_workspace/appdome_outputs"' >> $BASH_ENV
   - store_artifacts:
-      path: ./output/
+      path: ./appdome_outputs/
       destination: appdome_fusion
