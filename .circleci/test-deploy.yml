@@ -22,11 +22,7 @@ jobs:
           at: ~/appdome_workspace/
 
       - run: |
-            ls -la ~/appdome_workspace/appdome_outputs/
-            ls -la $ARTIFACTS_LOCATION
-            cd ~/appdome_workspace/appdome_outputs/
-            ls
-            pwd
+            ls -la "/home/circleci/appdome_workspace/appdome_outputs/"
 workflows:
   test-deploy:
     jobs:
