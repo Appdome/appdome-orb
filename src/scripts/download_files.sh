@@ -6,7 +6,7 @@ echo "Downloading android file"
 if [[ "${APPFILE}" == http* ]]; then
     wget "${APPFILE}" -O appdome_files/"$(basename "$APPFILE")"
 else
-    ls -la "${APPFILE}"
+    ls -la "${APPFILE}" --ignore=filename
 fi
 
 if [[ -n "${SIGNOVERRIDES}" ]]; then
