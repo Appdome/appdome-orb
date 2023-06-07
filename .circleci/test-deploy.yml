@@ -23,7 +23,7 @@ jobs:
 
       - run: |
             ls -la "/home/circleci/appdome_workspace/appdome_outputs/"
-            cat $BASH_ENV
+            echo "$ARTIFACTS_LOCATION"
 workflows:
   test-deploy:
     jobs:
