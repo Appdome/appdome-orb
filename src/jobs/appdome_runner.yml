@@ -190,7 +190,7 @@ steps:
           - appdome_outputs
   - run:
         name: Export Environment variable for Artifact
-        command: echo 'ARTIFACTS_LOCATION="/home/circleci/appdome_workspace/appdome_outputs"' >> $BASH_ENV
+        command: echo 'ARTIFACTS_LOCATION="/home/circleci/appdome_workspace/appdome_outputs/<<parameters.output>>"' >> $BASH_ENV
   - store_artifacts:
       path: ./appdome_outputs/
       destination: appdome_fusion
