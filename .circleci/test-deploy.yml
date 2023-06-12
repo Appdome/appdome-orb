@@ -22,9 +22,9 @@ jobs:
           at: ~/appdome_workspace/
 
       - run: |
-            ls -la "/home/circleci/appdome_workspace/appdome_outputs/"
             PARAM=$(circleci env subst "$ARTIFACTS_LOCATION")
-            echo $PARAM
+            echo "$PARAM"
+
 workflows:
   test-deploy:
     jobs:
