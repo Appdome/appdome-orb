@@ -100,6 +100,11 @@ steps:
       name: Export Environment variable for Artifact
       command: |
           echo 'export ARTIFACTS_LOCATION="/home/circleci/appdome_workspace/appdome_outputs/"' >> "$BASH_ENV"
+  - run:
+    name: Substitute Environment Variable
+    command: |
+        PARAM=$(circleci env subst "$ARTIFACTS_LOCATION")
+        echo "$PARAM"
   # - run:
   #     environment:
   #       APPFILE: <<parameters.appFile>>
