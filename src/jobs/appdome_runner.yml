@@ -97,102 +97,101 @@ steps:
       name: Install requirements
       command: <<include(scripts/install_requirements.sh)>>
   - run:
-      environment:
-        APPFILE: <<parameters.appFile>>
-        SIGNOVERRIDES: <<parameters.sign-overrides>>
-      name: Downloading files
-      command: <<include(scripts/download_files.sh)>>
-  - when:
-      condition:
-        equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
-      steps:
-        - appdome_android_private_signing:
-            appdome-api-token: << parameters.appdome-api-token >>
-            appFile: <<parameters.appFile>>
-            fusion-set-id-android: <<parameters.fusion-set-id-android>>
-            output: <<parameters.output>>
-            signing-fingerprint: <<parameters.signing-fingerprint>>
-            google-play-signing: <<parameters.google-play-signing>>
-            sign-overrides: <<parameters.sign-overrides>>
-            team-id: <<parameters.team-id>>
-  - when:
-      condition:
-        equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
-      steps:
-        - appdome_android_auto_signing:
-            appdome-api-token: << parameters.appdome-api-token >>
-            appFile: <<parameters.appFile>>
-            fusion-set-id-android: <<parameters.fusion-set-id-android>>
-            output: <<parameters.output>>
-            team-id: <<parameters.team-id>>
-            keystore-file: <<parameters.keystore-file>>
-            keystore-password: << parameters.keystore-password >>
-            keystore-alias: <<parameters.keystore-alias>>
-            keystore-key-password: << parameters.keystore-key-password >>
-            google-play-signing: <<parameters.google-play-signing>>
-            sign-overrides: <<parameters.sign-overrides>>
-  - when:
-      condition:
-        equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
-      steps:
-        - appdome_android_autodev_private_signing:
-            appdome-api-token: << parameters.appdome-api-token >>
-            appFile: <<parameters.appFile>>
-            fusion-set-id-android: <<parameters.fusion-set-id-android>>
-            output: <<parameters.output>>
-            signing-fingerprint: <<parameters.signing-fingerprint>>
-            google-play-signing: <<parameters.google-play-signing>>
-            sign-overrides: <<parameters.sign-overrides>>
-            team-id: <<parameters.team-id>>
-  - when:
-      condition:
-        equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
-      steps:
-        - appdome_ios_auto_signing:
-            appdome-api-token: << parameters.appdome-api-token >>
-            appFile: <<parameters.appFile>>
-            fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
-            output: <<parameters.output>>
-            p12-file: <<parameters.p12-file>>
-            P12-password: <<parameters.p12-password>>
-            provisioning-profiles: <<parameters.provisioning-profiles>>
-            entitlements: <<parameters.entitlements>>
-            sign-overrides: <<parameters.sign-overrides>>
-            team-id: <<parameters.team-id>>
-  - when:
-      condition:
-        equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
-      steps:
-        - appdome_ios_private_signing:
-            appdome-api-token: << parameters.appdome-api-token >>
-            appFile: <<parameters.appFile>>
-            fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
-            output: <<parameters.output>>
-            team-id: <<parameters.team-id>>
-            provisioning-profiles: <<parameters.provisioning-profiles>>
-            sign-overrides: <<parameters.sign-overrides>>
-  - when:
-      condition:
-        equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
-      steps:
-        - appdome_ios_autodev_private_signing:
-            appdome-api-token: << parameters.appdome-api-token >>
-            appFile: <<parameters.appFile>>
-            fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
-            entitlements: <<parameters.entitlements>>
-            output: <<parameters.output>>
-            provisioning-profiles: <<parameters.provisioning-profiles>>
-            sign-overrides: <<parameters.sign-overrides>>
-            team-id: <<parameters.team-id>>
-  - persist_to_workspace:
-        root: ~/appdome_workspace/
-        paths:
-          - appdome_outputs
-  - run:
-        name: Export Environment variable for Artifact
-        command: |
-            echo 'export ARTIFACTS_LOCATION="/home/circleci/appdome_workspace/appdome_outputs/"' >> "$BASH_ENV"
-            
-  - store_artifacts:
-      path: ./appdome_outputs/
-      destination: appdome_fusion
+      name: Export Environment variable for Artifact
+      command: |
+          echo 'export ARTIFACTS_LOCATION="/home/circleci/appdome_workspace/appdome_outputs/"' >> "$BASH_ENV"
+  # - run:
+  #     environment:
+  #       APPFILE: <<parameters.appFile>>
+  #       SIGNOVERRIDES: <<parameters.sign-overrides>>
+  #     name: Downloading files
+  #     command: <<include(scripts/download_files.sh)>>
+  # - when:
+  #     condition:
+  #       equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
+  #     steps:
+  #       - appdome_android_private_signing:
+  #           appdome-api-token: << parameters.appdome-api-token >>
+  #           appFile: <<parameters.appFile>>
+  #           fusion-set-id-android: <<parameters.fusion-set-id-android>>
+  #           output: <<parameters.output>>
+  #           signing-fingerprint: <<parameters.signing-fingerprint>>
+  #           google-play-signing: <<parameters.google-play-signing>>
+  #           sign-overrides: <<parameters.sign-overrides>>
+  #           team-id: <<parameters.team-id>>
+  # - when:
+  #     condition:
+  #       equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
+  #     steps:
+  #       - appdome_android_auto_signing:
+  #           appdome-api-token: << parameters.appdome-api-token >>
+  #           appFile: <<parameters.appFile>>
+  #           fusion-set-id-android: <<parameters.fusion-set-id-android>>
+  #           output: <<parameters.output>>
+  #           team-id: <<parameters.team-id>>
+  #           keystore-file: <<parameters.keystore-file>>
+  #           keystore-password: << parameters.keystore-password >>
+  #           keystore-alias: <<parameters.keystore-alias>>
+  #           keystore-key-password: << parameters.keystore-key-password >>
+  #           google-play-signing: <<parameters.google-play-signing>>
+  #           sign-overrides: <<parameters.sign-overrides>>
+  # - when:
+  #     condition:
+  #       equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
+  #     steps:
+  #       - appdome_android_autodev_private_signing:
+  #           appdome-api-token: << parameters.appdome-api-token >>
+  #           appFile: <<parameters.appFile>>
+  #           fusion-set-id-android: <<parameters.fusion-set-id-android>>
+  #           output: <<parameters.output>>
+  #           signing-fingerprint: <<parameters.signing-fingerprint>>
+  #           google-play-signing: <<parameters.google-play-signing>>
+  #           sign-overrides: <<parameters.sign-overrides>>
+  #           team-id: <<parameters.team-id>>
+  # - when:
+  #     condition:
+  #       equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
+  #     steps:
+  #       - appdome_ios_auto_signing:
+  #           appdome-api-token: << parameters.appdome-api-token >>
+  #           appFile: <<parameters.appFile>>
+  #           fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
+  #           output: <<parameters.output>>
+  #           p12-file: <<parameters.p12-file>>
+  #           P12-password: <<parameters.p12-password>>
+  #           provisioning-profiles: <<parameters.provisioning-profiles>>
+  #           entitlements: <<parameters.entitlements>>
+  #           sign-overrides: <<parameters.sign-overrides>>
+  #           team-id: <<parameters.team-id>>
+  # - when:
+  #     condition:
+  #       equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
+  #     steps:
+  #       - appdome_ios_private_signing:
+  #           appdome-api-token: << parameters.appdome-api-token >>
+  #           appFile: <<parameters.appFile>>
+  #           fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
+  #           output: <<parameters.output>>
+  #           team-id: <<parameters.team-id>>
+  #           provisioning-profiles: <<parameters.provisioning-profiles>>
+  #           sign-overrides: <<parameters.sign-overrides>>
+  # - when:
+  #     condition:
+  #       equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
+  #     steps:
+  #       - appdome_ios_autodev_private_signing:
+  #           appdome-api-token: << parameters.appdome-api-token >>
+  #           appFile: <<parameters.appFile>>
+  #           fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
+  #           entitlements: <<parameters.entitlements>>
+  #           output: <<parameters.output>>
+  #           provisioning-profiles: <<parameters.provisioning-profiles>>
+  #           sign-overrides: <<parameters.sign-overrides>>
+  #           team-id: <<parameters.team-id>>
+  # - persist_to_workspace:
+  #       root: ~/appdome_workspace/
+  #       paths:
+  #         - appdome_outputs
+  # - store_artifacts:
+  #     path: ./appdome_outputs/
+  #     destination: appdome_fusion
