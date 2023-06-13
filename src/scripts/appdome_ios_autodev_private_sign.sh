@@ -11,7 +11,13 @@ else
   BUILD_LOGS=""
 fi
 
-echo "$BUILD_LOGS"
+if [ "${BUILD_WITH_LOGS}" = true ]; then
+  BUILD_LOGS="-build_with_logs"
+else
+  BUILD_LOGS=""
+fi
+echo BUILD_WITH_LOGS = "${BUILD_WITH_LOGS}"
+echo build_logs = "$BUILD_LOGS"
 
 ls
 if [[ -n "$VAR" ]]; then
