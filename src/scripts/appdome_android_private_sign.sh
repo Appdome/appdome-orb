@@ -10,7 +10,8 @@ else
   BUILD_LOGS=""
 fi
 
-echo $BUILD_LOGS
+echo "$BUILD_LOGS"
+
 ls
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
