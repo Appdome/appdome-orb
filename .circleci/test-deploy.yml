@@ -19,10 +19,10 @@ jobs:
     steps:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: ${HOME}/appdome_workspace/
+          at: ~/appdome_workspace/
 
       - run: |
-            PARAM=$(eval "$ARTIFACTS_LOCATION")
+            eval "PARAM=$ARTIFACTS_LOCATION"
             echo "$PARAM"
 
 workflows:

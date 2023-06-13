@@ -1,7 +1,7 @@
 description: >
   Perform Appdome fusing with all types of Android and iOS signings.
 
-working_directory: ${HOME}/appdome_workspace/
+working_directory: ~/appdome_workspace/
 parameters:
   runner:
     description: >
@@ -103,7 +103,7 @@ steps:
   - run:
       name: Substitute Environment Variable
       command: |
-          PARAM=$(eval "$ARTIFACTS_LOCATION")
+          eval "PARAM=$ARTIFACTS_LOCATION"
           echo "$PARAM"
   # - run:
   #     environment:
