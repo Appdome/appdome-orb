@@ -22,7 +22,7 @@ jobs:
           at: ${HOME}/appdome_workspace/
 
       - run: |
-            PARAM=$(circleci eval "$ARTIFACTS_LOCATION")
+            PARAM=$(eval "$ARTIFACTS_LOCATION")
             echo "$PARAM"
 
 workflows:
