@@ -5,13 +5,7 @@ echo -n "${!KEYSTORE}" | base64 -d > files/keystore.keystore
 ls files
 VAR="${SIGNOVERRIDES}"
 
-if [ "${BUILD_WITH_LOGS}" = true ]; then
-  BUILD_LOGS="-build_with_logs"
-else
-  BUILD_LOGS=""
-fi
-
-if [ "${BUILD_WITH_LOGS}" = true ]; then
+if [ "${BUILD_WITH_LOGS}" -eq 1 ]; then
   BUILD_LOGS="-build_with_logs"
 else
   BUILD_LOGS=""

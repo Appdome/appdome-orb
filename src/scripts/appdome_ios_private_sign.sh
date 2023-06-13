@@ -6,7 +6,7 @@ ls files
 mkdir output
 VAR="${SIGNOVERRIDES}"
 
-if [ "${BUILD_WITH_LOGS}" = true ]; then
+if [ "${BUILD_WITH_LOGS}" -eq 1 ]; then
   BUILD_LOGS="-build_with_logs"
 else
   BUILD_LOGS=""
