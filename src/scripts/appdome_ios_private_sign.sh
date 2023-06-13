@@ -22,7 +22,7 @@ else
     fi  
 fi
 
-if [[ -n "${BUILD_LOGS}" ]]; then
+if [ "${BUILD_WITH_LOGS}" -eq 1 ]; then
     command+=" --diagnostic_logs"
 fi
 
