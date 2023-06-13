@@ -17,7 +17,7 @@ workflows:
           team-id: "7156acd0-0930-11ee-b24a-c743ff448bfd"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
-          build_with_logs: true
+          build-with-logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-private-sign"
@@ -25,7 +25,7 @@ workflows:
           team-id: "7156acd0-0930-11ee-b24a-c743ff448bfd"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
           output: "appname.apk"
-          build_with_logs: true
+          build-with-logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-autodev-private-sign"
@@ -33,7 +33,7 @@ workflows:
           team-id: "7156acd0-0930-11ee-b24a-c743ff448bfd"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
           output: "appname.apk"
-          build_with_logs: true
+          build-with-logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-auto-sign"
@@ -41,7 +41,7 @@ workflows:
           team-id: "7156acd0-0930-11ee-b24a-c743ff448bfd"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
-          build_with_logs: false
+          build-with-logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-private-sign"
@@ -49,7 +49,7 @@ workflows:
           team-id: "7156acd0-0930-11ee-b24a-c743ff448bfd"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
           output: "appname.ipa"
-          build_with_logs: false
+          build-with-logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-autodev-private-sign"
@@ -57,7 +57,7 @@ workflows:
           team-id: "7156acd0-0930-11ee-b24a-c743ff448bfd"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
           output: "appname.ipa"
-          build_with_logs: false
+          build-with-logs: true
           filters: *filters
       - orb-tools/pack:
           filters: *filters
