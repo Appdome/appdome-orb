@@ -4,6 +4,11 @@
 echo "Appdome Android private sign"
 mkdir output
 VAR="${SIGNOVERRIDES}"
+if  ${build_with_logs} ; then
+	BUILD_WITH_LOGS="-build_with_logs"
+fi
+
+echo $BUILD_WITH_LOGS
 ls
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"

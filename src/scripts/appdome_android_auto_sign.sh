@@ -5,6 +5,12 @@ echo -n "${!KEYSTORE}" | base64 -d > files/keystore.keystore
 ls files
 VAR="${SIGNOVERRIDES}"
 
+if  ${build_with_logs} ; then
+	BUILD_WITH_LOGS="-build_with_logs"
+fi
+
+echo $BUILD_WITH_LOGS
+
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
     if [ "${GOOGLEPLAYSIGN}" -eq 1 ]; then

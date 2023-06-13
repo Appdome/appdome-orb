@@ -20,6 +20,10 @@ parameters:
   output:
     type: string
     description: "The name of the output fused app."
+  build_with_logs:
+    type: boolean
+    default: false
+    description: "Diagnostic logs are used for troubleshooting application errors."
   signing-fingerprint:
     type: env_var_name
     default: SIGN_FINGERPRINT
@@ -40,6 +44,7 @@ steps:
         FUSIONSET: <<parameters.fusion-set-id-android>>
         TEAMID: <<parameters.team-id>>
         OUTPUT: <<parameters.output>>
+        BUILD_WITH_LOGS: <<parameters.build_with_logs>>
         FINGERPRINT: <<parameters.signing-fingerprint>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>

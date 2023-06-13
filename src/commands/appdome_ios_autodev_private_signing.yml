@@ -20,6 +20,10 @@ parameters:
   output:
     type: string
     description: "The name of the output fused app."
+  build_with_logs:
+    type: boolean
+    default: false
+    description: "Diagnostic logs are used for troubleshooting application errors."
   provisioning-profiles:
     type: env_var_name
     default: MOBILE_PROVISION_PROFILE_FILE
@@ -41,6 +45,7 @@ steps:
         FUSIONSET: <<parameters.fusion-set-id-ios>>
         TEAMID: <<parameters.team-id>>
         OUTPUT: <<parameters.output>>
+        BUILD_WITH_LOGS: <<parameters.build_with_logs>>
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
         APPDOME_CLIENT_HEADER: CircleCI/1.0.1
