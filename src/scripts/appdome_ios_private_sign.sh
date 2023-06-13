@@ -26,5 +26,6 @@ if [[ -n "${BUILD_LOGS}" ]]; then
     command+=" --diagnostic_logs"
 fi
 
-echo $command
-eval $command
+echo "$command"
+eval "$command"
+
