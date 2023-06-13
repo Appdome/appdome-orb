@@ -41,7 +41,7 @@ parameters:
     type: string
     default: ""
     description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
-  build_with_logs:
+  build-with-logs:
     type: boolean
     default: false
     description: "Diagnostic logs are used for troubleshooting application errors."
@@ -119,7 +119,7 @@ steps:
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
-            build_with_logs: <<parameters.build_with_logs>>
+            build-with-logs: <<parameters.build-with-logs>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
@@ -136,7 +136,7 @@ steps:
             keystore-key-password: << parameters.keystore-key-password >>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
-            build_with_logs: <<parameters.build_with_logs>>
+            build-with-logs: <<parameters.build-with-logs>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
@@ -150,7 +150,7 @@ steps:
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
-            build_with_logs: <<parameters.build_with_logs>>
+            build-with-logs: <<parameters.build-with-logs>>
   - when:
       condition:
         equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
@@ -166,7 +166,7 @@ steps:
             entitlements: <<parameters.entitlements>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
-            build_with_logs: <<parameters.build_with_logs>>
+            build-with-logs: <<parameters.build-with-logs>>
   - when:
       condition:
         equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
@@ -179,7 +179,7 @@ steps:
             team-id: <<parameters.team-id>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
-            build_with_logs: <<parameters.build_with_logs>>
+            build-with-logs: <<parameters.build-with-logs>>
   - when:
       condition:
         equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
@@ -193,7 +193,7 @@ steps:
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
-            build_with_logs: <<parameters.build_with_logs>>
+            build-with-logs: <<parameters.build-with-logs>>
   - persist_to_workspace:
       root: ~/appdome_workspace/
       paths:

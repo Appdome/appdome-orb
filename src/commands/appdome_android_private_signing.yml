@@ -20,7 +20,7 @@ parameters:
   output:
     type: string
     description: "The name of the output fused app."
-  build_with_logs:
+  build-with-logs:
     type: boolean
     default: false
     description: "Diagnostic logs are used for troubleshooting application errors."
@@ -43,7 +43,7 @@ steps:
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id-android>>
         OUTPUT: <<parameters.output>>
-        BUILD_WITH_LOGS: <<parameters.build_with_logs>>
+        BUILD_WITH_LOGS: <<parameters.build-with-logs>>
         TEAMID: <<parameters.team-id>>
         FINGERPRINT: <<parameters.signing-fingerprint>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>

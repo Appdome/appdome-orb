@@ -20,7 +20,7 @@ parameters:
   output:
     type: string
     description: "The name of the output fused app."
-  build_with_logs:
+  build-with-logs:
     type: boolean
     default: false
     description: "Diagnostic logs are used for troubleshooting application errors."
@@ -53,7 +53,7 @@ steps:
         FUSIONSET: <<parameters.fusion-set-id-ios>>
         TEAMID: <<parameters.team-id>>
         OUTPUT: <<parameters.output>>
-        BUILD_WITH_LOGS: <<parameters.build_with_logs>>
+        BUILD_WITH_LOGS: <<parameters.build-with-logs>>
         P12_FILE: <<parameters.p12-file>>
         P12_PASS: <<parameters.P12-password>>
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
