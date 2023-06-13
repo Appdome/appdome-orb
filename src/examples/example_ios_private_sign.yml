@@ -5,7 +5,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    build-2secure: appdome/build-2secure@1.0.1
+    build-2secure: appdome/build-2secure@1.1.0
   workflows:
     Appdome fusion:
       jobs:

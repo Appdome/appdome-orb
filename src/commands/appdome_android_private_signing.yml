@@ -48,6 +48,6 @@ steps:
         FINGERPRINT: <<parameters.signing-fingerprint>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        APPDOME_CLIENT_HEADER: CircleCI/1.0.1
+        APPDOME_CLIENT_HEADER: CircleCI/1.1.0
       name: Build Sign Download (Android - Private Signing)
       command: <<include(scripts/appdome_android_private_sign.sh)>>
