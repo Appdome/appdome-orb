@@ -13,7 +13,7 @@ if [[ -n "$VAR" ]]; then
     if [[ -n "${TEAMID}" ]]; then
         command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app files/"$(basename "$APPFILE")" --auto_dev_private_signing --provisioning_profiles files/provisioning_profiles.mobileprovision --entitlements files/Entitlements.plist --sign_overrides files/$(basename "$SIGNOVERRIDES") --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
     else
-        command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --provisioning_profiles files/provisioning_profiles.mobileprovision --entitlements files/Entitlements.plist --sign_overrides files/"$(basename "$SIGNOVERRIDES")" --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
+        command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --provisioning_profiles files/provisioning_profiles.mobileprovision --entitlements files/Entitlements.plist --sign_overrides files/$(basename "$SIGNOVERRIDES") --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
     fi
 else
     echo "no sign overrides"
