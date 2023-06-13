@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Appdome Android Auto-DEV private sign"
-mkdir output
+mkdir appdome_outputs
 VAR="${SIGNOVERRIDES}"
 
 
@@ -11,16 +11,16 @@ if [[ -n "$VAR" ]]; then
     if [ "${GOOGLEPLAYSIGN}" -eq 1 ]; then
         echo "google play sign"
         if [[ -n "${TEAMID}" ]]; then
-            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint  ${!FINGERPRINT} --sign_overrides files/$(basename "$SIGNOVERRIDES") --google_play_signing --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
+            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint  ${!FINGERPRINT} --sign_overrides appdome_files/$(basename "$SIGNOVERRIDES") --google_play_signing --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         else
-            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint  ${!FINGERPRINT} --sign_overrides files/$(basename "$SIGNOVERRIDES") --google_play_signing --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
+            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint  ${!FINGERPRINT} --sign_overrides appdome_files/$(basename "$SIGNOVERRIDES") --google_play_signing --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         fi
     else
         echo "no google play sign"
         if [[ -n "${TEAMID}" ]]; then
-            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint  ${!FINGERPRINT} --sign_overrides files/$(basename "$SIGNOVERRIDES") --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
+            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint  ${!FINGERPRINT} --sign_overrides appdome_files/$(basename "$SIGNOVERRIDES") --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         else
-            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint  ${!FINGERPRINT} --sign_overrides files/$(basename "$SIGNOVERRIDES") --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
+            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint  ${!FINGERPRINT} --sign_overrides appdome_files/$(basename "$SIGNOVERRIDES") --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         fi
     fi
 else
@@ -28,16 +28,16 @@ else
     if [ "${GOOGLEPLAYSIGN}" -eq 1 ]; then
         echo "google play sign"
         if [[ -n "${TEAMID}" ]]; then
-            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint ${!FINGERPRINT} --google_play_signing --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
+            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint ${!FINGERPRINT} --google_play_signing --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         else
-            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint ${!FINGERPRINT}--google_play_signing --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
+            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint ${!FINGERPRINT}--google_play_signing --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         fi
     else
         echo "no google play sign"
         if [[ -n "${TEAMID}" ]]; then
-            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint ${!FINGERPRINT} --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
+            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint ${!FINGERPRINT} --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         else    
-            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint ${!FINGERPRINT} --output ./output/${OUTPUT} --certificate_output ./output/certificate.pdf"
+            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --signing_fingerprint ${!FINGERPRINT} --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         fi
     fi
 fi
