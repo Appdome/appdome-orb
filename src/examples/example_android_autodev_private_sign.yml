@@ -16,3 +16,4 @@ usage:
               appFile: <path_to_apk_or_aab_file>
               output: <output_apk_or_aab>
               google-play-signing: <true_or_false>
+              build-with-logs: false

@@ -14,4 +14,5 @@ usage:
               team-id: <your_team's_ID> - remove this line when working on personal workspace.
               appFile: <path_to_remote_ipa_download_file_location>
               output: <output_ipa>
+              build-with-logs: false
 
