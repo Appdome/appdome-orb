@@ -19,7 +19,7 @@ jobs:
     steps:
       - attach_workspace:
           # Must be absolute path or relative path from working_directory
-          at: ~/appdome_workspace/
+          at: ${HOME}/appdome_workspace/
 
       - run: |
             PARAM=$(circleci env subst "$ARTIFACTS_LOCATION")
