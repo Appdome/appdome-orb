@@ -103,7 +103,7 @@ steps:
   - run:
       name: Substitute Environment Variable
       command: |
-          PARAM=$(circleci env subst "$ARTIFACTS_LOCATION")
+          PARAM=$(circleci eval "$ARTIFACTS_LOCATION")
           echo "$PARAM"
   # - run:
   #     environment:
