@@ -5,11 +5,14 @@ echo -n "${!KEYSTORE}" | base64 -d > files/keystore.keystore
 ls files
 VAR="${SIGNOVERRIDES}"
 
-if  ${BUILD_WITH_LOGS} ; then
-	BUILD_WITH_LOGS="-build_with_logs"
+if [ "${BUILD_WITH_LOGS}" = true ]; then
+  BUILD_LOGS="-build_with_logs"
+else
+  BUILD_LOGS=""
 fi
 
-echo $BUILD_WITH_LOGS
+echo "${BUILD_LOGS}"
+
 
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
