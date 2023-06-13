@@ -3,7 +3,7 @@
 echo "Appdome Android Auto-DEV private sign"
 mkdir output
 VAR="${SIGNOVERRIDES}"
-if  ${build_with_logs} ; then
+if  ${BUILD_WITH_LOGS} ; then
 	BUILD_WITH_LOGS="-build_with_logs"
 fi
 

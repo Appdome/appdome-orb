@@ -5,7 +5,7 @@ echo -n "${!PROVISIONING_PROFILES}" | base64 -d > files/provisioning_profiles.mo
 ls files
 mkdir output
 VAR="${SIGNOVERRIDES}"
-if  ${build_with_logs} ; then
+if  ${BUILD_WITH_LOGS} ; then
 	BUILD_WITH_LOGS="-build_with_logs"
 fi
 

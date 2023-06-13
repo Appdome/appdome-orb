@@ -7,7 +7,7 @@ echo -n "${!ENTITLEMENTS}" | base64 -d > files/Entitlements.plist
 ls files
 mkdir output
 VAR="${SIGNOVERRIDES}"
-if  ${build_with_logs} ; then
+if  ${BUILD_WITH_LOGS} ; then
 	BUILD_WITH_LOGS="-build_with_logs"
 fi
 
