@@ -17,6 +17,7 @@ workflows:
           team-id: "fbe1c520-c91b-11ec-875f-fd7819f86b4e"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
+          build_with_logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-private-sign"
@@ -24,6 +25,7 @@ workflows:
           team-id: "fbe1c520-c91b-11ec-875f-fd7819f86b4e"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
           output: "appname.apk"
+          build_with_logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-autodev-private-sign"
@@ -31,6 +33,7 @@ workflows:
           team-id: "fbe1c520-c91b-11ec-875f-fd7819f86b4e"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
           output: "appname.apk"
+          build_with_logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-auto-sign"
@@ -38,6 +41,7 @@ workflows:
           team-id: "fbe1c520-c91b-11ec-875f-fd7819f86b4e"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
+          build_with_logs: false
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-private-sign"
@@ -45,6 +49,7 @@ workflows:
           team-id: "fbe1c520-c91b-11ec-875f-fd7819f86b4e"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
           output: "appname.ipa"
+          build_with_logs: false
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-autodev-private-sign"
@@ -52,6 +57,7 @@ workflows:
           team-id: "fbe1c520-c91b-11ec-875f-fd7819f86b4e"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
           output: "appname.ipa"
+          build_with_logs: false
           filters: *filters
       - orb-tools/pack:
           filters: *filters
