@@ -49,7 +49,7 @@ workflows:
           team-id: "fbe1c520-c91b-11ec-875f-fd7819f86b4e"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
           output: "appname.ipa"
-          build_with_logs: false
+          build_with_logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-autodev-private-sign"
