@@ -20,7 +20,7 @@ jobs:
       - attach_workspace:
           at: ~/appdome_workspace/
       - run: |
-          export APPDOME_SECURED_APP=$(ls ./appdome_outputs/*app*)
+          export APPDOME_SECURED_APP=$(ls $HOME/appdome_outputs/*app*)
           echo $APPDOME_SECURED_APP
 
 
