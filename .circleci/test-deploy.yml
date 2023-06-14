@@ -20,7 +20,9 @@ jobs:
       - attach_workspace:
           at: ~/appdome_workspace/
       - run: |
-          ls -la "/home/circleci/appdome_workspace/appdome_outputs/"
+          export APPDOME_SECURED_APP=$(ls ./appdome_outputs/*app*)
+          echo $APPDOME_SECURED_APP
+
 
 
 workflows:
