@@ -3,7 +3,18 @@
 
 mkdir appdome_files
 echo "Downloading android file"
-wget "${APPFILE}" -O appdome_files/"$(basename "$APPFILE")"
+
+
+mkdir -p appdome_files
+echo "Downloading android file"
+if [[ "${APPFILE}" == http* ]]; then
+    wget "${APPFILE}" -O appdome_files/"$(basename "$APPFILE")"
+else
+    ls -la "${APPFILE}"
+    cp "${APPFILE}" appdome_files/
+fi
+
+
 if [[ -n "${SIGNOVERRIDES}" ]]; then
     echo "Downloading sign overrides"
     echo "${SIGNOVERRIDES}"
