@@ -35,6 +35,9 @@ workflows:
           output: "appname.apk"
           build-with-logs: true
           filters: *filters
+      - downstream:
+          requires:
+            - test-android-auto-sign
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
