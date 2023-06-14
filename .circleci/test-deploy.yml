@@ -32,7 +32,6 @@ workflows:
           runner: "ANDROID_AUTO_SIGNING"
           team-id: "7156acd0-0930-11ee-b24a-c743ff448bfd"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
-          output: "appname.apk"
           build-with-logs: true
           filters: *filters
       - downstream:
