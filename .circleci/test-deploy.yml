@@ -13,31 +13,46 @@ executors:
     docker:
       - image: cimg/python:3.11.3
 
-jobs:
-  downstream:
-    executor: my-executor
-    steps:
-      - attach_workspace:
-          at: ~/appdome_workspace/
-      - run: |
-          export APPDOME_SECURED_APP=$(ls $HOME/appdome_workspace/appdome_outputs/*appdome_secured_app*)
-
-
 
 workflows:
   test-deploy:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
     jobs:
       - appdome-orb/appdome_runner:
-          name: "test-android-auto-sign"
-          runner: "ANDROID_AUTO_SIGNING"
-          team-id: "7156acd0-0930-11ee-b24a-c743ff448bfd"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
-          build-with-logs: true
+          name: "test-android-private-sign"
+          runner: "ANDROID_PRIVATE_SIGNING"
+          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
+          output: "appname.apk"
           filters: *filters
-      - downstream:
-          requires:
-            - test-android-auto-sign
+      - appdome-orb/appdome_runner:
+          name: "test-android-autodev-private-sign"
+          runner: "ANDROID_AUTO_DEV_SIGNING"
+          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
+          output: "appname.apk"
+          filters: *filters
+      - appdome-orb/appdome_runner:
+          name: "test-ios-auto-sign"
+          runner: "IOS_AUTO_SIGNING"
+          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
+          output: "appname.ipa"
+          filters: *filters
+      - appdome-orb/appdome_runner:
+          name: "test-ios-private-sign"
+          runner: "IOS_PRIVATE_SIGNING"
+          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
+          output: "appname.ipa"
+          filters: *filters
+      - appdome-orb/appdome_runner:
+          name: "test-ios-autodev-private-sign"
+          runner: "IOS_AUTO_DEV_SIGNING"
+          team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
+          output: "appname.ipa"
+          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
