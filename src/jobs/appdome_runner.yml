@@ -38,6 +38,10 @@ parameters:
     type: string
     default: "appdome_secured_app"
     description: "The name of the output fused app."
+  second-output:
+    type: string
+    default: ""
+    description: "Second_output_app_file (optional)."
   sign-overrides:
     type: string
     default: ""
@@ -46,6 +50,16 @@ parameters:
     type: boolean
     default: false
     description: "Diagnostic logs are used for troubleshooting application errors."
+  build-to-test:
+    type: enum
+    enum:
+      - "BITBAR"
+      - "BROWSERSTACK"
+      - "LAMBDATEST"
+      - "SAUCELABS"
+      - "NONE"
+    default: "NONE"
+    description: "Enter vendor name on which Build to Test will happen."
   # ANDROID PRIVATE SIGN
   signing-fingerprint:
     type: env_var_name
@@ -121,6 +135,8 @@ steps:
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
             build-with-logs: <<parameters.build-with-logs>>
+            second-output: <<parameters.second-output>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
@@ -138,6 +154,8 @@ steps:
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
             build-with-logs: <<parameters.build-with-logs>>
+            second-output: <<parameters.second-output>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
@@ -152,6 +170,8 @@ steps:
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
             build-with-logs: <<parameters.build-with-logs>>
+            second-output: <<parameters.second-output>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
@@ -168,6 +188,8 @@ steps:
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
             build-with-logs: <<parameters.build-with-logs>>
+            second-output: <<parameters.second-output>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
@@ -181,6 +203,8 @@ steps:
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
             build-with-logs: <<parameters.build-with-logs>>
+            second-output: <<parameters.second-output>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
@@ -195,6 +219,8 @@ steps:
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
             build-with-logs: <<parameters.build-with-logs>>
+            second-output: <<parameters.second-output>>
+            build-to-test: <<parameters.build-to-test>>
   - persist_to_workspace:
       root: ~/appdome_workspace/
       paths:

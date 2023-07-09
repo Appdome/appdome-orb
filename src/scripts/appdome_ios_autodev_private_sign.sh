@@ -28,5 +28,14 @@ if [ "${BUILD_WITH_LOGS}" -eq 1 ]; then
     command+=" --diagnostic_logs"
 fi
 
+if [[ -n "${SECOND_OUTPUT}" ]]; then
+    command+=" --second_output ./appdome_outputs/${SECOND_OUTPUT}"
+fi
+
+if [[ -n "${BUILD_TO_TEST}" && "${BUILD_TO_TEST}" != "NONE" ]]; then
+    BUILD_TO_TEST="AUTOMATION_${BUILD_TO_TEST}"
+    command+=" --build_to_test_vendor ${BUILD_TO_TEST}"
+fi
+
 echo "$command"
 eval "$command"
