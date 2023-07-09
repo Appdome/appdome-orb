@@ -29,10 +29,6 @@ parameters:
     type: boolean
     default: false
     description: "Diagnostic logs are used for troubleshooting application errors."
-  build-with-logs:
-    type: boolean
-    default: false
-    description: "Diagnostic logs are used for troubleshooting application errors."
   build-to-test:
     type: enum
     enum:
