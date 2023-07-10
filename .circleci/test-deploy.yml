@@ -61,7 +61,6 @@ workflows:
           output: "appname.ipa"
           build-to-test: "NONE"
           build-with-logs: true
-          second-output: "appname2.aab"
           filters: *filters
       - orb-tools/pack:
           filters: *filters
