@@ -111,7 +111,7 @@ steps:
   - run:
       name: Clone Appdome API repository
       command: |
-          git clone -b add_second_output_build_with_test https://github.com/Appdome/appdome-api-python.git
+          git clone https://github.com/Appdome/appdome-api-python.git
   - run:
       name: Install requirements
       command: <<include(scripts/install_requirements.sh)>>
