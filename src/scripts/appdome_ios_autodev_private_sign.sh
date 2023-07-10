@@ -33,7 +33,6 @@ if [[ -n "${SECOND_OUTPUT}" ]]; then
 fi
 
 if [[ -n "${BUILD_TO_TEST}" && "${BUILD_TO_TEST}" != "NONE" ]]; then
-    BUILD_TO_TEST="${BUILD_TO_TEST}"
     command+=" --build_to_test_vendor ${BUILD_TO_TEST}"
 fi
 
