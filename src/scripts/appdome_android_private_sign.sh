@@ -52,7 +52,7 @@ if [[ -n "${SECOND_OUTPUT}" ]]; then
 fi
 
 if [[ -n "${BUILD_TO_TEST}" && "${BUILD_TO_TEST}" != "NONE" ]]; then
-    command+=" --build_to_test_vendor ${BUILD_TO_TEST}"
+    command+=" --build_to_test_vendor ${BUILD_TO_TEST,,}"
 fi
 
 echo "$command"
