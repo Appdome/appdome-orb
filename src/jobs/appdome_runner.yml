@@ -188,7 +188,6 @@ steps:
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
             build-with-logs: <<parameters.build-with-logs>>
-            second-output: <<parameters.second-output>>
             build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
@@ -203,7 +202,6 @@ steps:
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
             build-with-logs: <<parameters.build-with-logs>>
-            second-output: <<parameters.second-output>>
             build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
@@ -219,7 +217,6 @@ steps:
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
             build-with-logs: <<parameters.build-with-logs>>
-            second-output: <<parameters.second-output>>
             build-to-test: <<parameters.build-to-test>>
   - persist_to_workspace:
       root: ~/appdome_workspace/
