@@ -47,7 +47,7 @@ if [ "${BUILD_WITH_LOGS}" -eq 1 ]; then
 fi
 
 if [[ -n "${SECOND_OUTPUT}" ]]; then
-    command+=" --second_output ./appdome_outputs/${SECOND_OUTPUT}"
+    command+=" --sign_second_output ./appdome_outputs/${SECOND_OUTPUT}"
 fi
 
 if [[ -n "${BUILD_TO_TEST}" && "${BUILD_TO_TEST}" != "NONE" ]]; then

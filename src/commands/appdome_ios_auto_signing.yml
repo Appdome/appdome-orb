@@ -21,10 +21,6 @@ parameters:
     type: string
     default: "appdome_secured_app"
     description: "The name of the output fused app."
-  second-output:
-    type: string
-    default: ""
-    description: "Second_output_app_file (optional)."
   build-with-logs:
     type: boolean
     default: false
@@ -68,7 +64,6 @@ steps:
         FUSIONSET: <<parameters.fusion-set-id-ios>>
         TEAMID: <<parameters.team-id>>
         OUTPUT: <<parameters.output>>
-        SECOND_OUTPUT: <<parameters.second-output>>
         BUILD_WITH_LOGS: <<parameters.build-with-logs>>
         BUILD_TO_TEST: <<parameters.build-to-test>>
         P12_FILE: <<parameters.p12-file>>
