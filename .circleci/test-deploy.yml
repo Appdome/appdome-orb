@@ -24,6 +24,9 @@ workflows:
           team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
           output: "appname.apk"
+          second-output: "appname2.aab"
+          build-with-logs: true
+          build-to-test: "BITBAR"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-autodev-private-sign"
@@ -31,6 +34,8 @@ workflows:
           team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
           output: "appname.apk"
+          build-with-logs: true
+          build-to-test: "BRWSERSTACK"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-auto-sign"
@@ -38,6 +43,7 @@ workflows:
           team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
+          build-to-test: "LAMBDATEST"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-private-sign"
@@ -45,6 +51,7 @@ workflows:
           team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
           output: "appname.ipa"
+          build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-autodev-private-sign"
@@ -52,6 +59,9 @@ workflows:
           team-id: "81bdde00-a0a7-11ed-a4f2-810d8884a7b1"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
           output: "appname.ipa"
+          build-to-test: "NONE"
+          build-with-logs: true
+          second-output: "appname2.aab"
           filters: *filters
       - orb-tools/pack:
           filters: *filters
