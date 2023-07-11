@@ -23,7 +23,6 @@ workflows:
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
           output: "appname.apk"
-          second-output: "appname2.aab"
           build-with-logs: true
           build-to-test: "BITBAR"
           filters: *filters
@@ -32,8 +31,7 @@ workflows:
           runner: "ANDROID_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
           output: "appname.apk"
-          build-with-logs: true
-          second-output: "appname3.aab"
+          build-with-logs: false
           build-to-test: "BROWSERSTACK"
           filters: *filters
       - appdome-orb/appdome_runner:
@@ -42,20 +40,19 @@ workflows:
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
           build-to-test: "SAUCELABS"
+          build-with-logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-private-sign"
           runner: "IOS_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
           output: "appname.ipa"
-          build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-autodev-private-sign"
           runner: "IOS_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
           output: "appname.ipa"
-          build-to-test: "NONE"
           build-with-logs: true
           filters: *filters
       - orb-tools/pack:
