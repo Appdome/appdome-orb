@@ -44,7 +44,7 @@ workflows:
           team-id: "eaec7bf0-1efd-11ee-8bef-5d9c7aa0d6fe"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
-          build-to-test: "Saucelabs"
+          build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-private-sign"
