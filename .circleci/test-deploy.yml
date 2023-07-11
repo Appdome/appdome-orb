@@ -37,7 +37,7 @@ workflows:
           runner: "ANDROID_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
           output: "appname.apk"
-          build-to-test: "BRWSERSTACK"
+          build-to-test: "BROWSERSTACK"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-auto-sign"
