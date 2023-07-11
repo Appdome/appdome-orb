@@ -37,7 +37,6 @@ workflows:
           name: "test-android-autodev-private-sign"
           runner: "ANDROID_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
-          second-output: "second_output.aab"
           output: "appname.apk"
           build-with-logs: true
           build-to-test: "BROWSERSTACK"
