@@ -19,7 +19,26 @@ parameters:
     description: "your Team's ID."
   output:
     type: string
+    default: "appdome_secured_app"
     description: "The name of the output fused app."
+  second-output:
+    type: string
+    default: ""
+    description: "Second_output_app_file (optional)."
+  build-with-logs:
+    type: boolean
+    default: false
+    description: "Diagnostic logs are used for troubleshooting application errors."
+  build-to-test:
+    type: enum
+    enum:
+      - "BITBAR"
+      - "BROWSERSTACK"
+      - "LAMBDATEST"
+      - "SAUCELABS"
+      - "NONE"
+    default: "NONE"
+    description: "Enter vendor name on which Build to Test will happen."
   keystore-file:
     type: env_var_name
     default: KEYSTORE_FILE
@@ -52,12 +71,15 @@ steps:
         FUSIONSET: <<parameters.fusion-set-id-android>>
         TEAMID: <<parameters.team-id>>
         OUTPUT: <<parameters.output>>
+        SECOND_OUTPUT: <<parameters.second-output>>
+        BUILD_WITH_LOGS: <<parameters.build-with-logs>>
+        BUILD_TO_TEST: <<parameters.build-to-test>>
         KEYSTORE: <<parameters.keystore-file>>
         KEYSTORE_PASS: <<parameters.keystore-password>>
         KEYSTORE_ALIAS_ENV: <<parameters.keystore-alias>>
         KEYSTORE_KEY_PASS: <<parameters.keystore-key-password>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        APPDOME_CLIENT_HEADER: CircleCI/1.0.1
+        APPDOME_CLIENT_HEADER: CircleCI/1.1.0
       name: Build Sign Download (Android - Automatic Signing)
       command: <<include(scripts/appdome_android_auto_sign.sh)>>

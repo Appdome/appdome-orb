@@ -1,6 +1,7 @@
 description: >
   Perform Appdome fusing with all types of Android and iOS signings.
 
+working_directory: ~/appdome_workspace/
 parameters:
   runner:
     description: >
@@ -35,11 +36,30 @@ parameters:
     description: "Fusion Set with the features you want to add to your android application."
   output:
     type: string
+    default: "appdome_secured_app"
     description: "The name of the output fused app."
+  second-output:
+    type: string
+    default: ""
+    description: "Second_output_app_file (optional)."
   sign-overrides:
     type: string
     default: ""
     description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
+  build-with-logs:
+    type: boolean
+    default: false
+    description: "Diagnostic logs are used for troubleshooting application errors."
+  build-to-test:
+    type: enum
+    enum:
+      - "BITBAR"
+      - "BROWSERSTACK"
+      - "LAMBDATEST"
+      - "SAUCELABS"
+      - "NONE"
+    default: "NONE"
+    description: "Enter vendor name on which Build to Test will happen."
   # ANDROID PRIVATE SIGN
   signing-fingerprint:
     type: env_var_name
@@ -114,6 +134,9 @@ steps:
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
+            build-with-logs: <<parameters.build-with-logs>>
+            second-output: <<parameters.second-output>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
@@ -130,6 +153,9 @@ steps:
             keystore-key-password: << parameters.keystore-key-password >>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
+            build-with-logs: <<parameters.build-with-logs>>
+            second-output: <<parameters.second-output>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
@@ -143,6 +169,9 @@ steps:
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
+            build-with-logs: <<parameters.build-with-logs>>
+            second-output: <<parameters.second-output>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
@@ -158,6 +187,8 @@ steps:
             entitlements: <<parameters.entitlements>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
+            build-with-logs: <<parameters.build-with-logs>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
@@ -170,6 +201,8 @@ steps:
             team-id: <<parameters.team-id>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
+            build-with-logs: <<parameters.build-with-logs>>
+            build-to-test: <<parameters.build-to-test>>
   - when:
       condition:
         equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
@@ -183,6 +216,12 @@ steps:
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
+            build-with-logs: <<parameters.build-with-logs>>
+            build-to-test: <<parameters.build-to-test>>
+  - persist_to_workspace:
+      root: ~/appdome_workspace/
+      paths:
+        - appdome_outputs
   - store_artifacts:
-      path: ./output/
+      path: ./appdome_outputs/
       destination: appdome_fusion

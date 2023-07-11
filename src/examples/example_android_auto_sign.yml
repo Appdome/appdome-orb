@@ -6,7 +6,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    build-2secure: appdome/build-2secure-orb@1.0.1
+    build-2secure: appdome/build-2secure@1.1.0
   workflows:
     Appdome fusion:
       jobs:
@@ -16,3 +16,4 @@ usage:
               appFile: <path_to_apk_or_aab_file>
               output: <output_apk_or_aab>
               google-play-signing: <true_or_false>
+              build-with-logs: false
