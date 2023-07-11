@@ -23,13 +23,14 @@ workflows:
           runner: "ANDROID_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           output: "appname.apk"
-          build-to-test: "LAMBDATEST"
+          build-with-logs: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-private-sign"
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
           output: "appname.apk"
+          build-with-logs: true
           build-to-test: "BITBAR"
           filters: *filters
       - appdome-orb/appdome_runner:
@@ -37,6 +38,7 @@ workflows:
           runner: "ANDROID_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
           output: "appname.apk"
+          build-with-logs: true
           build-to-test: "BROWSERSTACK"
           filters: *filters
       - appdome-orb/appdome_runner:
@@ -44,6 +46,7 @@ workflows:
           runner: "IOS_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
+          build-with-logs: true
           build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
@@ -51,6 +54,7 @@ workflows:
           runner: "IOS_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
           output: "appname.ipa"
+          build-with-logs: true
           build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
@@ -58,6 +62,7 @@ workflows:
           runner: "IOS_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
           output: "appname.ipa"
+          build-with-logs: true
           build-to-test: "SAUCELABS"
           filters: *filters
       - orb-tools/pack:
