@@ -21,7 +21,6 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-android-private-sign"
           runner: "ANDROID_PRIVATE_SIGNING"
-          team-id: "eaec7bf0-1efd-11ee-8bef-5d9c7aa0d6fe"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
           output: "appname.apk"
           second-output: "appname2.aab"
@@ -31,7 +30,6 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-android-autodev-private-sign"
           runner: "ANDROID_AUTO_DEV_SIGNING"
-          team-id: "eaec7bf0-1efd-11ee-8bef-5d9c7aa0d6fe"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/AndroidMediaPlayer.apk"
           output: "appname.apk"
           build-with-logs: true
@@ -41,7 +39,6 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-ios-auto-sign"
           runner: "IOS_AUTO_SIGNING"
-          team-id: "eaec7bf0-1efd-11ee-8bef-5d9c7aa0d6fe"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
           build-to-test: "SAUCELABS"
@@ -49,7 +46,6 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-ios-private-sign"
           runner: "IOS_PRIVATE_SIGNING"
-          team-id: "eaec7bf0-1efd-11ee-8bef-5d9c7aa0d6fe"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
           output: "appname.ipa"
           build-to-test: "SAUCELABS"
@@ -57,7 +53,6 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-ios-autodev-private-sign"
           runner: "IOS_AUTO_DEV_SIGNING"
-          team-id: "eaec7bf0-1efd-11ee-8bef-5d9c7aa0d6fe"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
           output: "appname.ipa"
           build-to-test: "NONE"
