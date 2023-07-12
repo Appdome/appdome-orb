@@ -58,8 +58,8 @@ if [ "${BUILD_WITH_LOGS}" -eq 1 ]; then
     command+=" --diagnostic_logs"
 fi
 
-if [[ -n "${SECOND_OUTPUT}" ]]; then
-    command+=" --sign_second_output ./appdome_outputs/${SECOND_OUTPUT}"
+if [ "${SECOND_OUTPUT}" -eq 1 ]; then
+    command+=" --sign_second_output ./appdome_outputs/Appdome_Universal_App.apk"
 fi
 
 if [[ -n "${BUILD_TO_TEST}" && "${BUILD_TO_TEST}" != "NONE" ]]; then

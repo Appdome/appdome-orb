@@ -5,7 +5,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    build-2secure: appdome/build-2secure@1.1.0
+    build-2secure: appdome/build-2secure@1.1.1
   workflows:
     Appdome fusion:
       jobs:
@@ -13,8 +13,8 @@ usage:
               runner: "IOS_PRIVATE_SIGNING"
               team-id: <your_team's_ID> - remove this line when working on personal workspace.
               appFile: <path_to_remote_ipa_download_file_location>
-              output: <output_ipa>
-              build-with-logs: false
+              output: <output_ipa_or_leave_empty_for_Appdome_Secured_App>
+              build-with-logs: true
 
 
 

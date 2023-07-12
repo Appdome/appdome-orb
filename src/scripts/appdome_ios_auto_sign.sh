@@ -8,6 +8,19 @@ ls appdome_files
 mkdir appdome_outputs
 VAR="${SIGNOVERRIDES}"
 
+basename=$(basename "$OUTPUT")
+extension="${APPFILE##*.}"
+
+
+if [[ $basename == *.* ]]; then
+  echo "Variable already has an extension."
+else
+  # Concatenate the extension of the APPFILE
+  export OUTPUT="${basename}.${extension}"
+fi
+
+echo "Output file name: ${OUTPUT}"
+
 ls
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"

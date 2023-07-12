@@ -36,12 +36,12 @@ parameters:
     description: "Fusion Set with the features you want to add to your android application."
   output:
     type: string
-    default: "appdome_secured_app"
+    default: "Appdome_Secured_App"
     description: "The name of the output fused app."
   second-output:
-    type: string
-    default: ""
-    description: "Second_output_app_file (optional)."
+    type: boolean
+    default: false
+    description: "Second_output_app_file."
   sign-overrides:
     type: string
     default: ""
@@ -170,7 +170,6 @@ steps:
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
             build-with-logs: <<parameters.build-with-logs>>
-            second-output: <<parameters.second-output>>
             build-to-test: <<parameters.build-to-test>>
   - when:
       condition:

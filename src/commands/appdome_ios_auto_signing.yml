@@ -19,7 +19,7 @@ parameters:
     description: "Fusion Set with the features you want to add to your iOS application."
   output:
     type: string
-    default: "appdome_secured_app"
+    default: "Appdome_Secured_App"
     description: "The name of the output fused app."
   build-with-logs:
     type: boolean
@@ -71,6 +71,6 @@ steps:
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         ENTITLEMENTS: <<parameters.entitlements>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        APPDOME_CLIENT_HEADER: CircleCI/1.1.0
+        APPDOME_CLIENT_HEADER: CircleCI/1.1.1
       name: Build Sign Download (iOS - Automatic Signing)
       command: <<include(scripts/appdome_ios_auto_sign.sh)>>

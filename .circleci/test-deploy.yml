@@ -21,23 +21,23 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-android-auto-sign"
           runner: "ANDROID_AUTO_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
-          output: "appname.apk"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/PIBanking.aab"
+          output: "Appdome_PIBanking.aab"
+          build-to-test: "LAMBDATEST"
+          second-output: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-private-sign"
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.aab"
-          output: "appname.aab"
           build-with-logs: true
           build-to-test: "BITBAR"
-          second-output: "second_output.aab"
+          second-output: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-autodev-private-sign"
           runner: "ANDROID_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
-          output: "appname.apk"
           build-with-logs: true
           build-to-test: "BROWSERSTACK"
           filters: *filters
@@ -45,22 +45,22 @@ workflows:
           name: "test-ios-auto-sign"
           runner: "IOS_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
-          output: "appname.ipa"
           build-with-logs: true
+          build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-private-sign"
           runner: "IOS_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
-          output: "appname.ipa"
+          output: "Appdome_Trends256-ForWatchKit.ipa"
           build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-autodev-private-sign"
           runner: "IOS_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
-          output: "appname.ipa"
-          build-with-logs: false
+          output: "Appdome_Trends_ios15.ipa"
+          build-with-logs: true
           build-to-test: "SAUCELABS"
           filters: *filters
       - orb-tools/pack:

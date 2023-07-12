@@ -19,12 +19,12 @@ parameters:
     description: "Fusion Set with the features you want to add to your android application."
   output:
     type: string
-    default: "appdome_secured_app"
+    default: "Appdome_Secured_App"
     description: "The name of the output fused app."
   second-output:
-    type: string
-    default: ""
-    description: "Second_output_app_file (optional)."
+    type: boolean
+    default: false
+    description: "Second_output_app_file."
   build-with-logs:
     type: boolean
     default: false
@@ -65,6 +65,6 @@ steps:
         FINGERPRINT: <<parameters.signing-fingerprint>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        APPDOME_CLIENT_HEADER: CircleCI/1.1.0
+        APPDOME_CLIENT_HEADER: CircleCI/1.1.1
       name: Build Sign Download (Android - Private Signing)
       command: <<include(scripts/appdome_android_private_sign.sh)>>

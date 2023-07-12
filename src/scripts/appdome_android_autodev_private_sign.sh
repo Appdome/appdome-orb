@@ -4,6 +4,19 @@ echo "Appdome Android Auto-DEV private sign"
 mkdir appdome_outputs
 VAR="${SIGNOVERRIDES}"
 
+basename=$(basename "$OUTPUT")
+extension="${APPFILE##*.}"
+
+
+if [[ $basename == *.* ]]; then
+  echo "Variable already has an extension."
+else
+  # Concatenate the extension of the APPFILE
+  export OUTPUT="${basename}.${extension}"
+fi
+
+echo "Output file name: ${OUTPUT}"
+
 
 ls
 if [[ -n "$VAR" ]]; then
@@ -44,10 +57,6 @@ fi
 
 if [ "${BUILD_WITH_LOGS}" -eq 1 ]; then
     command+=" --diagnostic_logs"
-fi
-
-if [[ -n "${SECOND_OUTPUT}" ]]; then
-    command+=" --sign_second_output ./appdome_outputs/${SECOND_OUTPUT}"
 fi
 
 if [[ -n "${BUILD_TO_TEST}" && "${BUILD_TO_TEST}" != "NONE" ]]; then
