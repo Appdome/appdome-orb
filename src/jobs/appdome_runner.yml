@@ -170,7 +170,6 @@ steps:
             sign-overrides: <<parameters.sign-overrides>>
             team-id: <<parameters.team-id>>
             build-with-logs: <<parameters.build-with-logs>>
-            second-output: <<parameters.second-output>>
             build-to-test: <<parameters.build-to-test>>
   - when:
       condition:

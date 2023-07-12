@@ -21,10 +21,6 @@ parameters:
     type: string
     default: "Appdome_Secured_App"
     description: "The name of the output fused app."
-  second-output:
-    type: boolean
-    default: false
-    description: "Second_output_app_file."
   build-with-logs:
     type: boolean
     default: false
@@ -59,7 +55,6 @@ steps:
         FUSIONSET: <<parameters.fusion-set-id-android>>
         TEAMID: <<parameters.team-id>>
         OUTPUT: <<parameters.output>>
-        SECOND_OUTPUT: <<parameters.second-output>>
         BUILD_WITH_LOGS: <<parameters.build-with-logs>>
         BUILD_TO_TEST: <<parameters.build-to-test>>
         FINGERPRINT: <<parameters.signing-fingerprint>>
