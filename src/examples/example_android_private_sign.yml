@@ -17,3 +17,4 @@ usage:
               output: <output_apk_or_aab_or_leave_empty_for_Appdome_Secured_App>
               google-play-signing: <true_or_false>
               build-to-test: "LAMBDATEST"
+              second-output: false (only for aab input app)
