@@ -14,8 +14,8 @@ usage:
               runner: "ANDROID_AUTO_SIGNING"
               team-id: <your_team's_ID> - remove this line when working on personal workspace.
               appFile: <path_to_apk_or_aab_file>
-              output: <output_apk_or_aab>
+              output: <output_apk_or_aab_or_leave_empty_for_Appdome_Secured_App>
               google-play-signing: <true_or_false>
               build-with-logs: true
-              second-output: true
+              second-output: true (only for aab input app)
               build-to-test: "BITBAR"

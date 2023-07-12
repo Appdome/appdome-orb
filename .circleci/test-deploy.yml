@@ -27,15 +27,14 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-android-private-sign"
           runner: "ANDROID_PRIVATE_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.aab"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
           build-with-logs: true
           build-to-test: "BITBAR"
-          second-output: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-autodev-private-sign"
-          runner: "ANDROID_AUTO_DEV_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
+          runner: "ANDROID_AUTO_DEV_SIGNING
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.aab"
           build-with-logs: true
           build-to-test: "BROWSERSTACK"
           filters: *filters

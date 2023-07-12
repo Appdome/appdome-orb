@@ -13,5 +13,5 @@ usage:
               runner: "IOS_AUTO_DEV_SIGNING"
               team-id: <your_team's_ID> - remove this line when working on personal workspace.
               appFile: <path_to_remote_ipa_download_file_location>
-              output: <output_ipa>
+              output: <output_ipa_or_leave_empty_for_Appdome_Secured_App>
               build-with-logs: false

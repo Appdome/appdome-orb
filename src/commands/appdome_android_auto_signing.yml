@@ -19,7 +19,7 @@ parameters:
     description: "your Team's ID."
   output:
     type: string
-    default: "appdome_secured_app"
+    default: "Appdome_Secured_App"
     description: "The name of the output fused app."
   second-output:
     type: boolean
