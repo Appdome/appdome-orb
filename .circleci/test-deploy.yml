@@ -45,6 +45,7 @@ workflows:
           runner: "IOS_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           build-with-logs: true
+          build-to-test: "LAMBDATEST"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-private-sign"
