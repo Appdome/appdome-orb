@@ -24,7 +24,7 @@ parameters:
   second-output:
     type: boolean
     default: false
-    description: "Second_output_app_file (optional)."
+    description: "Second_output_app_file."
   build-with-logs:
     type: boolean
     default: false

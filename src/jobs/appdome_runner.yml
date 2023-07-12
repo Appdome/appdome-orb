@@ -38,10 +38,10 @@ parameters:
     type: string
     default: "appdome_secured_app"
     description: "The name of the output fused app."
-  second-output:
-    type: string
+    type: boolean
+    default: false
     default: ""
-    description: "Second_output_app_file (optional)."
+    description: "Second_output_app_file."
   sign-overrides:
     type: string
     default: ""
