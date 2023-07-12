@@ -23,6 +23,7 @@ workflows:
           runner: "ANDROID_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/PIBanking.aab"
           output: "Appdome_PIBanking.aab"
+          build-to-test: "LAMBDATEST"
           second-output: true
           filters: *filters
       - appdome-orb/appdome_runner:
@@ -45,7 +46,7 @@ workflows:
           runner: "IOS_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           build-with-logs: true
-          build-to-test: "LAMBDATEST"
+          build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-private-sign"
