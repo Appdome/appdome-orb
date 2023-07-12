@@ -31,7 +31,7 @@ workflows:
           output: "appname.aab"
           build-with-logs: true
           build-to-test: "BITBAR"
-          second-output: "second_output.aab"
+          second-output: true
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-autodev-private-sign"

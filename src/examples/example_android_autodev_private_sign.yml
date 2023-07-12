@@ -6,7 +6,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    build-2secure: appdome/build-2secure@1.1.0
+    build-2secure: appdome/build-2secure@1.1.1
   workflows:
     Appdome fusion:
       jobs:
@@ -17,3 +17,5 @@ usage:
               output: <output_apk_or_aab>
               google-play-signing: <true_or_false>
               build-with-logs: false
+              second-output: false
+              build-to-test: "SAUCELABS"

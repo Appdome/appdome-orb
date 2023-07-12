@@ -5,7 +5,7 @@ description: >
 usage:
   version: 2.1
   orbs:
-    build-2secure: appdome/build-2secure@1.1.0
+    build-2secure: appdome/build-2secure@1.1.1
   workflows:
     Appdome fusion:
       jobs:
@@ -15,4 +15,5 @@ usage:
               appFile: <path_to_remote_ipa_download_file_location>
               output: <output_ipa>
               build-with-logs: false
+              build-to-test: "SAUCELABS"
 
