@@ -21,10 +21,7 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-android-auto-sign"
           runner: "ANDROID_AUTO_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/PIBanking.aab"
-          output: "Appdome_PIBanking.aab"
-          build-to-test: "LAMBDATEST"
-          second-output: true
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-private-sign"
@@ -52,15 +49,13 @@ workflows:
           name: "test-ios-private-sign"
           runner: "IOS_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
-          output: "Appdome_Trends256-ForWatchKit.ipa"
           build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-autodev-private-sign"
           runner: "IOS_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
-          output: "Appdome_Trends_ios15.ipa"
-          build-with-logs: true
+          build-with-logs: false
           build-to-test: "SAUCELABS"
           filters: *filters
       - orb-tools/pack:
