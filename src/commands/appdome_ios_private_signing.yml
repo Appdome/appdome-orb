@@ -56,6 +56,6 @@ steps:
         BUILD_TO_TEST: <<parameters.build-to-test>>
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        APPDOME_CLIENT_HEADER: CircleCI/1.1.1
+        APPDOME_CLIENT_HEADER: CircleCI/1.1.2
       name: Build Sign Download (iOS - Private Signing)
       command: <<include(scripts/appdome_ios_private_sign.sh)>>

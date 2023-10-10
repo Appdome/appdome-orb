@@ -10,12 +10,8 @@ basename=$(basename "$OUTPUT")
 extension="${APPFILE##*.}"
 
 
-if [[ $basename == *.* ]]; then
-  echo "Variable already has an extension."
-else
-  # Concatenate the extension of the APPFILE
-  export OUTPUT="${basename}.${extension}"
-fi
+export OUTPUT="${basename}.sh"
+
 
 echo "Output file name: ${OUTPUT}"
 
