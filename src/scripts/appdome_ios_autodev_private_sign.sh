@@ -7,8 +7,6 @@ mkdir appdome_outputs
 VAR="${SIGNOVERRIDES}"
 
 basename=$(basename "$OUTPUT")
-extension="${APPFILE##*.}"
-
 
 export OUTPUT="${basename}.sh"
 
