@@ -104,9 +104,17 @@ parameters:
     type: env_var_name
     default: ENTITLEMENTS_FILE
     description: "A plist file with the entitlements used for the application. Can be obtained from the Derived Data folder in Xcode"
+  root-dir:
+    type: string
+    default: "/home/circleci/project"
+    description: "your directory"
 docker:
   - image: cimg/python:3.9.16
 steps:
+  - persist_to_workspace:
+      root: << parameters.root-dir >>
+      paths:
+        - appdome_outputs
   - checkout
   - run:
       name: Clone Appdome API repository
