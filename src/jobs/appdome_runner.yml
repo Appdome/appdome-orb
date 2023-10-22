@@ -114,7 +114,7 @@ steps:
   - checkout
   - attach_workspace:
       # Must be absolute path or relative path from working_directory
-      at: previous_workspace/<<parameters.root-dir>>
+      at: <<parameters.root-dir>>
 
   - run:
       name: Clone Appdome API repository
