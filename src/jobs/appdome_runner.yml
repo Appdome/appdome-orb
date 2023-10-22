@@ -241,7 +241,7 @@ steps:
       path: ./appdome_outputs/
       destination: appdome_output
   - run:
-      name: Downloading files
+      name: files
       command: |
         pwd
         ls
