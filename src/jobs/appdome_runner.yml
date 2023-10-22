@@ -222,5 +222,5 @@ steps:
       paths:
         - appdome_outputs
   - store_artifacts:
-      path: .
+      path: ./appdome_outputs/
       destination: appdome_fusion
