@@ -239,4 +239,9 @@ steps:
         - appdome_outputs
   - store_artifacts:
       path: ./appdome_outputs/
-      destination: appdome_fusion
+      destination: appdome_output
+  - run:
+      name: Downloading files
+      command: |
+        pwd
+        ls 
