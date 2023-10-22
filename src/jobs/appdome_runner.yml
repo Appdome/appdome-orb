@@ -118,7 +118,7 @@ steps:
   - run:
       name: Clone Appdome API repository
       command: |
-          git clone https://github.com/Appdome/appdome-api-python.git
+          git clone https://github.com/Appdome/appdome-api-python.git appdome_workspace
   - run:
       name: Install requirements
       command: <<include(scripts/install_requirements.sh)>>
