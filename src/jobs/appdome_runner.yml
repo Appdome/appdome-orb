@@ -1,7 +1,7 @@
 description: >
   Perform Appdome fusing with all types of Android and iOS signings.
 
-working_directory: /home/circleci/project
+# working_directory: /home/circleci/project
 parameters:
   runner:
     description: >
@@ -113,7 +113,7 @@ docker:
 steps:
   - attach_workspace:
       # Must be absolute path or relative path from working_directory
-      at: <<parameters.root-dir>>
+      at: previous_workspace/<<parameters.root-dir>>
   - checkout
   - run:
       name: Clone Appdome API repository
@@ -136,7 +136,7 @@ steps:
         equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_private_signing:
-            root-dir: <<parameters.root-dir>>
+            root-dir: previous_workspace/<<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-android: <<parameters.fusion-set-id-android>>
@@ -153,7 +153,7 @@ steps:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_auto_signing:
-            root-dir: <<parameters.root-dir>>
+            root-dir: previous_workspace/<<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-android: <<parameters.fusion-set-id-android>>
@@ -173,7 +173,7 @@ steps:
         equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_autodev_private_signing:
-            root-dir: <<parameters.root-dir>>
+            root-dir: previous_workspace/<<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-android: <<parameters.fusion-set-id-android>>
@@ -189,7 +189,7 @@ steps:
         equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_auto_signing:
-            root-dir: <<parameters.root-dir>>
+            root-dir: previous_workspace/<<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
@@ -207,7 +207,7 @@ steps:
         equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_private_signing:
-            root-dir: <<parameters.root-dir>>
+            root-dir: previous_workspace/<<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
@@ -222,7 +222,7 @@ steps:
         equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_autodev_private_signing:
-            root-dir: <<parameters.root-dir>>
+            root-dir: previous_workspace/<<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
