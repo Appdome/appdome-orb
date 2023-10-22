@@ -136,6 +136,7 @@ steps:
         equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_private_signing:
+            root-dir: <<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-android: <<parameters.fusion-set-id-android>>
@@ -152,6 +153,7 @@ steps:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_auto_signing:
+            root-dir: <<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-android: <<parameters.fusion-set-id-android>>
@@ -171,6 +173,7 @@ steps:
         equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_autodev_private_signing:
+            root-dir: <<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-android: <<parameters.fusion-set-id-android>>
@@ -186,6 +189,7 @@ steps:
         equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_auto_signing:
+            root-dir: <<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
@@ -203,6 +207,7 @@ steps:
         equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_private_signing:
+            root-dir: <<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>
@@ -217,6 +222,7 @@ steps:
         equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_autodev_private_signing:
+            root-dir: <<parameters.root-dir>>
             appdome-api-token: << parameters.appdome-api-token >>
             appFile: <<parameters.appFile>>
             fusion-set-id-ios: <<parameters.fusion-set-id-ios>>

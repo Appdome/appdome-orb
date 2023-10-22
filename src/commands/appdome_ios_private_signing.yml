@@ -44,9 +44,14 @@ parameters:
     type: string
     default: ""
     description: "Optional parameter - json file overrides to pass arguments to overrides sign parameters."
+  root-dir:
+    type: string
+    default: "/home/circleci/project"
+    description: "your directory"
 steps:
   - run:
       environment:
+        ROOT_DIR: <<parameters.root-dir>>
         APPDOME_API_KEY: <<parameters.appdome-api-token>>
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id-ios>>
