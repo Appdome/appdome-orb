@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  appdome-orb: appdome/build-2secure@dev:first
+  appdome-orb: appdome/build-2secure@dev:main
   orb-tools: circleci/orb-tools@11.5
 
 filters: &filters
