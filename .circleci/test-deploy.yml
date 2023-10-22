@@ -20,10 +20,12 @@ workflows:
     jobs:
       - appdome-orb/appdome_runner:
           name: "test-android-auto-sign"
+          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           runner: "ANDROID_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           filters: *filters
       - appdome-orb/appdome_runner:
+          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           name: "test-android-private-sign"
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.aab"
@@ -32,6 +34,7 @@ workflows:
           second-output: true
           filters: *filters
       - appdome-orb/appdome_runner:
+          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           name: "test-android-autodev-private-sign"
           runner: "ANDROID_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
@@ -39,6 +42,7 @@ workflows:
           build-to-test: "BROWSERSTACK"
           filters: *filters
       - appdome-orb/appdome_runner:
+          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           name: "test-ios-auto-sign"
           runner: "IOS_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
@@ -46,12 +50,14 @@ workflows:
           build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
+          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           name: "test-ios-private-sign"
           runner: "IOS_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
           build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
+          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           name: "test-ios-autodev-private-sign"
           runner: "IOS_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
