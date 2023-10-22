@@ -30,7 +30,6 @@ workflows:
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.aab"
           build-with-logs: true
-          build-to-test: "BITBAR"
           second-output: true
           filters: *filters
       - appdome-orb/appdome_runner:
@@ -39,7 +38,6 @@ workflows:
           runner: "ANDROID_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
           build-with-logs: true
-          build-to-test: "BROWSERSTACK"
           filters: *filters
       - appdome-orb/appdome_runner:
           team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
@@ -47,14 +45,12 @@ workflows:
           runner: "IOS_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           build-with-logs: true
-          build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           name: "test-ios-private-sign"
           runner: "IOS_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
-          build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
@@ -62,7 +58,6 @@ workflows:
           runner: "IOS_AUTO_DEV_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
           build-with-logs: false
-          build-to-test: "SAUCELABS"
           filters: *filters
       - orb-tools/pack:
           filters: *filters
