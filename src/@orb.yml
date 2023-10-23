@@ -1,4 +1,4 @@
-version: 2.1
+circleci orb packversion: 2.1
 
 description: >
   Easily secure and customize your mobile apps on CircleCI using the Appdome Build-2Secure Orb.
