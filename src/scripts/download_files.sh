@@ -10,8 +10,8 @@ echo "Downloading android file"
 if [[ "${APPFILE}" == http* ]]; then
     wget "${APPFILE}" -O appdome_files/"$(basename "$APPFILE")"
 else
-    ls -la "${APPFILE}"
-    cp "${APPFILE}" appdome_files/
+    ls -la workspace/"${APPFILE}"
+    cp workspace/"${APPFILE}" appdome_files/
 fi
 
 

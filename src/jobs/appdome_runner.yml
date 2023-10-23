@@ -108,6 +108,14 @@ docker:
   - image: cimg/python:3.9.16
 steps:
   - checkout
+  - attach_workspace:
+      at: ./workspace/
+  - run:
+      name: Test
+      command: |
+          ls
+          pwd
+          ls workspace
   - run:
       name: Clone Appdome API repository
       command: |
