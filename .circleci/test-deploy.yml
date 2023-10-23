@@ -16,7 +16,7 @@ executors:
 
 workflows:
   test-deploy:
-        # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
+        # Make sure to inclufde "filters: *filters" in every test job you want to run as part of your deployment.
     jobs:
       - appdome-orb/appdome_runner:
           team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
