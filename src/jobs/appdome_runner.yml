@@ -116,7 +116,6 @@ steps:
           ls
           pwd
           ls workspace
-          
   - run:
       name: Clone Appdome API repository
       command: |
