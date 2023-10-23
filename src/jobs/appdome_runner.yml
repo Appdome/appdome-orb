@@ -110,13 +110,11 @@ steps:
   - checkout
   - attach_workspace:
       at: ./workspace/
-  - run:       
-    name: Install requirements
-    command: |
-        ls
-        pwd
-        cd workspace
-        ls
+  - run:
+      name: Test
+      command: |
+          ls
+          pwd
   - run:
       name: Clone Appdome API repository
       command: |
