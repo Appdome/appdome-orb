@@ -19,7 +19,6 @@ workflows:
         # Make sure to inclufde "filters: *filters" in every test job you want to run as part of your deployment.
     jobs:
       - appdome-orb/appdome_runner:
-          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           name: "test-android-auto-sign"
           runner: "ANDROID_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
@@ -77,3 +76,7 @@ workflows:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
 
 # VS Code Extension Version: 1.4.0
+
+
+#teamid = a0745380-0a9f-11ee-8560-2b8aa995759d (Hauser2)
+#FUSION_SET_ID_ANDROID = fd330080-0a9f-11ee-8e78-3587ea05167e
