@@ -23,6 +23,7 @@ workflows:
           name: "test-android-auto-sign"
           runner: "ANDROID_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
+          build-to-test: "SAUCELABS"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-private-sign"
@@ -31,6 +32,7 @@ workflows:
           build-with-logs: true
           team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           second-output: true
+          build-to-test: "KATALON"
           filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-android-autodev-private-sign"
