@@ -30,7 +30,6 @@ workflows:
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.aab"
           build-with-logs: true
-          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           second-output: true
           build-to-test: "KOBITON"
           filters: *filters
