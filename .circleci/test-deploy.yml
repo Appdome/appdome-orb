@@ -18,27 +18,27 @@ workflows:
   test-deploy:
         # Make sure to inclufde "filters: *filters" in every test job you want to run as part of your deployment.
     jobs:
-      - appdome-orb/appdome_runner:
-          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
-          name: "test-android-auto-sign"
-          runner: "ANDROID_AUTO_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
-          filters: *filters
-      - appdome-orb/appdome_runner:
-          name: "test-android-private-sign"
-          runner: "ANDROID_PRIVATE_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.aab"
-          build-with-logs: true
-          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
-          second-output: true
-          filters: *filters
-      - appdome-orb/appdome_runner:
-          name: "test-android-autodev-private-sign"
-          runner: "ANDROID_AUTO_DEV_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
-          build-with-logs: true
-          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
-          filters: *filters
+      # - appdome-orb/appdome_runner:
+      #     team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
+      #     name: "test-android-auto-sign"
+      #     runner: "ANDROID_AUTO_SIGNING"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
+      #     filters: *filters
+      # - appdome-orb/appdome_runner:
+      #     name: "test-android-private-sign"
+      #     runner: "ANDROID_PRIVATE_SIGNING"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.aab"
+      #     build-with-logs: true
+      #     team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
+      #     second-output: true
+      #     filters: *filters
+      # - appdome-orb/appdome_runner:
+      #     name: "test-android-autodev-private-sign"
+      #     runner: "ANDROID_AUTO_DEV_SIGNING"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/EmptyApp.apk"
+      #     build-with-logs: true
+      #     team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
+      #     filters: *filters
       - appdome-orb/appdome_runner:
           name: "test-ios-auto-sign"
           runner: "IOS_AUTO_SIGNING"
@@ -46,18 +46,18 @@ workflows:
           build-with-logs: true
           team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           filters: *filters
-      - appdome-orb/appdome_runner:
-          name: "test-ios-private-sign"
-          runner: "IOS_PRIVATE_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
-          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
-          filters: *filters
-      - appdome-orb/appdome_runner:
-          name: "test-ios-autodev-private-sign"
-          runner: "IOS_AUTO_DEV_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
-          build-with-logs: false
-          team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
+      # - appdome-orb/appdome_runner:
+      #     name: "test-ios-private-sign"
+      #     runner: "IOS_PRIVATE_SIGNING"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends256-ForWatchKit.ipa"
+      #     team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
+      #     filters: *filters
+      # - appdome-orb/appdome_runner:
+      #     name: "test-ios-autodev-private-sign"
+      #     runner: "IOS_AUTO_DEV_SIGNING"
+      #     appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends_ios15.ipa"
+      #     build-with-logs: false
+      #     team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           filters: *filters
       - orb-tools/pack:
           filters: *filters
