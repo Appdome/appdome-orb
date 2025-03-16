@@ -166,6 +166,7 @@ steps:
             keystore-alias: <<parameters.keystore-alias>>
             keystore-key-password: << parameters.keystore-key-password >>
             google-play-signing: <<parameters.google-play-signing>>
+            signing-fingerprint: <<parameters.signing-fingerprint>>
             sign-overrides: <<parameters.sign-overrides>>
             build-with-logs: <<parameters.build-with-logs>>
             second-output: <<parameters.second-output>>
