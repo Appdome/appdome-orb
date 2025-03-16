@@ -68,7 +68,7 @@ parameters:
     description: "Enter vendor name on which Build to Test will happen."
   # ANDROID PRIVATE SIGN
   signing-fingerprint:
-    type: env_var_name
+    type: string
     default: ""
     description: "Your unique signing certificate fingerprint is required to tamper-proof Built applications."
   google-play-signing:
