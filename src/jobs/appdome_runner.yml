@@ -69,7 +69,7 @@ parameters:
   # ANDROID PRIVATE SIGN
   signing-fingerprint:
     type: env_var_name
-    default: SIGN_FINGERPRINT
+    default: ""
     description: "Your unique signing certificate fingerprint is required to tamper-proof Built applications."
   google-play-signing:
     type: boolean
