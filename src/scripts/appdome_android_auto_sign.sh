@@ -42,7 +42,7 @@ else
         if [[ -n "${TEAMID}" ]]; then
             command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} -t ${TEAMID} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --google_play_signing --signing_fingerprint ${!FINGERPRINT} --sign_on_appdome --keystore appdome_files/keystore.keystore --keystore_pass ${!KEYSTORE_PASS} --keystore_alias ${!KEYSTORE_ALIAS_ENV} --key_pass ${!KEYSTORE_KEY_PASS} --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         else
-            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --google_play_signing --signing_fingerprint ${!FINGERPRINT} --sign_on_appdome --keystore appdome_files/keystore.keystore --keystore_pass ${!KEYSTORE_PASS} --keystore_alias ${!KEYSTORE_ALIAS_ENV} --key_pass ${!KEYSTORE_KEY_PASS} --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
+            command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --google_play_signing --signing_fingerprint ${!SIGNING_FINGERPRINT} --sign_on_appdome --keystore appdome_files/keystore.keystore --keystore_pass ${!KEYSTORE_PASS} --keystore_alias ${!KEYSTORE_ALIAS_ENV} --key_pass ${!KEYSTORE_KEY_PASS} --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
         fi
     else
         echo "no google play sign"

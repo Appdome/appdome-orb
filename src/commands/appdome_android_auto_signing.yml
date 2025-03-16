@@ -46,8 +46,8 @@ parameters:
     default: "NONE"
     description: "Enter vendor name on which Build to Test will happen."
   signing-fingerprint:
-    type: env_var_name
-    default: SIGN_FINGERPRINT
+    type: string
+    default: ""
     description: "Your unique signing certificate fingerprint is required to tamper-proof Built applications."
   keystore-file:
     type: env_var_name
@@ -90,7 +90,7 @@ steps:
         KEYSTORE_KEY_PASS: <<parameters.keystore-key-password>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-        SIGNING_FINGERPRINT: <<parameters.sign-fingerprint>>
+        FINGERPRINT: <<parameters.signing-fingerprint>>
         APPDOME_CLIENT_HEADER: CircleCI/1.1.2
       name: Build Sign Download (Android - Automatic Signing)
       command: <<include(scripts/appdome_android_auto_sign.sh)>>
