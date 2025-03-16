@@ -23,6 +23,7 @@ workflows:
           runner: "ANDROID_AUTO_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
           team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
+          google-play-signing: true
           filters: *filters
       # - appdome-orb/appdome_runner:
       #     name: "test-android-private-sign"
