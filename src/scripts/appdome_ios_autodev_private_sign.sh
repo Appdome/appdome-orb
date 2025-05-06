@@ -1,7 +1,63 @@
 #!/bin/bash
+
+# Collects and decodes all provisioning and entitlement env vars
+process_ios_signing_inputs() {
+  declare -g provisioning_args=""
+  declare -g entitlements_args=""
+
+  mkdir -p appdome_files
+
+  for prefix in MOBILE_PROVISION_PROFILE ENTITLEMENTS; do
+    while IFS='=' read -r env_var _; do
+      value="${!env_var}"
+      if [[ -n "$value" ]]; then
+        index="${env_var##*_}"
+        [[ "$index" =~ ^[0-9]+$ ]] || index=""
+
+        if [[ "$prefix" == "MOBILE_PROVISION_PROFILE" ]]; then
+          file="appdome_files/provisioning_profile${index}.mobileprovision"
+        else
+          file="appdome_files/Entitlements${index}.plist"
+        fi
+
+        echo "Processing \$${env_var} into $file"
+
+        # Validate base64 before decoding
+        if echo -n "$value" | base64 --decode &>/dev/null; then
+          echo -n "$value" | base64 --decode > "$file"
+          echo "Decoded and wrote to $file"
+
+          if [[ "$prefix" == "MOBILE_PROVISION_PROFILE" ]]; then
+            provisioning_args+="$file "
+          else
+            entitlements_args+="$file "
+          fi
+        else
+          echo "Skipping $env_var: invalid base64"
+        fi
+      else
+        echo "$env_var is set but empty, skipping."
+      fi
+    done < <(env | grep "^${prefix}")
+  done
+
+  # Trim trailing whitespace (optional)
+  provisioning_args="$(echo "$provisioning_args" | xargs)"
+  entitlements_args="$(echo "$entitlements_args" | xargs)"
+
+  # Count files by word count
+  num_prov=$(wc -w <<< "$provisioning_args")
+  num_ent=$(wc -w <<< "$entitlements_args")
+
+  echo "Collected $num_prov provisioning profile(s)"
+  echo "Collected $num_ent entitlement file(s)"
+}
+
+
+
+
 echo "Appdome iOS Auto-DEV private sign"
-echo -n "${!PROVISIONING_PROFILES}" | base64 -d > appdome_files/provisioning_profiles.mobileprovision
-echo -n "${!ENTITLEMENTS}" | base64 -d > appdome_files/Entitlements.plist
+process_ios_signing_inputs
 ls appdome_files
 mkdir -p appdome_outputs
 VAR="${SIGNOVERRIDES}"
@@ -12,17 +68,24 @@ export OUTPUT="${basename}.sh"
 echo "Output file name: ${OUTPUT}"
 
 ls
-entitlements_arg=""
-if [[ -s appdome_files/Entitlements.plist ]]; then
-    entitlements_arg="--entitlements appdome_files/Entitlements.plist"
+
+provisioning_arg=""
+if [[ -n "$provisioning_args" ]]; then
+  provisioning_arg="--provisioning_profiles $provisioning_args"
 fi
+
+entitlements_arg=""
+if [[ -n "$entitlements_args" ]]; then
+  entitlements_arg="--entitlements $entitlements_args"
+fi
+
 
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
-    command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --provisioning_profiles appdome_files/provisioning_profiles.mobileprovision ${entitlements_arg} --sign_overrides appdome_files/$(basename "$SIGNOVERRIDES") --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
+    command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing ${provisioning_arg} ${entitlements_arg} --sign_overrides appdome_files/$(basename "$SIGNOVERRIDES") --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
 else
     echo "no sign overrides"
-    command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing --provisioning_profiles appdome_files/provisioning_profiles.mobileprovision ${entitlements_arg} --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
+    command="python3 ./appdome-api-python/appdome-api-python/appdome_api.py --api_key ${!APPDOME_API_KEY} --fusion_set_id ${!FUSIONSET} --app appdome_files/$(basename "$APPFILE") --auto_dev_private_signing ${provisioning_arg} ${entitlements_arg} --output ./appdome_outputs/${OUTPUT} --certificate_output ./appdome_outputs/certificate.pdf"
 fi
 
 if [[ -n "${TEAMID}" ]]; then
