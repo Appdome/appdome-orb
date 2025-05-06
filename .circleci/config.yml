@@ -19,8 +19,6 @@ workflows:
           filters: *filters
           exclude: RC009
       - shellcheck/check:
-          name: shellcheck-check-with-x
-          shellcheck-flags: "-x"
           filters: *filters
       - orb-tools/publish:
           orb-name: appdome/build-2secure
