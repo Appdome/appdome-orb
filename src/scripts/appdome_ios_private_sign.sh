@@ -1,5 +1,8 @@
 #!/bin/bash
+# shellcheck source=utils.sh
 source "$(dirname "$0")/utils.sh"
+
+
 
 
 echo "Appdome iOS private sign"
@@ -9,7 +12,9 @@ mkdir appdome_outputs
 
 
 expand_env_vars_with_prefix "MOBILE_PROVISION_PROFILE_FILE" provisioning_args
+# shellcheck disable=SC2154
 echo "📋 Provisioning profile paths: ${provisioning_args}"
+# shellcheck disable=SC2154
 echo "🧾 Provisioning profiles passed to Appdome: ${provisioning_args}"
 
 

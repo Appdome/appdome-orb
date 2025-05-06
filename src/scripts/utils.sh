@@ -1,3 +1,5 @@
+#!/bin/bash
+
 expand_env_vars_with_prefix() {
   local prefix="$1"
   local out_var="$2"
