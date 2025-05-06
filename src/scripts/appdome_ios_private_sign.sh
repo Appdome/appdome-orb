@@ -1,12 +1,21 @@
 #!/bin/bash
 
 # Counts all env vars at runtime
-expand_env_vars_with_prefix() {
-  local total_vars
-  total_vars=$(env | wc -l)
+print_env_var() {
+  local var_name="$1"
 
-  echo "🌐 Total environment variables available at runtime: $total_vars"
+  if [[ -z "$var_name" ]]; then
+    echo "❌ Usage: print_env_var <ENV_VAR_NAME>" >&2
+    return 1
+  fi
+
+  if [[ -z "${!var_name:-}" ]]; then
+    echo "⚠️  Environment variable '$var_name' is not set or is empty."
+  else
+    echo "🔎 $var_name=${!var_name}"
+  fi
 }
+
 
 
 
@@ -16,7 +25,8 @@ echo "Appdome iOS private sign"
 mkdir -p appdome_files
 mkdir -p appdome_outputs
 
-expand_env_vars_with_prefix
+print_env_var "TEST"
+
 
 
 VAR="${SIGNOVERRIDES}"
