@@ -44,7 +44,7 @@ workflows:
       - appdome-orb/appdome_runner:
           name: "test-ios-auto-sign"
           runner: "IOS_AUTO_SIGNING"
-          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/blob/main/files/Trends.ipa"
+          appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/Trends.ipa"
           build-with-logs: true
           team-id: a0745380-0a9f-11ee-8560-2b8aa995759d
           filters: *filters
