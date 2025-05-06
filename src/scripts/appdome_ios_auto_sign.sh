@@ -20,12 +20,12 @@ process_ios_signing_inputs() {
           file="appdome_files/Entitlements${index}.plist"
         fi
 
-        echo "🔍 Processing \$${env_var} → $file"
+        echo "Processing \$${env_var} → $file"
 
         # Validate base64 before decoding
         if echo -n "$value" | base64 --decode &>/dev/null; then
           echo -n "$value" | base64 --decode > "$file"
-          echo "✅ Decoded and wrote to $file"
+          echo "Decoded and wrote to $file"
 
           if [[ "$prefix" == "MOBILE_PROVISION_PROFILE" ]]; then
             provisioning_args+="$file,"
@@ -33,10 +33,10 @@ process_ios_signing_inputs() {
             entitlements_args+="$file,"
           fi
         else
-          echo "❌ Skipping $env_var: invalid base64"
+          echo "Skipping $env_var: invalid base64"
         fi
       else
-        echo "⚠️  $env_var is set but empty, skipping."
+        echo "$env_var is set but empty, skipping."
       fi
     done < <(env | grep "^${prefix}")
   done
@@ -51,8 +51,8 @@ process_ios_signing_inputs() {
   [[ -n "$provisioning_args" ]] && ((num_prov++))
   [[ -n "$entitlements_args" ]] && ((num_ent++))
 
-  echo "📦 Collected $num_prov provisioning profile(s)"
-  echo "📦 Collected $num_ent entitlement file(s)"
+  echo "Collected $num_prov provisioning profile(s)"
+  echo "Collected $num_ent entitlement file(s)"
 }
 
 echo "Appdome iOS auto sign"
