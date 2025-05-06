@@ -1,46 +1,11 @@
 #!/bin/bash
 
+# Counts all env vars at runtime
 expand_env_vars_with_prefix() {
-  local prefix="$1"
-  local out_var="$2"
+  local total_vars
+  total_vars=$(env | wc -l)
 
-  if [[ -z "$prefix" || -z "$out_var" ]]; then
-    echo "❌ Usage: expand_env_vars_with_prefix <PREFIX> <output_variable>" >&2
-    return 1
-  fi
-
-  local file_paths=""
-  local env_var
-  local count=0
-
-  echo "🔍 Scanning environment variables starting with: $prefix"
-  while IFS='=' read -r env_var _; do
-    local value="${!env_var}"
-    if [[ -n "$value" ]]; then
-      local index="${env_var##*_}"
-      [[ "$index" =~ ^[0-9]+$ ]] || index=""  # use index only if numeric suffix
-
-      local file_name="${prefix,,}${index}.decoded"
-      local path="appdome_files/$file_name"
-
-      echo "✅ Found env var: $env_var"
-      echo "📦 Writing to: $path"
-      echo -n "$value" | base64 -d > "$path"
-
-      # Optional: show preview
-      echo "🔎 Preview of decoded content (first 3 lines of $path):"
-      head -n 3 "$path" || echo "(file not readable)"
-
-      file_paths+="$path,"
-      ((count++))
-    fi
-  done < <(env | grep "^${prefix}")
-
-  file_paths="${file_paths%,}"
-  eval "$out_var=\"$file_paths\""
-
-  echo "📋 Final list for $out_var: $file_paths"
-  echo "🧮 Total matched variables with prefix '${prefix}': $count"
+  echo "🌐 Total environment variables available at runtime: $total_vars"
 }
 
 
@@ -51,11 +16,8 @@ echo "Appdome iOS private sign"
 mkdir -p appdome_files
 mkdir -p appdome_outputs
 
-expand_env_vars_with_prefix "MOBILE_PROVISION_PROFILE_FILE" provisioning_args
-# shellcheck disable=SC2154
-echo "📋 Provisioning profile paths: ${provisioning_args}"
-# shellcheck disable=SC2154
-echo "🧾 Provisioning profiles passed to Appdome: ${provisioning_args}"
+expand_env_vars_with_prefix
+
 
 VAR="${SIGNOVERRIDES}"
 
