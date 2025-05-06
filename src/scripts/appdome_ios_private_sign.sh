@@ -4,6 +4,7 @@ process_provisioning_profiles() {
   declare -g provisioning_args=""
   mkdir -p appdome_files
 
+  # Loop over all MOBILE_PROVISION_PROFILE* environment variables
   while IFS='=' read -r env_var _; do
     value="${!env_var}"
     if [[ -n "$value" ]]; then
@@ -11,20 +12,21 @@ process_provisioning_profiles() {
       [[ "$index" =~ ^[0-9]+$ ]] || index=""
 
       file="appdome_files/provisioning_profile${index}.mobileprovision"
-      echo "🔍 Processing \$${env_var} → $file"
+      echo "Processing \$${env_var} → $file"
 
       if echo -n "$value" | base64 --decode &>/dev/null; then
         echo -n "$value" | base64 --decode > "$file"
-        echo "✅ Decoded and wrote to $file"
+        echo "Decoded and wrote to $file"
         provisioning_args+="$file "
       else
-        echo "❌ Skipping $env_var: invalid base64"
+        echo "Skipping $env_var: invalid base64"
       fi
     fi
   done < <(env | grep "^MOBILE_PROVISION_PROFILE")
 
-  provisioning_args="${provisioning_args%% }"
-  echo "📦 Collected provisioning profiles: $provisioning_args"
+  # Trim leading/trailing/multiple spaces safely
+  provisioning_args="$(echo "$provisioning_args" | xargs)"
+  echo "Collected provisioning profiles: $provisioning_args"
 }
 
 
@@ -45,8 +47,9 @@ else
   export OUTPUT="${basename}.${extension}"
 fi
 
+
 provisioning_arg=""
-[[ -n "$provisioning_args" ]] && provisioning_arg="--provisioning_profiles ${provisioning_args}"
+[[ -n "$provisioning_args" ]] && provisioning_arg="--provisioning_profiles $provisioning_args"
 
 
 echo "Output file name: ${OUTPUT}"

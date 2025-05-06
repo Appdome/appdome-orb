@@ -20,7 +20,7 @@ process_ios_signing_inputs() {
           file="appdome_files/Entitlements${index}.plist"
         fi
 
-        echo "Processing \$${env_var} → $file"
+        echo "Processing \$${env_var} into $file"
 
         # Validate base64 before decoding
         if echo -n "$value" | base64 --decode &>/dev/null; then
@@ -28,9 +28,9 @@ process_ios_signing_inputs() {
           echo "Decoded and wrote to $file"
 
           if [[ "$prefix" == "MOBILE_PROVISION_PROFILE" ]]; then
-            provisioning_args+="$file,"
+            provisioning_args+="$file "
           else
-            entitlements_args+="$file,"
+            entitlements_args+="$file "
           fi
         else
           echo "Skipping $env_var: invalid base64"
@@ -41,19 +41,18 @@ process_ios_signing_inputs() {
     done < <(env | grep "^${prefix}")
   done
 
-  # Strip trailing commas
-  provisioning_args="${provisioning_args%,}"
-  entitlements_args="${entitlements_args%,}"
+  # Trim trailing whitespace (optional)
+  provisioning_args="$(echo "$provisioning_args" | xargs)"
+  entitlements_args="$(echo "$entitlements_args" | xargs)"
 
-  # Count files
-  num_prov=$(grep -o "," <<< "$provisioning_args" | wc -l)
-  num_ent=$(grep -o "," <<< "$entitlements_args" | wc -l)
-  [[ -n "$provisioning_args" ]] && ((num_prov++))
-  [[ -n "$entitlements_args" ]] && ((num_ent++))
+  # Count files by word count
+  num_prov=$(wc -w <<< "$provisioning_args")
+  num_ent=$(wc -w <<< "$entitlements_args")
 
   echo "Collected $num_prov provisioning profile(s)"
   echo "Collected $num_ent entitlement file(s)"
 }
+
 
 echo "Appdome iOS auto sign"
 process_ios_signing_inputs
@@ -78,16 +77,13 @@ ls
 
 provisioning_arg=""
 if [[ -n "$provisioning_args" ]]; then
-  provisioning_arg="--provisioning_profiles ${provisioning_args//,/ }"
+  provisioning_arg="--provisioning_profiles $provisioning_args"
 fi
 
 entitlements_arg=""
 if [[ -n "$entitlements_args" ]]; then
-  entitlements_arg="--entitlements ${entitlements_args//,/ }"
+  entitlements_arg="--entitlements $entitlements_args"
 fi
-
-
-
 
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
