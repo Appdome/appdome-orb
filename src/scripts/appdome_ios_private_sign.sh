@@ -27,6 +27,12 @@ mkdir -p appdome_outputs
 
 print_env_var "TEST"
 
+if [[ "${TEST:-}" == "hello-world" ]]; then
+  echo "✅ TEST equals 'hello-world'"
+else
+  echo "❌ TEST does not equal 'hello-world'"
+fi
+
 
 
 VAR="${SIGNOVERRIDES}"
