@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Inline function to expand env vars with a common prefix
 expand_env_vars_with_prefix() {
   local prefix="$1"
   local out_var="$2"
@@ -26,14 +25,24 @@ expand_env_vars_with_prefix() {
       echo "📦 Writing to: $path"
       echo -n "$value" | base64 -d > "$path"
 
+      # 🔍 Optional: print first few bytes to verify decode worked (not full content)
+      echo "🔎 Preview of decoded content (first 5 lines of $path):"
+      head -n 5 "$path" || echo "(file not readable)"
+
       file_paths+="$path,"
+    else
+      echo "⚠️  $env_var is empty or unset"
     fi
   done < <(env | grep "^${prefix}")
 
   file_paths="${file_paths%,}"
   eval "$out_var=\"$file_paths\""
   echo "📋 Final list for $out_var: $file_paths"
+
+  echo "🧾 Environment variables matched:"
+  env | grep "^${prefix}"
 }
+
 
 # === Appdome iOS private sign ===
 
