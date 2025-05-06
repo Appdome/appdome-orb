@@ -76,11 +76,19 @@ echo "Output file name: ${OUTPUT}"
 
 ls
 
-entitlements_arg=""
-[[ -n "$entitlements_args" ]] && entitlements_arg="--entitlements \"$entitlements_args\""
-
 provisioning_arg=""
-[[ -n "$provisioning_args" ]] && provisioning_arg="--provisioning_profiles \"$provisioning_args\""
+if [[ -n "$provisioning_args" ]]; then
+  for file in ${provisioning_args//,/ }; do
+    provisioning_arg+=" --provisioning_profiles $file"
+  done
+fi
+
+entitlements_arg=""
+if [[ -n "$entitlements_args" ]]; then
+  for file in ${entitlements_args//,/ }; do
+    entitlements_arg+=" --entitlements $file"
+  done
+fi
 
 
 
