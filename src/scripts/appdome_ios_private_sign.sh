@@ -1,9 +1,18 @@
 #!/bin/bash
+source "$(dirname "$0")/utils.sh"
+
 
 echo "Appdome iOS private sign"
-echo -n "${!PROVISIONING_PROFILES}" | base64 -d > appdome_files/provisioning_profiles.mobileprovision
+# echo -n "${!PROVISIONING_PROFILES}" | base64 -d > appdome_files/provisioning_profiles.mobileprovision
 ls appdome_files
 mkdir appdome_outputs
+
+
+expand_env_vars_with_prefix "MOBILE_PROVISION_PROFILE_FILE" provisioning_args
+echo "📋 Provisioning profile paths: ${provisioning_args}"
+echo "🧾 Provisioning profiles passed to Appdome: ${provisioning_args}"
+
+
 VAR="${SIGNOVERRIDES}"
 
 basename=$(basename "$OUTPUT")

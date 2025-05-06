@@ -2,8 +2,44 @@
 
 echo "Appdome iOS auto sign"
 echo -n "${!P12_FILE}" | base64 -d > appdome_files/Cert.p12
-echo -n "${!PROVISIONING_PROFILES}" | base64 -d > appdome_files/provisioning_profiles.mobileprovision
-echo -n "${!ENTITLEMENTS}" | base64 -d > appdome_files/Entitlements.plist
+
+
+
+# Handle provisioning profiles and entitlements
+provisioning_args=""
+entitlements_args=""
+
+for i in "" _2 _3 _4; do
+    profile_var="PROVISIONING_PROFILES${i}"
+    ent_var="ENTITLEMENTS${i}"
+
+    profile_value="${!profile_var}"
+    ent_value="${!ent_var}"
+
+    if [[ -n "$profile_value" && -n "$ent_value" ]]; then
+        profile_path="appdome_files/provisioning_profile${i}.mobileprovision"
+        ent_path="appdome_files/Entitlements${i}.plist"
+
+        echo "Decoding $profile_var and $ent_var"
+        echo -n "$profile_value" | base64 -d > "$profile_path"
+        echo -n "$ent_value" | base64 -d > "$ent_path"
+
+        provisioning_args+="$profile_path,"
+        entitlements_args+="$ent_path,"
+    fi
+done
+
+# Remove trailing commas
+provisioning_args="${provisioning_args%,}"
+entitlements_args="${entitlements_args%,}"
+
+# Set entitlements_arg for the command string (as comma-separated list)
+if [[ -n "$entitlements_args" ]]; then
+    entitlements_arg="--entitlements ${entitlements_args}"
+else
+    entitlements_arg=""
+fi
+
 ls appdome_files
 mkdir -p appdome_outputs
 VAR="${SIGNOVERRIDES}"
@@ -20,11 +56,6 @@ fi
 echo "Output file name: ${OUTPUT}"
 
 ls
-if [[ -s appdome_files/Entitlements.plist ]]; then
-    entitlements_arg="--entitlements appdome_files/Entitlements.plist"
-else
-    entitlements_arg=""
-fi
 
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
