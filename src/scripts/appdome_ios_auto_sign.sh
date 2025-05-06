@@ -78,17 +78,14 @@ ls
 
 provisioning_arg=""
 if [[ -n "$provisioning_args" ]]; then
-  for file in ${provisioning_args//,/ }; do
-    provisioning_arg+=" --provisioning_profiles $file"
-  done
+  provisioning_arg="--provisioning_profiles ${provisioning_args//,/ }"
 fi
 
 entitlements_arg=""
 if [[ -n "$entitlements_args" ]]; then
-  for file in ${entitlements_args//,/ }; do
-    entitlements_arg+=" --entitlements $file"
-  done
+  entitlements_arg="--entitlements ${entitlements_args//,/ }"
 fi
+
 
 
 
