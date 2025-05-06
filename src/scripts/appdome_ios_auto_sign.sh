@@ -75,16 +75,14 @@ fi
 echo "Output file name: ${OUTPUT}"
 
 ls
-if [[ -n "$entitlements_args" ]]; then
-    entitlements_arg="--entitlements ${entitlements_args}"
-else
-    entitlements_arg=""
-fi
-if [[ -n "$provisioning_args" ]]; then
-    provisioning_arg="--provisioning_profiles ${provisioning_args}"
-else
-    provisioning_arg=""
-fi
+
+entitlements_arg=""
+[[ -n "$entitlements_args" ]] && entitlements_arg="--entitlements \"$entitlements_args\""
+
+provisioning_arg=""
+[[ -n "$provisioning_args" ]] && provisioning_arg="--provisioning_profiles \"$provisioning_args\""
+
+
 
 if [[ -n "$VAR" ]]; then
     echo "detected sign overrides"
