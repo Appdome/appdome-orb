@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-# Collects and decodes all provisioning and entitlement env vars
 # Collects and decodes all provisioning and entitlement env vars
 process_ios_signing_inputs() {
   declare -g provisioning_args=""
@@ -13,19 +11,32 @@ process_ios_signing_inputs() {
     while IFS='=' read -r env_var _; do
       value="${!env_var}"
       if [[ -n "$value" ]]; then
-        # Determine index suffix if any
         index="${env_var##*_}"
-        [[ "$index" =~ ^[0-9]+$ ]] || index=""  # Keep only numeric suffix
+        [[ "$index" =~ ^[0-9]+$ ]] || index=""
 
         if [[ "$prefix" == "MOBILE_PROVISION_PROFILE" ]]; then
           file="appdome_files/provisioning_profile${index}.mobileprovision"
-          echo -n "$value" | base64 -d > "$file"
-          provisioning_args+="$file,"
         else
           file="appdome_files/Entitlements${index}.plist"
-          echo -n "$value" | base64 -d > "$file"
-          entitlements_args+="$file,"
         fi
+
+        echo "🔍 Processing \$${env_var} → $file"
+
+        # Validate base64 before decoding
+        if echo -n "$value" | base64 --decode &>/dev/null; then
+          echo -n "$value" | base64 --decode > "$file"
+          echo "✅ Decoded and wrote to $file"
+
+          if [[ "$prefix" == "MOBILE_PROVISION_PROFILE" ]]; then
+            provisioning_args+="$file,"
+          else
+            entitlements_args+="$file,"
+          fi
+        else
+          echo "❌ Skipping $env_var: invalid base64"
+        fi
+      else
+        echo "⚠️  $env_var is set but empty, skipping."
       fi
     done < <(env | grep "^${prefix}")
   done
@@ -34,17 +45,15 @@ process_ios_signing_inputs() {
   provisioning_args="${provisioning_args%,}"
   entitlements_args="${entitlements_args%,}"
 
-  # Count number of files
+  # Count files
   num_prov=$(grep -o "," <<< "$provisioning_args" | wc -l)
   num_ent=$(grep -o "," <<< "$entitlements_args" | wc -l)
   [[ -n "$provisioning_args" ]] && ((num_prov++))
   [[ -n "$entitlements_args" ]] && ((num_ent++))
 
-  echo "✅ Collected $num_prov provisioning profile(s): $provisioning_args"
-  echo "✅ Collected $num_ent entitlement file(s): $entitlements_args"
+  echo "📦 Collected $num_prov provisioning profile(s)"
+  echo "📦 Collected $num_ent entitlement file(s)"
 }
-
-
 
 echo "Appdome iOS auto sign"
 process_ios_signing_inputs
